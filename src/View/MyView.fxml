@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="View.Controller" stylesheets="@MainStyle.css">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="View.MyViewController" stylesheets="@MainStyle.css">
     <left>
         <VBox prefHeight="200.0" prefWidth="178.0" spacing="5.0" BorderPane.alignment="CENTER">
             <children>
