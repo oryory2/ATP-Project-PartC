@@ -15,6 +15,28 @@ public class MazeDisplayer extends Canvas
         draw();
     }
 
+    public void clear()
+    {
+        if(this.maze != null)
+        {
+            double canvasHeight = getHeight();
+            double canvasWidth = getWidth();
+            int rows = maze.length;
+            int cols = maze[0].length;
+
+            double cellHeight = canvasHeight / rows;
+            double cellWidth = canvasWidth / cols;
+
+            GraphicsContext graphicsContext = getGraphicsContext2D(); // מחלקה שבעזרתה ניתן לצייר על הקנבס
+            graphicsContext.clearRect(0,0, canvasWidth, canvasHeight);
+        }
+        else
+        {
+            GraphicsContext graphicsContext = getGraphicsContext2D(); // מחלקה שבעזרתה ניתן לצייר על הקנבס
+            graphicsContext.clearRect(0,0, 0, 0); // ניקוי הקנבס (במקרה שכבר ציירנו עליו מבוך)
+        }
+
+    }
     private void draw()
     {
         if(maze != null)
