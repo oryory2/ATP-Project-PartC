@@ -30,7 +30,6 @@ public class MazeDisplayer extends Canvas
             GraphicsContext graphicsContext = getGraphicsContext2D(); // מחלקה שבעזרתה ניתן לצייר על הקנבס
             graphicsContext.clearRect(0,0, canvasWidth, canvasHeight); // ניקוי הקנבס (במקרה שכבר ציירנו עליו מבוך)
             graphicsContext.setFill(Color.RED); // מילוי כל הקנבס בצבע אדום (
-
             for(int i = 0; i < rows; i++)
             {
                 for(int j = 0; j < cols; j++)
