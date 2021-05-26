@@ -1,5 +1,6 @@
 package View;
 
+import Server.Configurations;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,7 +31,17 @@ public class Main extends Application
 
     public static void mainToProperties() throws IOException
     {
+
         Parent root = FXMLLoader.load(Main.class.getResource("Properties.fxml"));
+        Scene scene = new Scene(root,600,400);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void propertiesToMain() throws IOException
+    {
+        MyViewController.properties = Configurations.getInstance().LoadProp();
+        Parent root = FXMLLoader.load(Main.class.getResource("MyView.fxml"));
         Scene scene = new Scene(root,600,400);
         primaryStage.setScene(scene);
         primaryStage.show();

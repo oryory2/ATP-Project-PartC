@@ -31,7 +31,7 @@ public class MyViewController implements IView
     public TextField textField_mazeRows;
     public TextField textField_mazeColumns;
     public Maze maze;
-    public Object[] properties;
+    public static Object[] properties;
     public MazeDisplayer mazeDisplayer;
     private int fileCounter;
 
@@ -40,9 +40,9 @@ public class MyViewController implements IView
     public MyViewController()
     {
         Configurations c = Configurations.getInstance();
-        this.properties = (Object[]) (c.LoadProp());
+        MyViewController.properties = (Object[]) (c.LoadProp());
         this.mazeDisplayer = new MazeDisplayer();
-        /*String fileName = System.getProperty("resources");
+ /*       String fileName = System.getProperty("resources");
         File folder = new File(fileName);
         File[] listOfFiles = folder.listFiles();
         int maxMazeCounter = 0;
@@ -59,7 +59,7 @@ public class MyViewController implements IView
 
     public void generateMaze(ActionEvent actionEvent)
     {
-        this.generator = (IMazeGenerator)(this.properties[1]);
+        this.generator = (IMazeGenerator)(MyViewController.properties[1]);
 
         if((this.textField_mazeRows.getText() == "") || (this.textField_mazeColumns.getText() == ""))
         {
@@ -120,7 +120,7 @@ public class MyViewController implements IView
         }
         else
         {
-            ISearchingAlgorithm searcher = (ISearchingAlgorithm) this.properties[2];
+            ISearchingAlgorithm searcher = (ISearchingAlgorithm) MyViewController.properties[2];
             ISearchable searchableMaze = new SearchableMaze(this.maze);
             Solution sol = searcher.solve(searchableMaze);
         }
