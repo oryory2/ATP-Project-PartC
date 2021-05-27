@@ -56,7 +56,7 @@ public class PropertiesController
         Configurations c = Configurations.getInstance();
         c.writeProp("10", generator, solver, "MyCompressorOutputStream");
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Properties successfully updated");
+        alert.setContentText("Properties successfully loaded");
         alert.show();
 
         Main.backToMain();

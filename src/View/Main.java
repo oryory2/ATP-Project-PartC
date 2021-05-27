@@ -13,12 +13,13 @@ public class Main extends Application
 {
     public static Stage primaryStage;
 
+
     @Override
     public void start(Stage primaryStage) throws Exception
     {
         this.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("MyView.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Maze Application");
         primaryStage.setScene(new Scene(root, 600, 450));
         primaryStage.show();
     }
@@ -31,7 +32,6 @@ public class Main extends Application
 
     public static void backToMain() throws IOException
     {
-        MyViewController.properties = Configurations.getInstance().LoadProp();
         Parent root = FXMLLoader.load(Main.class.getResource("MyView.fxml"));
         Scene scene = new Scene(root,600,450);
         primaryStage.setScene(scene);
@@ -55,6 +55,21 @@ public class Main extends Application
         primaryStage.show();
     }
 
+    public static void mainToUserGuide() throws IOException {
+        MyViewController.properties = Configurations.getInstance().LoadProp();
+        Parent root = FXMLLoader.load(Main.class.getResource("UserGuide.fxml"));
+        Scene scene = new Scene(root,600,450);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void mainToAppInfo() throws IOException {
+        MyViewController.properties = Configurations.getInstance().LoadProp();
+        Parent root = FXMLLoader.load(Main.class.getResource("AppInfo.fxml"));
+        Scene scene = new Scene(root,600,450);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 
 
 

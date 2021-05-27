@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import View.MazeDisplayer?>
+<?import View.*?>
 <BorderPane stylesheets="@MainStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
     <left>
         <VBox prefHeight="367.0" prefWidth="172.0" spacing="5.0" BorderPane.alignment="CENTER">
@@ -74,11 +74,11 @@
                         </Menu>
                         <Menu mnemonicParsing="false" text="Help">
                      <items>
-                        <MenuItem fx:id="userGuide" mnemonicParsing="false" text="User guide" />
+                        <MenuItem fx:id="userGuide" mnemonicParsing="false" onAction="#userGuide" text="User guide" />
                      </items></Menu>
                         <Menu mnemonicParsing="false" text="About">
                      <items>
-                        <MenuItem fx:id="aboutUs" mnemonicParsing="false" text="About us" />
+                        <MenuItem fx:id="AppInfo" mnemonicParsing="false" onAction="#AppInfo" text="Application Info" />
                      </items></Menu>
                         <Menu fx:id="exitBar" mnemonicParsing="false" text="Exit">
                      <items>

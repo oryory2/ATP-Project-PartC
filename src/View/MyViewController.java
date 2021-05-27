@@ -167,4 +167,14 @@ public class MyViewController implements IView
             Main.mainToSave();
         }
     }
+
+    public void userGuide(ActionEvent actionEvent) throws IOException
+    {
+        Main.mainToUserGuide();
+    }
+
+    public void AppInfo(ActionEvent actionEvent) throws IOException
+    {
+        Main.mainToAppInfo();
+    }
 }
