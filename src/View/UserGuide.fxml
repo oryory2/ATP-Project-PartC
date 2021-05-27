@@ -57,12 +57,12 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="86.0" layoutY="271.0" text="Save">
+      <Label layoutX="93.0" layoutY="271.0" text="Save">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="86.0" layoutY="304.0" text="Load">
+      <Label layoutX="92.0" layoutY="304.0" text="Load">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>

@@ -7,7 +7,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public class Main extends Application
 {

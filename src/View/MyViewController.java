@@ -63,14 +63,12 @@ public class MyViewController implements IView
             return;
         }
 
-        int row = Integer.valueOf(this.textField_mazeRows.getText());
-        int col = Integer.valueOf(this.textField_mazeColumns.getText());
+        int row = Integer.parseInt(this.textField_mazeRows.getText());
+        int col = Integer.parseInt(this.textField_mazeColumns.getText());
 
         try
         {
-            Maze newMaze = generator.generate(row,col);
-            MyViewController.maze = newMaze;
-
+            MyViewController.maze = generator.generate(row,col);
         }
         catch (Exception e)
         {
@@ -142,7 +140,6 @@ public class MyViewController implements IView
         catch (Exception e)
         {
             e.printStackTrace();
-            return;
         }
     }
 
