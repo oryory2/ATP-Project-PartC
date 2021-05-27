@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AppInfoController">
+<AnchorPane stylesheets="@MainStyle.css" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AppInfoController">
    <children>
       <Label layoutX="151.0" layoutY="33.0" prefHeight="52.0" prefWidth="298.0" text="Application Information" textFill="#135fc3">
          <font>

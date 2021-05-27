@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.PropertiesController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@MainStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.PropertiesController">
    <children>
-      <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="216.0" layoutY="31.0" prefHeight="72.0" prefWidth="169.0" text="Properties" textAlignment="CENTER" textFill="#184bcc" textOverrun="CLIP">
+      <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="202.0" layoutY="48.0" prefHeight="72.0" prefWidth="169.0" text="Properties" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
          <font>
-            <Font name="System Italic" size="31.0" />
+            <Font name="System Bold Italic" size="31.0" />
          </font>
       </Label>
       <ChoiceBox fx:id="GeneratingBar" layoutX="334.0" layoutY="173.0" prefWidth="150.0">
