@@ -34,7 +34,12 @@ public class SaveController {
         catch (Exception e)
         {
             e.printStackTrace();
+            return;
         }
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("Maze successfully saved");
+        alert.show();
 
         Main.backToMain();
 
