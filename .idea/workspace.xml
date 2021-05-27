@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ebd696f-3dfa-430b-b2e5-dae078e0350c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/View/Save.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/SaveController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/MyView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/MyView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/MyViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/MyViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/Properties.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/Properties.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/PropertiesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/PropertiesController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MyView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MyView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/MyViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MyViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Properties.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Properties.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/PropertiesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/PropertiesController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -45,6 +45,11 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\אור\Desktop\ATP-Project-PartC\resources\SavedMaze" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -86,7 +91,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1622038108737</updated>
-      <workItem from="1622038110300" duration="13247000" />
+      <workItem from="1622038110300" duration="13770000" />
+      <workItem from="1622062425643" duration="1662000" />
+      <workItem from="1622064383445" duration="6360000" />
     </task>
     <servers />
   </component>
@@ -103,5 +110,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 
@@ -46,7 +47,7 @@ public class PropertiesController
 
     public void cancelButton(ActionEvent actionEvent) throws IOException
     {
-        Main.propertiesToMain();
+        Main.backToMain();
     }
 
     public void confirmButton(ActionEvent actionEvent) throws IOException {
@@ -54,6 +55,10 @@ public class PropertiesController
         String solver = (String) SolvingBar.getValue();
         Configurations c = Configurations.getInstance();
         c.writeProp("10", generator, solver, "MyCompressorOutputStream");
-        Main.propertiesToMain();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("Properties successfully updated");
+        alert.show();
+
+        Main.backToMain();
     }
 }

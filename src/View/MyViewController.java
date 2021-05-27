@@ -27,13 +27,12 @@ import java.util.Properties;
 
 public class MyViewController implements IView
 {
-    private IMazeGenerator generator;
+
     public TextField textField_mazeRows;
     public TextField textField_mazeColumns;
-    public Maze maze;
+    public static Maze maze;
     public static Object[] properties;
     public MazeDisplayer mazeDisplayer;
-    private int fileCounter;
 
 
 
@@ -42,26 +41,14 @@ public class MyViewController implements IView
         Configurations c = Configurations.getInstance();
         MyViewController.properties = (Object[]) (c.LoadProp());
         this.mazeDisplayer = new MazeDisplayer();
- /*       String fileName = System.getProperty("resources");
-        File folder = new File(fileName);
-        File[] listOfFiles = folder.listFiles();
-        int maxMazeCounter = 0;
-        for(int i = 0; i < listOfFiles.length; ++i)
-        {
-            if (listOfFiles[i].getName().contains("maze"))
-            {
-                maxMazeCounter++;
-            }
-        }
-        this.fileCounter = maxMazeCounter;*/
     }
 
 
     public void generateMaze(ActionEvent actionEvent)
     {
-        this.generator = (IMazeGenerator)(MyViewController.properties[1]);
+        IMazeGenerator generator = (IMazeGenerator) (MyViewController.properties[1]);
 
-        if((this.textField_mazeRows.getText() == "") || (this.textField_mazeColumns.getText() == ""))
+        if((this.textField_mazeRows.getText().equals("")) || (this.textField_mazeColumns.getText().equals("")))
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("You must fill in the row/column values");
@@ -81,8 +68,9 @@ public class MyViewController implements IView
 
         try
         {
-            Maze newMaze = this.generator.generate(row,col);
-            this.maze = newMaze;
+            Maze newMaze = generator.generate(row,col);
+            MyViewController.maze = newMaze;
+
         }
         catch (Exception e)
         {
@@ -91,7 +79,7 @@ public class MyViewController implements IView
             alert.show();
         }
 
-        this.mazeDisplayer.drawMaze(maze.getMazeArr());
+        this.mazeDisplayer.drawMaze(MyViewController.maze.getMazeArr());
     }
 
     private boolean isNumber(String row, String col)
@@ -111,17 +99,16 @@ public class MyViewController implements IView
 
     public void solveMaze(ActionEvent actionEvent)
     {
-        if(this.maze == null)
+        if(MyViewController.maze == null)
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("There is no existing maze");
             alert.show();
-            return;
         }
         else
         {
             ISearchingAlgorithm searcher = (ISearchingAlgorithm) MyViewController.properties[2];
-            ISearchable searchableMaze = new SearchableMaze(this.maze);
+            ISearchable searchableMaze = new SearchableMaze(MyViewController.maze);
             Solution sol = searcher.solve(searchableMaze);
         }
     }
@@ -135,8 +122,8 @@ public class MyViewController implements IView
     public void loadBar(ActionEvent actionEvent) {
         FileChooser fc = new FileChooser();
         fc.setTitle("Open Maze");
-        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Maze Files (.maze)", ".maze"));
-        fc.setInitialDirectory(new File("resources"));
+        //fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Maze Files (.maze)",".maze" ));
+        fc.setInitialDirectory(new File("resources\\SavedMaze"));
         File chosen = fc.showOpenDialog(null);
         if(chosen == null)
         {
@@ -146,7 +133,7 @@ public class MyViewController implements IView
             FileInputStream in = new FileInputStream(chosen);
             ObjectInputStream input = new ObjectInputStream(in);
             Maze newMaze = (Maze) input.readObject();
-            this.maze = newMaze;
+            MyViewController.maze = newMaze;
             this.mazeDisplayer.drawMaze(maze.getMazeArr());
         }
         catch (Exception e)
@@ -158,7 +145,9 @@ public class MyViewController implements IView
     public void newBar(ActionEvent actionEvent)
     {
         this.mazeDisplayer.clear();
-        this.maze = null;
+        this.textField_mazeRows.setText("");
+        this.textField_mazeColumns.setText("");
+        MyViewController.maze = null;
     }
 
     public void propertiesBar(ActionEvent actionEvent) throws IOException
@@ -166,28 +155,16 @@ public class MyViewController implements IView
         Main.mainToProperties();
     }
 
-    public void saveBar(ActionEvent actionEvent)
-    {
-        if(this.maze == null)
+    public void saveBar(ActionEvent actionEvent) throws IOException {
+        if(MyViewController.maze == null)
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("There is no existing maze to save");
             alert.show();
-            return;
         }
         else
         {
-            try
-            {
-                String fileName = "resources/" + this.fileCounter + ".maze";
-                FileOutputStream out = new FileOutputStream(fileName);
-                ObjectOutputStream output = new ObjectOutputStream(out);
-                output.writeObject(this.maze);
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
+            Main.mainToSave();
         }
     }
 }

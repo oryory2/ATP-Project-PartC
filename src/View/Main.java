@@ -19,7 +19,7 @@ public class Main extends Application
         this.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("MyView.fxml"));
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setScene(new Scene(root, 600, 450));
         primaryStage.show();
     }
 
@@ -29,23 +29,33 @@ public class Main extends Application
         launch(args);
     }
 
-    public static void mainToProperties() throws IOException
-    {
-
-        Parent root = FXMLLoader.load(Main.class.getResource("Properties.fxml"));
-        Scene scene = new Scene(root,600,400);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    public static void propertiesToMain() throws IOException
+    public static void backToMain() throws IOException
     {
         MyViewController.properties = Configurations.getInstance().LoadProp();
         Parent root = FXMLLoader.load(Main.class.getResource("MyView.fxml"));
-        Scene scene = new Scene(root,600,400);
+        Scene scene = new Scene(root,600,450);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
+
+    public static void mainToProperties() throws IOException
+    {
+        Parent root = FXMLLoader.load(Main.class.getResource("Properties.fxml"));
+        Scene scene = new Scene(root,600,450);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+    public static void mainToSave() throws IOException {
+        MyViewController.properties = Configurations.getInstance().LoadProp();
+        Parent root = FXMLLoader.load(Main.class.getResource("Save.fxml"));
+        Scene scene = new Scene(root,600,450);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+
 
 
 }
