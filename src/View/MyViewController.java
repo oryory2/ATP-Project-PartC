@@ -19,11 +19,16 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.net.URL;
 import java.util.Properties;
+import java.util.ResourceBundle;
 
 public class MyViewController implements IView
 {
@@ -33,7 +38,7 @@ public class MyViewController implements IView
     public static Maze maze;
     public static Object[] properties;
     public MazeDisplayer mazeDisplayer;
-
+    public Label thisPose;
 
 
     public MyViewController()
@@ -43,6 +48,13 @@ public class MyViewController implements IView
         this.mazeDisplayer = new MazeDisplayer();
     }
 
+    public void initialize()
+    {
+        if(MyViewController.maze != null)
+        {
+            this.mazeDisplayer.drawMaze(MyViewController.maze.getMazeArr());
+        }
+    }
 
     public void generateMaze(ActionEvent actionEvent)
     {
@@ -77,6 +89,7 @@ public class MyViewController implements IView
             alert.show();
         }
 
+        this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
         this.mazeDisplayer.drawMaze(MyViewController.maze.getMazeArr());
     }
 
@@ -177,5 +190,133 @@ public class MyViewController implements IView
     public void AppInfo(ActionEvent actionEvent) throws IOException
     {
         Main.mainToAppInfo();
+    }
+
+    public void keyPressed(KeyEvent keyEvent)
+    {
+        int row = mazeDisplayer.getPlayerRow();
+        int col = mazeDisplayer.getPlayerCol();
+
+        switch (keyEvent.getCode()) {
+            case NUMPAD8 : // up
+                if(!(this.legalMove("up")))
+                    return;
+                row -= 1;
+                break;
+
+            case NUMPAD9 : // up right
+                if(!(this.legalMove("up right")))
+                    return;
+                row -= 1 ;
+                col += 1;
+                break;
+
+            case NUMPAD6 : // right
+                if(!(this.legalMove("right")))
+                    return;
+                col += 1;
+                break;
+
+            case NUMPAD3 : // down right
+                if(!(this.legalMove("down right")))
+                    return;
+                row += 1 ;
+                col += 1;
+                break;
+
+            case NUMPAD2 : // down
+                if(!(this.legalMove("down")))
+                    return;
+                row += 1;
+                break;
+
+            case NUMPAD1 : // down left
+                if(!(this.legalMove("down left")))
+                    return;
+                row += 1 ;
+                col -= 1;
+                break;
+
+            case NUMPAD4 : // left
+                if(!(this.legalMove("left")))
+                    return;
+                col -= 1;
+                break;
+
+            case NUMPAD7 : // up left
+                if(!(this.legalMove("up left")))
+                    return;
+                row -= 1 ;
+                col -= 1;
+                break;
+
+            default:
+                return;
+        }
+
+        this.mazeDisplayer.setPlayerPosition(row,col);
+        this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
+        keyEvent.consume();
+    }
+
+    public boolean legalMove(String direction)
+    {
+        int thisRow = this.mazeDisplayer.getPlayerRow();
+        int thisCol = this.mazeDisplayer.getPlayerCol();
+
+        if(direction.equals("up"))
+        {
+            if((thisRow - 1 < 0) || (MyViewController.maze.getMazeArr()[thisRow - 1][thisCol] == 1))
+                return false;
+        }
+        else if (direction.equals("up right"))
+        {
+            if((thisRow - 1 < 0) || (thisCol + 1 >= MyViewController.maze.getMax_columns()) || (MyViewController.maze.getMazeArr()[thisRow - 1][thisCol + 1] == 1))
+                return false;
+            if((MyViewController.maze.getMazeArr()[thisRow - 1][thisCol] == 1) && (MyViewController.maze.getMazeArr()[thisRow][thisCol + 1] == 1))
+                return false;
+        }
+        else if (direction.equals("right"))
+        {
+            if((thisCol + 1 >= MyViewController.maze.getMax_columns()) || (MyViewController.maze.getMazeArr()[thisRow][thisCol + 1] == 1))
+                return false;
+        }
+        else if (direction.equals("down right"))
+        {
+            if((thisRow + 1 >= MyViewController.maze.getMax_rows()) || (thisCol + 1 >= MyViewController.maze.getMax_columns()) || (MyViewController.maze.getMazeArr()[thisRow + 1][thisCol + 1] == 1))
+                return false;
+            if((MyViewController.maze.getMazeArr()[thisRow + 1][thisCol] == 1) && (MyViewController.maze.getMazeArr()[thisRow][thisCol + 1] == 1))
+                return false;
+        }
+        else if (direction.equals("down"))
+        {
+            if((thisRow + 1 >= MyViewController.maze.getMax_rows()) || (MyViewController.maze.getMazeArr()[thisRow + 1][thisCol] == 1))
+                return false;
+        }
+        else if (direction.equals("down left"))
+        {
+            if((thisRow + 1 >= MyViewController.maze.getMax_rows()) || (thisCol - 1 < 0) || (MyViewController.maze.getMazeArr()[thisRow + 1][thisCol - 1] == 1))
+                return false;
+            if((MyViewController.maze.getMazeArr()[thisRow + 1][thisCol] == 1) && (MyViewController.maze.getMazeArr()[thisRow][thisCol - 1] == 1))
+                return false;
+        }
+        else if (direction.equals("left"))
+        {
+            if((thisCol - 1 < 0) || (MyViewController.maze.getMazeArr()[thisRow][thisCol - 1] == 1))
+                return false;
+        }
+        else if (direction.equals("up left"))
+        {
+            if((thisRow - 1 < 0) || (thisCol - 1 < 0) || (MyViewController.maze.getMazeArr()[thisRow - 1][thisCol - 1] == 1))
+                return false;
+            if((MyViewController.maze.getMazeArr()[thisRow - 1][thisCol] == 1) && (MyViewController.maze.getMazeArr()[thisRow][thisCol - 1] == 1))
+                return false;
+        }
+
+        return true;
+    }
+    public void mouseClicked(MouseEvent mouseEvent)
+    {
+        this.mazeDisplayer.requestFocus();
     }
 }
