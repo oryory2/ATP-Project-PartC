@@ -73,4 +73,12 @@ public class Main extends Application
         primaryStage.show();
     }
 
+    public static void mainToSolved() throws IOException {
+        MyViewController.properties = Configurations.getInstance().LoadProp();
+        Parent root = FXMLLoader.load(Main.class.getResource("Solved.fxml"));
+        Scene scene = new Scene(root,600,450);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
 }

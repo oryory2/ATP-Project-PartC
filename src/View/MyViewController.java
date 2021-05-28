@@ -192,8 +192,7 @@ public class MyViewController implements IView
         Main.mainToAppInfo();
     }
 
-    public void keyPressed(KeyEvent keyEvent)
-    {
+    public void keyPressed(KeyEvent keyEvent) throws IOException {
         int row = mazeDisplayer.getPlayerRow();
         int col = mazeDisplayer.getPlayerCol();
 
@@ -255,6 +254,11 @@ public class MyViewController implements IView
         }
 
         this.mazeDisplayer.setPlayerPosition(row,col);
+        if((row == MyViewController.maze.getMax_rows() - 1) && (col == MyViewController.maze.getMax_columns() - 1))
+        {
+            this.mazeDisplayer.setPlayerPosition(0,0);
+            Main.mainToSolved();
+        }
         this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
         keyEvent.consume();
     }
