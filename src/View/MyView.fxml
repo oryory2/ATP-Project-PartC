@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import View.*?>
+<?import View.MazeDisplayer?>
 <BorderPane onMouseClicked="#mouseClicked" stylesheets="@MainStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
     <left>
         <VBox prefHeight="0.0" prefWidth="172.0" spacing="5.0" BorderPane.alignment="CENTER">
@@ -105,7 +105,6 @@
         <Pane prefHeight="405.0" prefWidth="382.0" BorderPane.alignment="CENTER">
             <children>
                 <MazeDisplayer fx:id="mazeDisplayer" height="400.0" imageFileNamePlayer="resources/Images/Player.jpg" imageFileNameWall="resources/Images/Wall.jpg" onKeyPressed="#keyPressed" width="400.0" />
-            <Label layoutX="322.0" layoutY="391.0" text="dF?GDFGdf" />
             </children>
             <padding>
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

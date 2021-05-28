@@ -53,6 +53,8 @@ public class MyViewController implements IView
         if(MyViewController.maze != null)
         {
             this.mazeDisplayer.drawMaze(MyViewController.maze.getMazeArr());
+            this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
+
         }
     }
 
@@ -88,7 +90,7 @@ public class MyViewController implements IView
             alert.setContentText(e.getMessage());
             alert.show();
         }
-
+        this.mazeDisplayer.setPlayerPosition(0,0);
         this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
         this.mazeDisplayer.drawMaze(MyViewController.maze.getMazeArr());
     }
