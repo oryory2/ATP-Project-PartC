@@ -41,12 +41,12 @@ public class Main extends Application
 
     public void playMusic()
     {
-        File path = new File ("/resources/Sounds/mainMusic.mp3");
+/*        File path = new File ("resources\\Sounds\\mainMusic.mp3");
         MediaPlayer m = new MediaPlayer(new Media(path.toURI().toString()));
-        m.play();
-       /* Media sound = new Media(getClass().getResource("resources/Sounds/mainMusic.mp3").toExternalForm());
+        m.play();*/
+        Media sound = new Media(getClass().getResource("resources\\Sounds\\mainMusic.mp3").toExternalForm());
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();*/
+        mediaPlayer.play();
     }
 
     public static void backToMain() throws IOException
