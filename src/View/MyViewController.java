@@ -100,6 +100,8 @@ public class MyViewController implements IView
         this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
         this.mazeDisplayer.solution = null;
         this.mazeDisplayer.drawMaze(MyViewController.maze.getMazeArr());
+        this.solveMaze.setText("Solve Maze");
+        this.mazeDisplayer.clickedCounter = 0;
         this.solveMaze.setDisable(false);
     }
 
@@ -192,7 +194,9 @@ public class MyViewController implements IView
         this.textField_mazeColumns.setText("");
         MyViewController.maze = null;
         this.solveMaze.setDisable(true);
-
+        this.thisPose.setText("");
+        this.solveMaze.setText("Solve Maze");
+        this.mazeDisplayer.clickedCounter = 0;
     }
 
     public void propertiesBar(ActionEvent actionEvent) throws IOException
@@ -350,13 +354,10 @@ public class MyViewController implements IView
 
         return true;
     }
+
     public void mouseClicked(MouseEvent mouseEvent)
     {
         this.mazeDisplayer.requestFocus();
     }
 
-    public void scrollMouse(ScrollEvent scrollEvent)
-    {
-
-    }
 }
