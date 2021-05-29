@@ -102,7 +102,7 @@
         </VBox>
     </top>
     <center>
-        <Pane prefHeight="405.0" prefWidth="382.0" BorderPane.alignment="CENTER">
+        <Pane onScroll="#scrollMouse" prefHeight="405.0" prefWidth="382.0" BorderPane.alignment="CENTER">
             <children>
                 <MazeDisplayer fx:id="mazeDisplayer" height="400.0" imageFileNamePlayer="resources/Images/Player.jpg" imageFileNameWall="resources/Images/Wall.jpg" onKeyPressed="#keyPressed" width="400.0" />
             </children>

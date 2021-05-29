@@ -10,6 +10,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -18,20 +19,20 @@ import java.nio.file.Paths;
 public class Main extends Application
 {
     public static Stage primaryStage;
-    public MediaPlayer mediaPlayer;
 
 
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        this.primaryStage = primaryStage;
+
+        Main.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("MyView.fxml"));
         primaryStage.setTitle("Maze Application");
         primaryStage.setScene(new Scene(root, 600, 450));
         primaryStage.show();
         //playMusic();
-
     }
+
 
     public static void main(String[] args)
     {
@@ -40,9 +41,12 @@ public class Main extends Application
 
     public void playMusic()
     {
-        Media buzzer = new Media(getClass().getResource("resources/Sounds/m.wav").toExternalForm());
-        this.mediaPlayer = new MediaPlayer(buzzer);
-        this.mediaPlayer.play();
+        File path = new File ("/resources/Sounds/mainMusic.mp3");
+        MediaPlayer m = new MediaPlayer(new Media(path.toURI().toString()));
+        m.play();
+       /* Media sound = new Media(getClass().getResource("resources/Sounds/mainMusic.mp3").toExternalForm());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();*/
     }
 
     public static void backToMain() throws IOException

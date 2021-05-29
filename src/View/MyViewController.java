@@ -13,11 +13,13 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -52,7 +54,14 @@ public class MyViewController implements IView
         {
             this.mazeDisplayer.drawMaze(MyViewController.maze.getMazeArr());
             this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
+            this.solveMaze.setDisable(false);
         }
+        else
+        {
+            this.solveMaze.setDisable(true);
+        }
+
+
     }
 
     public void generateMaze(ActionEvent actionEvent)
@@ -91,6 +100,7 @@ public class MyViewController implements IView
         this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
         this.mazeDisplayer.solution = null;
         this.mazeDisplayer.drawMaze(MyViewController.maze.getMazeArr());
+        this.solveMaze.setDisable(false);
     }
 
     private boolean isNumber(String row, String col)
@@ -181,6 +191,8 @@ public class MyViewController implements IView
         this.textField_mazeRows.setText("");
         this.textField_mazeColumns.setText("");
         MyViewController.maze = null;
+        this.solveMaze.setDisable(true);
+
     }
 
     public void propertiesBar(ActionEvent actionEvent) throws IOException
@@ -341,5 +353,10 @@ public class MyViewController implements IView
     public void mouseClicked(MouseEvent mouseEvent)
     {
         this.mazeDisplayer.requestFocus();
+    }
+
+    public void scrollMouse(ScrollEvent scrollEvent)
+    {
+
     }
 }
