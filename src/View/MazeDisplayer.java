@@ -1,5 +1,8 @@
 package View;
 
+import algorithms.mazeGenerators.Position;
+import algorithms.search.AState;
+import algorithms.search.Solution;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.canvas.Canvas;
@@ -10,14 +13,18 @@ import javafx.scene.paint.Color;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 public class MazeDisplayer extends Canvas
 {
     private int[][] maze;
+    public Solution solution;
     StringProperty imageFileNameWall = new SimpleStringProperty();
     StringProperty imageFileNamePlayer = new SimpleStringProperty();
     private int playerRow = 0;
     private int playerCol = 0;
+    public boolean solvedFlag;
+
 
     public int getPlayerRow() {
         return playerRow;
@@ -31,7 +38,7 @@ public class MazeDisplayer extends Canvas
     {
         this.playerRow = row;
         this.playerCol = col;
-        draw();
+        drawMaze(this.maze);
     }
 
 
@@ -59,6 +66,11 @@ public class MazeDisplayer extends Canvas
     {
         this.maze = maze;
         draw();
+        if(this.solution != null)
+        {
+            this.drawSolution(this.solution);
+            this.solvedFlag = true;
+        }
     }
 
     public void clear()
@@ -75,11 +87,15 @@ public class MazeDisplayer extends Canvas
 
             GraphicsContext graphicsContext = getGraphicsContext2D(); // מחלקה שבעזרתה ניתן לצייר על הקנבס
             graphicsContext.clearRect(0,0, canvasWidth, canvasHeight);
+            this.maze = null;
+            this.solution = null;
         }
         else
         {
             GraphicsContext graphicsContext = getGraphicsContext2D(); // מחלקה שבעזרתה ניתן לצייר על הקנבס
             graphicsContext.clearRect(0,0, 0, 0); // ניקוי הקנבס (במקרה שכבר ציירנו עליו מבוך)
+            this.maze = null;
+            this.solution = null;
         }
 
     }
@@ -136,7 +152,7 @@ public class MazeDisplayer extends Canvas
     private void drawPlayer(GraphicsContext graphicsContext, double cellHeight, double cellWidth) {
         double x = getPlayerCol()  * cellWidth;
         double y = getPlayerRow() * cellHeight;
-        graphicsContext.setFill(Color.GREEN);
+        graphicsContext.setFill(Color.BLACK);
 
         Image playerImage = null;
         try {
@@ -148,5 +164,41 @@ public class MazeDisplayer extends Canvas
             graphicsContext.fillRect(x, y, cellWidth, cellHeight);
         else
             graphicsContext.drawImage(playerImage, x, y, cellWidth, cellHeight);
+    }
+
+
+    public void drawSolution(Solution sol)
+    {
+
+        this.solution = sol;
+        double canvasHeight = getHeight();
+        double canvasWidth = getWidth();
+        int rows = maze.length;
+        int cols = maze[0].length;
+
+        double cellHeight = canvasHeight / rows;
+        double cellWidth = canvasWidth / cols;
+        GraphicsContext graphicsContext = getGraphicsContext2D(); // מחלקה שבעזרתה ניתן לצייר על הקנבס
+        graphicsContext.setFill(Color.GREEN);
+
+
+        ArrayList<AState> solutionPath = sol.getSolutionPath();
+
+        for (int i = 0; i < solutionPath.size(); i++)
+        {
+            Position p = (Position) solutionPath.get(i).getState();
+            int thisRow = p.getRowIndex();
+            int thisCol = p.getColumnIndex();
+
+            if((this.getPlayerRow() == thisRow) && (this.getPlayerCol() == thisCol))
+            {
+                continue;
+            }
+            double x = thisCol * cellWidth;
+            double y = thisRow * cellHeight;
+            graphicsContext.fillRect(x, y, cellWidth, cellHeight);
+        }
+
+
     }
 }

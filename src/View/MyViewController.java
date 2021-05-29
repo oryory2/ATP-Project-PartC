@@ -54,7 +54,6 @@ public class MyViewController implements IView
         {
             this.mazeDisplayer.drawMaze(MyViewController.maze.getMazeArr());
             this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
-
         }
     }
 
@@ -92,6 +91,8 @@ public class MyViewController implements IView
         }
         this.mazeDisplayer.setPlayerPosition(0,0);
         this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
+        this.mazeDisplayer.solution = null;
+        this.mazeDisplayer.solvedFlag = false;
         this.mazeDisplayer.drawMaze(MyViewController.maze.getMazeArr());
     }
 
@@ -115,14 +116,20 @@ public class MyViewController implements IView
         if(MyViewController.maze == null)
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("There is no existing maze");
+            alert.setContentText("There is no existing maze to Solve");
             alert.show();
         }
         else
         {
+            if(this.mazeDisplayer.solvedFlag)
+            {
+                this.mazeDisplayer.drawSolution(this.mazeDisplayer.solution);
+                return;
+            }
             ISearchingAlgorithm searcher = (ISearchingAlgorithm) MyViewController.properties[2];
             ISearchable searchableMaze = new SearchableMaze(MyViewController.maze);
             Solution sol = searcher.solve(searchableMaze);
+            this.mazeDisplayer.drawSolution(sol);
         }
     }
 
