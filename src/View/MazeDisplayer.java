@@ -21,8 +21,8 @@ public class MazeDisplayer extends Canvas
     public Solution solution;
     StringProperty imageFileNameWall = new SimpleStringProperty();
     StringProperty imageFileNamePlayer = new SimpleStringProperty();
-    private int playerRow = 0;
-    private int playerCol = 0;
+    private static int playerRow = 0;
+    private static int playerCol = 0;
     public int clickedCounter;
 
 

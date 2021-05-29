@@ -163,6 +163,7 @@ public class MyViewController implements IView
             ObjectInputStream input = new ObjectInputStream(in);
             Maze newMaze = (Maze) input.readObject();
             MyViewController.maze = newMaze;
+            this.mazeDisplayer.setPlayerPosition(0,0);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Maze successfully loaded");
             alert.show();
