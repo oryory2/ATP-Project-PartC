@@ -19,34 +19,25 @@ import java.nio.file.Paths;
 public class Main extends Application
 {
     public static Stage primaryStage;
-
+    public static MediaPlayer mediaPlayer;
 
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-
+        Media sound = new Media(new File("resources/Sounds/mainMusic.mp3").toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
         Main.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("MyView.fxml"));
         primaryStage.setTitle("Maze Application");
         primaryStage.setScene(new Scene(root, 600, 450));
         primaryStage.show();
-        //playMusic();
     }
 
 
     public static void main(String[] args)
     {
         launch(args);
-    }
-
-    public void playMusic()
-    {
-/*        File path = new File ("resources\\Sounds\\mainMusic.mp3");
-        MediaPlayer m = new MediaPlayer(new Media(path.toURI().toString()));
-        m.play();*/
-        Media sound = new Media(getClass().getResource("resources\\Sounds\\mainMusic.mp3").toExternalForm());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
     }
 
     public static void backToMain() throws IOException
@@ -91,7 +82,9 @@ public class Main extends Application
         primaryStage.show();
     }
 
-    public static void mainToSolved() throws IOException {
+    public static void mainToSolved() throws IOException
+    {
+        Main.mediaPlayer.stop();
         MyViewController.properties = Configurations.getInstance().LoadProp();
         Parent root = FXMLLoader.load(Main.class.getResource("Solved.fxml"));
         Scene scene = new Scene(root,600,450);
@@ -99,4 +92,14 @@ public class Main extends Application
         primaryStage.show();
     }
 
+    public static void backToMainSolved() throws IOException
+    {
+        Media sound = new Media(new File("resources/Sounds/mainMusic.mp3").toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+        Parent root = FXMLLoader.load(Main.class.getResource("MyView.fxml"));
+        Scene scene = new Scene(root,600,450);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 }

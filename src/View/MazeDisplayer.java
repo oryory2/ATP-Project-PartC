@@ -9,6 +9,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.paint.Color;
 
 import java.io.FileInputStream;
@@ -200,5 +201,21 @@ public class MazeDisplayer extends Canvas
         }
 
 
+    }
+
+    public void getOnScroll(ScrollEvent scrollEvent)
+    {
+
+        if (scrollEvent.getDeltaY() < 0)
+        {
+            setHeight(getHeight() / 1.1);
+            setWidth(getWidth() / 1.1);
+        }
+        else
+        {
+            setHeight(getHeight() * 1.1);
+            setWidth(getWidth() * 1.1);
+        }
+        draw();
     }
 }

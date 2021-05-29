@@ -17,6 +17,7 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
@@ -39,6 +40,7 @@ public class MyViewController implements IView
     public MazeDisplayer mazeDisplayer;
     public Label thisPose;
     public Button solveMaze;
+    private boolean ctrlFlag;
 
 
     public MyViewController()
@@ -360,4 +362,26 @@ public class MyViewController implements IView
         this.mazeDisplayer.requestFocus();
     }
 
+    public void scrollMouse(ScrollEvent scrollEvent)
+    {
+        if(this.ctrlFlag)
+            this.mazeDisplayer.getOnScroll(scrollEvent);
+    }
+
+
+    public void ctrlPressed(KeyEvent keyEvent)
+    {
+        if(keyEvent.getCode() == KeyCode.CONTROL)
+        {
+            this.ctrlFlag = true;
+        }
+    }
+
+    public void ctrlReleased(KeyEvent keyEvent)
+    {
+        if(keyEvent.getCode() == KeyCode.CONTROL)
+        {
+            this.ctrlFlag = false;
+        }
+    }
 }
