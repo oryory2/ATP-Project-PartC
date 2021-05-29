@@ -23,7 +23,8 @@ public class MazeDisplayer extends Canvas
     StringProperty imageFileNamePlayer = new SimpleStringProperty();
     private int playerRow = 0;
     private int playerCol = 0;
-    public boolean solvedFlag;
+    public int clickedCounter;
+
 
 
     public int getPlayerRow() {
@@ -69,7 +70,6 @@ public class MazeDisplayer extends Canvas
         if(this.solution != null)
         {
             this.drawSolution(this.solution);
-            this.solvedFlag = true;
         }
     }
 

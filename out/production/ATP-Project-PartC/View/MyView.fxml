@@ -47,7 +47,7 @@
                   <cursor>
                      <Cursor fx:constant="HAND" />
                   </cursor></Button>
-                    <Button cancelButton="true" onAction="#solveMaze" prefHeight="25.0" prefWidth="167.0" text="Solve Maze" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                    <Button fx:id="solveMaze" cancelButton="true" onAction="#solveMaze" prefHeight="25.0" prefWidth="167.0" text="Solve Maze" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3">
                   <cursor>
                      <Cursor fx:constant="HAND" />
                   </cursor></Button>

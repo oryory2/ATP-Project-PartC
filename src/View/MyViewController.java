@@ -15,10 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -39,6 +36,7 @@ public class MyViewController implements IView
     public static Object[] properties;
     public MazeDisplayer mazeDisplayer;
     public Label thisPose;
+    public Button solveMaze;
 
 
     public MyViewController()
@@ -92,7 +90,6 @@ public class MyViewController implements IView
         this.mazeDisplayer.setPlayerPosition(0,0);
         this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
         this.mazeDisplayer.solution = null;
-        this.mazeDisplayer.solvedFlag = false;
         this.mazeDisplayer.drawMaze(MyViewController.maze.getMazeArr());
     }
 
@@ -121,15 +118,27 @@ public class MyViewController implements IView
         }
         else
         {
-            if(this.mazeDisplayer.solvedFlag)
+            this.mazeDisplayer.clickedCounter++;
+
+            if(this.mazeDisplayer.clickedCounter % 2 == 1)
             {
-                this.mazeDisplayer.drawSolution(this.mazeDisplayer.solution);
-                return;
+                if(this.mazeDisplayer.solution != null)
+                {
+                    this.mazeDisplayer.drawSolution(this.mazeDisplayer.solution);
+                    return;
+                }
+                ISearchingAlgorithm searcher = (ISearchingAlgorithm) MyViewController.properties[2];
+                ISearchable searchableMaze = new SearchableMaze(MyViewController.maze);
+                Solution sol = searcher.solve(searchableMaze);
+                this.mazeDisplayer.drawSolution(sol);
+                this.solveMaze.setText("Unsolve Maze");
             }
-            ISearchingAlgorithm searcher = (ISearchingAlgorithm) MyViewController.properties[2];
-            ISearchable searchableMaze = new SearchableMaze(MyViewController.maze);
-            Solution sol = searcher.solve(searchableMaze);
-            this.mazeDisplayer.drawSolution(sol);
+            else
+            {
+                this.mazeDisplayer.solution = null;
+                this.mazeDisplayer.drawMaze(MyViewController.maze.getMazeArr());
+                this.solveMaze.setText("Solve Maze");
+            }
         }
     }
 
