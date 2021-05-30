@@ -34,40 +34,40 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="184.0" layoutY="240.0" prefHeight="20.0" prefWidth="319.0" text="Enter the row/column values for your new maze ">
+      <Label layoutX="184.0" layoutY="242.0" prefHeight="20.0" prefWidth="319.0" text="Enter the row/column values for your new maze ">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="184.0" layoutY="271.0" prefHeight="20.0" prefWidth="319.0" text="Enter the wanted file name for your maze file">
+      <Label layoutX="184.0" layoutY="273.0" prefHeight="20.0" prefWidth="319.0" text="Enter the wanted file name for your maze file">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="184.0" layoutY="304.0" prefHeight="20.0" prefWidth="319.0" text="Choose the wanted file name you want to load">
+      <Label layoutX="184.0" layoutY="306.0" prefHeight="20.0" prefWidth="319.0" text="Choose the wanted file name you want to load">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Circle fill="WHITE" layoutX="157.0" layoutY="249.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="158.0" layoutY="313.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="158.0" layoutY="280.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label layoutX="86.0" layoutY="241.0" text="Create">
+      <Circle fill="WHITE" layoutX="160.0" layoutY="252.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="161.0" layoutY="316.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="161.0" layoutY="283.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label layoutX="87.0" layoutY="242.0" text="Create">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="93.0" layoutY="271.0" text="Save">
+      <Label layoutX="93.0" layoutY="273.0" text="Save">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="92.0" layoutY="304.0" text="Load">
+      <Label layoutX="92.0" layoutY="306.0" text="Load">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="goBack" layoutX="258.0" layoutY="360.0" mnemonicParsing="false" onAction="#goBack" prefHeight="26.0" prefWidth="84.0" text="Go Back">
+      <Button fx:id="goBack" layoutX="258.0" layoutY="366.0" mnemonicParsing="false" onAction="#goBack" prefHeight="26.0" prefWidth="84.0" text="Go Back">
          <font>
             <Font size="13.0" />
          </font>
