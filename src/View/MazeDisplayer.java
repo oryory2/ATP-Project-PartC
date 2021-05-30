@@ -148,6 +148,17 @@ public class MazeDisplayer extends Canvas
                 }
             }
         }
+        try
+        {
+            wallImage = new Image(new FileInputStream("resources/Images/Final.png"));
+            graphicsContext.drawImage(wallImage, (cols - 1) * cellWidth, (rows - 1) * cellHeight, cellWidth, cellHeight);
+
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println("There is no wall image file");
+        }
+
     }
 
     private void drawPlayer(GraphicsContext graphicsContext, double cellHeight, double cellWidth) {
@@ -185,7 +196,7 @@ public class MazeDisplayer extends Canvas
 
         ArrayList<AState> solutionPath = sol.getSolutionPath();
 
-        for (int i = 0; i < solutionPath.size(); i++)
+        for (int i = 0; i < solutionPath.size() - 1; i++)
         {
             Position p = (Position) solutionPath.get(i).getState();
             int thisRow = p.getRowIndex();
