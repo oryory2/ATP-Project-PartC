@@ -22,6 +22,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -199,6 +201,10 @@ public class MyViewController implements IView
         this.thisPose.setText("");
         this.solveMaze.setText("Solve Maze");
         this.mazeDisplayer.clickedCounter = 0;
+        Main.mediaPlayer.stop();
+        Media sound = new Media(new File("resources/Sounds/mainMusic.mp3").toURI().toString());
+        Main.mediaPlayer = new MediaPlayer(sound);
+        Main.mediaPlayer.play();
     }
 
     public void propertiesBar(ActionEvent actionEvent) throws IOException

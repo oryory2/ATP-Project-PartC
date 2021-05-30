@@ -213,9 +213,20 @@ public class MazeDisplayer extends Canvas
         }
         else
         {
-            setHeight(getHeight() * 1.1);
-            setWidth(getWidth() * 1.1);
+            if(getWidth()>6200 || getHeight()>6200)
+            {
+                return;
+            }
+            else
+            {
+                setHeight(getHeight() * 1.1);
+                setWidth(getWidth() * 1.1);
+            }
         }
         draw();
+        if(this.solution != null)
+        {
+            this.drawSolution(this.solution);
+        }
     }
 }
