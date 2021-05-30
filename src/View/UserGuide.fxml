@@ -34,45 +34,56 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="184.0" layoutY="242.0" prefHeight="20.0" prefWidth="319.0" text="Enter the row/column values for your new maze ">
+      <Label layoutX="189.0" layoutY="232.0" prefHeight="20.0" prefWidth="319.0" text="Enter the row/column values for your new maze ">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="184.0" layoutY="273.0" prefHeight="20.0" prefWidth="319.0" text="Enter the wanted file name for your maze file">
+      <Label layoutX="189.0" layoutY="263.0" prefHeight="20.0" prefWidth="319.0" text="Enter the wanted file name for your maze file">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="184.0" layoutY="306.0" prefHeight="20.0" prefWidth="319.0" text="Choose the wanted file name you want to load">
+      <Label layoutX="189.0" layoutY="296.0" prefHeight="20.0" prefWidth="319.0" text="Choose the wanted file name you want to load">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Circle fill="WHITE" layoutX="160.0" layoutY="252.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="161.0" layoutY="316.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="161.0" layoutY="283.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label layoutX="87.0" layoutY="242.0" text="Create">
+      <Circle fill="WHITE" layoutX="165.0" layoutY="242.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="166.0" layoutY="306.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="166.0" layoutY="273.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label layoutX="92.0" layoutY="232.0" text="Create">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="93.0" layoutY="273.0" text="Save">
+      <Label layoutX="98.0" layoutY="263.0" text="Save">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="92.0" layoutY="306.0" text="Load">
+      <Label layoutX="97.0" layoutY="296.0" text="Load">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="goBack" layoutX="258.0" layoutY="366.0" mnemonicParsing="false" onAction="#goBack" prefHeight="26.0" prefWidth="84.0" text="Start ">
+      <Button fx:id="goBack" layoutX="258.0" layoutY="387.0" mnemonicParsing="false" onAction="#goBack" prefHeight="26.0" prefWidth="84.0" text="Start ">
          <font>
             <Font size="13.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <Label layoutX="190.0" layoutY="328.0" prefHeight="20.0" prefWidth="319.0" text="Move your player by using the num keypad">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Circle fill="WHITE" layoutX="167.0" layoutY="338.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label layoutX="98.0" layoutY="328.0" text="Move">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
