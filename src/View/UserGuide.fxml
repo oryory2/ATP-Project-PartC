@@ -67,7 +67,7 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="goBack" layoutX="258.0" layoutY="366.0" mnemonicParsing="false" onAction="#goBack" prefHeight="26.0" prefWidth="84.0" text="Go Back">
+      <Button fx:id="goBack" layoutX="258.0" layoutY="366.0" mnemonicParsing="false" onAction="#goBack" prefHeight="26.0" prefWidth="84.0" text="Start ">
          <font>
             <Font size="13.0" />
          </font>

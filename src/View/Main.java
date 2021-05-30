@@ -24,11 +24,20 @@ public class Main extends Application
     @Override
     public void start(Stage primaryStage) throws Exception
     {
+        Main.primaryStage = primaryStage;
+        Parent root = FXMLLoader.load(getClass().getResource("UserGuide.fxml"));
+        primaryStage.setTitle("Maze Application");
+        primaryStage.setScene(new Scene(root, 600, 450));
+        primaryStage.show();
+    }
+
+    public static void realStart() throws IOException
+    {
         Media sound = new Media(new File("resources/Sounds/mainMusic.mp3").toURI().toString());
         mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
         Main.primaryStage = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("MyView.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("MyView.fxml"));
         primaryStage.setTitle("Maze Application");
         primaryStage.setScene(new Scene(root, 600, 450));
         primaryStage.show();
