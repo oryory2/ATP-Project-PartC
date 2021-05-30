@@ -64,8 +64,8 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Circle fill="WHITE" layoutX="49.0" layoutY="173.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="49.0" layoutY="193.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="49.0" layoutY="173.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="49.0" layoutY="193.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="WHITE" layoutX="49.0" layoutY="212.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="WHITE" layoutX="49.0" layoutY="280.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="WHITE" layoutX="49.0" layoutY="299.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
@@ -74,7 +74,7 @@
       <Hyperlink fx:id="DFSInfo" layoutX="45.0" layoutY="269.0" onAction="#DFSInfo" prefHeight="0.0" prefWidth="0.0" />
       <Hyperlink fx:id="BFSInfo" layoutX="45.0" layoutY="288.0" onAction="#BFSInfo" prefHeight="0.0" prefWidth="0.0" />
       <Hyperlink fx:id="bestInfo" layoutX="45.0" layoutY="307.0" onAction="#bestInfo" prefHeight="0.0" prefWidth="0.0" />
-      <Label layoutX="14.0" layoutY="422.0" text="For more info, Click on the circles" textFill="WHITE">
+      <Label layoutX="14.0" layoutY="422.0" text="For more info, Click on the white circles" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
