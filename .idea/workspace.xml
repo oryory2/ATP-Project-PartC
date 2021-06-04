@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4ebd696f-3dfa-430b-b2e5-dae078e0350c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/IModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/IModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/MyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MyModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MazeDisplayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MazeDisplayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/MyViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MyViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/SaveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/SaveController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ViewModel/MyViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewModel/MyViewModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +122,7 @@
       <workItem from="1622797480158" duration="491000" />
       <workItem from="1622798013927" duration="58000" />
       <workItem from="1622798210423" duration="2783000" />
-      <workItem from="1622813347056" duration="11780000" />
+      <workItem from="1622813347056" duration="13245000" />
     </task>
     <servers />
   </component>

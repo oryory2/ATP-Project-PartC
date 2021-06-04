@@ -14,10 +14,10 @@ import java.util.Observer;
 
 public class MyModel extends Observable implements IModel
 {
-    private Maze maze;
-    private Solution solution;
-    private int playerRow;
-    private int playerCol;
+    public static Maze maze;
+    public static Solution solution;
+    public static int playerRow;
+    public static int playerCol;
     public Object[] properties;
 
     public MyModel()
@@ -29,10 +29,10 @@ public class MyModel extends Observable implements IModel
     public void generateMaze(int row, int col)
     {
         IMazeGenerator generator = (IMazeGenerator) (this.properties[1]); // צור לקוח שמבקש ליצור מייז
-        this.maze = generator.generate(row,col);
-        this.playerRow = 0;
-        this.playerCol = 0;
-        this.solution = null;
+        maze = generator.generate(row,col);
+        playerRow = 0;
+        playerCol = 0;
+        solution = null;
         setChanged();
         notifyObservers("Maze Generated");
     }
@@ -44,13 +44,13 @@ public class MyModel extends Observable implements IModel
 
     public void setMaze(Maze maze)
     {
-        this.maze = maze;
+        MyModel.maze = maze;
     }
 
     public void solveMaze()
     {
         ISearchingAlgorithm searcher = (ISearchingAlgorithm) this.properties[2];
-        ISearchable searchableMaze = new SearchableMaze(this.maze);
+        ISearchable searchableMaze = new SearchableMaze(maze);
         solution = searcher.solve(searchableMaze);
         setChanged();
         notifyObservers("Maze Solved");
@@ -63,13 +63,13 @@ public class MyModel extends Observable implements IModel
 
     public void setSolution(Solution solution)
     {
-        this.solution = solution;
+        MyModel.solution = solution;
     }
 
     public void updatePlayerLocation(MovementDirection direction)
     {
-        int row = this.playerRow;
-        int col = this.playerCol;
+        int row = playerRow;
+        int col = playerCol;
 
         switch (direction) {
             case UP : // up
@@ -128,64 +128,74 @@ public class MyModel extends Observable implements IModel
                 return;
         }
 
-        this.playerRow = row;
-        this.playerCol = col;
+        playerRow = row;
+        playerCol = col;
+
         setChanged();
+        if((row == this.getMaze().getMax_rows() - 1) && (col == this.getMaze().getMax_columns() - 1))
+        {
+            notifyObservers("Player MovedF");
+            maze = null;
+            solution = null;
+            playerCol = 0;
+            playerRow = 0;
+            return;
+        }
         notifyObservers("Player Moved");
     }
 
 
     public boolean legalMove(String direction)
     {
-        int thisRow = this.playerRow;
-        int thisCol = this.playerCol;
+        int thisRow = playerRow;
+        int thisCol = playerCol;
 
         if(direction.equals("up"))
         {
-            if((thisRow - 1 < 0) || (this.maze.getMazeArr()[thisRow - 1][thisCol] == 1))
+            if((thisRow - 1 < 0) || (maze.getMazeArr()[thisRow - 1][thisCol] == 1))
                 return false;
         }
         else if (direction.equals("up right"))
         {
-            if((thisRow - 1 < 0) || (thisCol + 1 >= this.maze.getMax_columns()) || (this.maze.getMazeArr()[thisRow - 1][thisCol + 1] == 1))
+            if((thisRow - 1 < 0) || (thisCol + 1 >= maze.getMax_columns()) || (maze.getMazeArr()[thisRow - 1][thisCol + 1] == 1))
                 return false;
-            if((this.maze.getMazeArr()[thisRow - 1][thisCol] == 1) && (this.maze.getMazeArr()[thisRow][thisCol + 1] == 1))
+            if((maze.getMazeArr()[thisRow - 1][thisCol] == 1) && (maze.getMazeArr()[thisRow][thisCol + 1] == 1))
                 return false;
         }
         else if (direction.equals("right"))
         {
-            if((thisCol + 1 >= this.maze.getMax_columns()) || (this.maze.getMazeArr()[thisRow][thisCol + 1] == 1))
+            if((thisCol + 1 >= maze.getMax_columns()) || (maze.getMazeArr()[thisRow][thisCol + 1] == 1))
                 return false;
         }
         else if (direction.equals("down right"))
         {
-            if((thisRow + 1 >= this.maze.getMax_rows()) || (thisCol + 1 >= this.maze.getMax_columns()) || (this.maze.getMazeArr()[thisRow + 1][thisCol + 1] == 1))
+            if((thisRow + 1 >= maze.getMax_rows()) || (thisCol + 1 >= maze.getMax_columns()) || (maze.getMazeArr()[thisRow + 1][thisCol + 1] == 1))
                 return false;
-            if((this.maze.getMazeArr()[thisRow + 1][thisCol] == 1) && (this.maze.getMazeArr()[thisRow][thisCol + 1] == 1))
+            if((maze.getMazeArr()[thisRow + 1][thisCol] == 1) && (maze.getMazeArr()[thisRow][thisCol + 1] == 1))
                 return false;
         }
         else if (direction.equals("down"))
         {
-            if((thisRow + 1 >= this.maze.getMax_rows()) || (this.maze.getMazeArr()[thisRow + 1][thisCol] == 1))
+            if((thisRow + 1 >= maze.getMax_rows()) || (maze.getMazeArr()[thisRow + 1][thisCol] == 1))
                 return false;
         }
         else if (direction.equals("down left"))
         {
-            if((thisRow + 1 >= this.maze.getMax_rows()) || (thisCol - 1 < 0) || (this.maze.getMazeArr()[thisRow + 1][thisCol - 1] == 1))
+            if((thisRow + 1 >= maze.getMax_rows()) || (thisCol - 1 < 0) || (maze.getMazeArr()[thisRow + 1][thisCol - 1] == 1))
                 return false;
-            if((this.maze.getMazeArr()[thisRow + 1][thisCol] == 1) && (this.maze.getMazeArr()[thisRow][thisCol - 1] == 1))
+            if((maze.getMazeArr()[thisRow + 1][thisCol] == 1) && (maze.getMazeArr()[thisRow][thisCol - 1] == 1))
                 return false;
         }
         else if (direction.equals("left"))
         {
-            if((thisCol - 1 < 0) || (this.maze.getMazeArr()[thisRow][thisCol - 1] == 1))
+            if((thisCol - 1 < 0) || (maze.getMazeArr()[thisRow][thisCol - 1] == 1))
                 return false;
         }
         else if (direction.equals("up left"))
         {
-            if((thisRow - 1 < 0) || (thisCol - 1 < 0) || (this.maze.getMazeArr()[thisRow - 1][thisCol - 1] == 1))
+            if((thisRow - 1 < 0) || (thisCol - 1 < 0) || (maze.getMazeArr()[thisRow - 1][thisCol - 1] == 1))
                 return false;
-            if((this.maze.getMazeArr()[thisRow - 1][thisCol] == 1) && (this.maze.getMazeArr()[thisRow][thisCol - 1] == 1))
+            if((maze.getMazeArr()[thisRow - 1][thisCol] == 1) && (maze.getMazeArr()[thisRow][thisCol - 1] == 1))
                 return false;
         }
 

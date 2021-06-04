@@ -1,5 +1,6 @@
 package View;
 
+import Model.MyModel;
 import Server.Configurations;
 import ViewModel.MyViewModel;
 import algorithms.mazeGenerators.IMazeGenerator;
@@ -61,12 +62,7 @@ public class MyViewController implements IView, Observer
     {
         this.viewModel = viewModel;
         this.viewModel.addObserver(this);
-    }
-
-
-    public void initialize()
-    {
-        if(this.mazeDisplayer.maze != null)
+        if(viewModel.getMaze() != null)
         {
             this.mazeDisplayer.drawMaze(this.viewModel.getMaze().getMazeArr());
             this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
@@ -77,6 +73,7 @@ public class MyViewController implements IView, Observer
             this.solveMaze.setDisable(true);
         }
     }
+
 
     public void generateMaze(ActionEvent actionEvent)
     {
@@ -161,6 +158,7 @@ public class MyViewController implements IView, Observer
             else
             {
                 this.mazeDisplayer.solution = null;
+                this.viewModel.setSolution(null);
                 this.mazeDisplayer.drawMaze(this.viewModel.getMaze().getMazeArr());
                 this.solveMaze.setText("Solve Maze");
             }
@@ -261,11 +259,14 @@ public class MyViewController implements IView, Observer
     public void playerMoved(int row, int col) throws IOException
     {
         this.mazeDisplayer.setPlayerPosition(row,col);
-        if((row == this.viewModel.getMaze().getMax_rows() - 1) && (col == this.viewModel.getMaze().getMax_columns() - 1))
-        {
-            this.mazeDisplayer.setPlayerPosition(0,0);
-            Main.mainToSolved();
-        }
+        this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
+    }
+
+    public void playerMovedF(int row, int col) throws IOException
+    {
+        this.mazeDisplayer.setPlayerPosition(row,col);
+        this.mazeDisplayer.setPlayerPosition(0,0);
+        Main.mainToSolved();
         this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
     }
 
@@ -306,6 +307,7 @@ public class MyViewController implements IView, Observer
             {
                 case "Maze Generated" -> mazeGenerated();
                 case "Player Moved" -> playerMoved(this.viewModel.getPlayerRow(), this.viewModel.getPlayerCol());
+                case "Player MovedF" -> playerMovedF(this.viewModel.getPlayerRow(), this.viewModel.getPlayerCol());
                 case "Maze Solved" -> mazeSolved();
                 default -> System.out.println("Not implemented change: " + change);
             }
