@@ -86,8 +86,14 @@ public class MyViewModel extends Observable implements Observer
         return model.getPlayerCol();
     }
 
+    public void setPlayerPosition(int row, int col)
+    {
+        this.model.setPlayerPosition(0,0);
+    }
+
     public void restart()
     {
         this.model.restart();
     }
+
 }

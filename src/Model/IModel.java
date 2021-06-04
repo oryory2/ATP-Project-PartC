@@ -18,4 +18,6 @@ public interface IModel
     int getPlayerCol();
     void assignObserver(Observer o);
     void restart();
+    void setPlayerPosition(int row, int col);
+
 }

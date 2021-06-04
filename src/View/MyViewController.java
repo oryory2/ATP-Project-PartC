@@ -184,12 +184,19 @@ public class MyViewController implements IView, Observer
             FileInputStream in = new FileInputStream(chosen);
             ObjectInputStream input = new ObjectInputStream(in);
             Maze newMaze = (Maze) input.readObject();
-            //MyViewController.maze = newMaze;
+            this.viewModel.setMaze(newMaze);
+            this.viewModel.setPlayerPosition(0,0);
             this.mazeDisplayer.setPlayerPosition(0,0);
+            this.textField_mazeRows.setText("");
+            this.textField_mazeColumns.setText("");
+            this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
+
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Maze successfully loaded");
             alert.show();
-            //this.mazeDisplayer.drawMaze(maze.getMazeArr());
+            this.mazeDisplayer.drawMaze(this.viewModel.getMaze().getMazeArr());
+            this.solveMaze.setDisable(false);
         }
         catch (Exception e)
         {

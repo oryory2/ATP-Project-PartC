@@ -3,6 +3,7 @@ package View;
 import Model.IModel;
 import Model.MyModel;
 import Server.Configurations;
+import Server.Server;
 import ViewModel.MyViewModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,8 +14,8 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.awt.*;
+import Server.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -28,10 +29,18 @@ public class Main extends Application
     public static IModel model;
     public static MyViewModel myViewModel;
     public static MyViewController myViewController;
+    public static Server mazeGeneratingServer;
+    public static Server solveSearchProblemServer;
+
 
 
     public void start(Stage primaryStage) throws Exception
     {
+        mazeGeneratingServer = new Server(5400, 1000, new ServerStrategyGenerateMaze());
+        solveSearchProblemServer = new Server(5401, 1000, new ServerStrategySolveSearchProblem());
+        solveSearchProblemServer.start();
+        mazeGeneratingServer.start();
+
         Main.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("UserGuide.fxml"));
         primaryStage.setTitle("Maze Application");

@@ -211,6 +211,13 @@ public class MyModel extends Observable implements IModel
     }
 
 
+    public void setPlayerPosition(int row, int col)
+    {
+        playerRow = row;
+        playerCol = col;
+    }
+
+
     public int getPlayerRow()
     {
         return playerRow;
