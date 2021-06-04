@@ -2,6 +2,7 @@ package Model;
 
 import IO.MyDecompressorInputStream;
 import Server.Configurations;
+import Server.Server;
 import View.MyViewController;
 import algorithms.mazeGenerators.IMazeGenerator;
 import algorithms.mazeGenerators.Maze;
@@ -10,7 +11,7 @@ import algorithms.search.ISearchingAlgorithm;
 import algorithms.search.SearchableMaze;
 import algorithms.search.Solution;
 import Client.*;
-
+import Server.*;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -25,12 +26,21 @@ public class MyModel extends Observable implements IModel
     public static Solution solution;
     public static int playerRow;
     public static int playerCol;
-    public static Object[] properties;
+    public static Server mazeGeneratingServer;
+    public static Server solveSearchProblemServer;
 
     public MyModel()
     {
-        Configurations c = Configurations.getInstance();
-        properties = (Object[]) (c.LoadProp());
+        if(mazeGeneratingServer == null)
+        {
+            mazeGeneratingServer = new Server(5400, 1000, new ServerStrategyGenerateMaze());
+            mazeGeneratingServer.start();
+        }
+        if(solveSearchProblemServer == null)
+        {
+            solveSearchProblemServer = new Server(5401, 1000, new ServerStrategySolveSearchProblem());
+            solveSearchProblemServer.start();
+        }
     }
 
     public void generateMaze(int row, int col) {

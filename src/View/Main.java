@@ -29,18 +29,11 @@ public class Main extends Application
     public static IModel model;
     public static MyViewModel myViewModel;
     public static MyViewController myViewController;
-    public static Server mazeGeneratingServer;
-    public static Server solveSearchProblemServer;
 
 
 
     public void start(Stage primaryStage) throws Exception
     {
-        mazeGeneratingServer = new Server(5400, 1000, new ServerStrategyGenerateMaze());
-        solveSearchProblemServer = new Server(5401, 1000, new ServerStrategySolveSearchProblem());
-        solveSearchProblemServer.start();
-        mazeGeneratingServer.start();
-
         Main.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("UserGuide.fxml"));
         primaryStage.setTitle("Maze Application");
@@ -95,7 +88,6 @@ public class Main extends Application
     }
 
     public static void mainToSave() throws IOException {
-        MyModel.properties = Configurations.getInstance().LoadProp();
         Parent root = FXMLLoader.load(Main.class.getResource("Save.fxml"));
         Scene scene = new Scene(root,600,450);
         primaryStage.setScene(scene);
@@ -104,7 +96,6 @@ public class Main extends Application
 
     public static void mainToUserGuide() throws IOException
     {
-        MyModel.properties = Configurations.getInstance().LoadProp();
         Parent root = FXMLLoader.load(Main.class.getResource("UserGuide.fxml"));
         Scene scene = new Scene(root,600,450);
         primaryStage.setScene(scene);
@@ -113,7 +104,6 @@ public class Main extends Application
 
     public static void mainToAppInfo() throws IOException
     {
-        MyModel.properties = Configurations.getInstance().LoadProp();
         Parent root = FXMLLoader.load(Main.class.getResource("AppInfo.fxml"));
         Scene scene = new Scene(root,600,450);
         primaryStage.setScene(scene);
@@ -123,7 +113,6 @@ public class Main extends Application
     public static void mainToSolved() throws IOException
     {
         Main.mediaPlayer.stop();
-        MyModel.properties = Configurations.getInstance().LoadProp();
         Parent root = FXMLLoader.load(Main.class.getResource("Solved.fxml"));
         Scene scene = new Scene(root,600,450);
         primaryStage.setScene(scene);

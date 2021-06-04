@@ -304,8 +304,6 @@ public class MyViewController implements IView, Observer
 
     public void exit(ActionEvent actionEvent)
     {
-        Main.mazeGeneratingServer.stop();
-        Main.solveSearchProblemServer.stop();
         Platform.exit();
         System.exit(0);
     }
