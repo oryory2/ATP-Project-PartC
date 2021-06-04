@@ -184,12 +184,18 @@ public class MyViewController implements IView, Observer
             FileInputStream in = new FileInputStream(chosen);
             ObjectInputStream input = new ObjectInputStream(in);
             Maze newMaze = (Maze) input.readObject();
+            this.viewModel.restart();
             this.viewModel.setMaze(newMaze);
-            this.viewModel.setPlayerPosition(0,0);
+            this.mazeDisplayer.solution = null;
             this.mazeDisplayer.setPlayerPosition(0,0);
             this.textField_mazeRows.setText("");
             this.textField_mazeColumns.setText("");
             this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
+            if(this.mazeDisplayer.clickedCounter % 2 == 1)
+            {
+                this.mazeDisplayer.clickedCounter++;
+                this.solveMaze.setText("Solve Maze");
+            }
 
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -298,6 +304,8 @@ public class MyViewController implements IView, Observer
 
     public void exit(ActionEvent actionEvent)
     {
+        Main.mazeGeneratingServer.stop();
+        Main.solveSearchProblemServer.stop();
         Platform.exit();
         System.exit(0);
     }

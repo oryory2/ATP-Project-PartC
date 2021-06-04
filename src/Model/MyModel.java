@@ -1,5 +1,6 @@
 package Model;
 
+import IO.MyDecompressorInputStream;
 import Server.Configurations;
 import View.MyViewController;
 import algorithms.mazeGenerators.IMazeGenerator;
@@ -8,7 +9,13 @@ import algorithms.search.ISearchable;
 import algorithms.search.ISearchingAlgorithm;
 import algorithms.search.SearchableMaze;
 import algorithms.search.Solution;
+import Client.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.InetAddress;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -26,10 +33,36 @@ public class MyModel extends Observable implements IModel
         properties = (Object[]) (c.LoadProp());
     }
 
-    public void generateMaze(int row, int col)
-    {
-        IMazeGenerator generator = (IMazeGenerator) (properties[1]); // צור לקוח שמבקש ליצור מייז
-        maze = generator.generate(row,col);
+    public void generateMaze(int row, int col) {
+
+        try {
+            Client clientMazeGenerator = new Client(InetAddress.getLocalHost(), 5400,
+                    (inFromServer, outToServer) -> {
+                        try {
+                            ObjectOutputStream toServer = new ObjectOutputStream(outToServer);
+                            ObjectInputStream fromServer = new ObjectInputStream(inFromServer);
+                            toServer.flush();
+                            int[] mazeDimensions = new int[]{row, col};
+                            toServer.writeObject(mazeDimensions);
+                            toServer.flush();
+                            byte[] compressedMaze = (byte[]) fromServer.readObject();
+                            InputStream is = new MyDecompressorInputStream(new ByteArrayInputStream(compressedMaze));
+                            byte[] decompressedMaze = new byte[(row * col) + 12];
+                            is.read(decompressedMaze);
+                            maze = new Maze(decompressedMaze);
+                            toServer.close();
+                            fromServer.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    });
+            clientMazeGenerator.communicateWithServer();
+
+        }
+        catch (Exception ignored)
+        {
+            ignored.printStackTrace();
+        }
         playerRow = 0;
         playerCol = 0;
         solution = null;
@@ -49,12 +82,33 @@ public class MyModel extends Observable implements IModel
 
     public void solveMaze()
     {
-        ISearchingAlgorithm searcher = (ISearchingAlgorithm) properties[2];
-        ISearchable searchableMaze = new SearchableMaze(maze);
-        solution = searcher.solve(searchableMaze);
+        try {
+            Client clientSolveMaze = new Client(InetAddress.getLocalHost(), 5401,
+                    (inFromServer, outToServer) -> {
+                        try {
+                            ObjectOutputStream toServer = new ObjectOutputStream(outToServer);
+                            ObjectInputStream fromServer = new ObjectInputStream(inFromServer);
+                            toServer.flush();
+                            toServer.writeObject(maze);
+                            toServer.flush();
+                            solution = (Solution) fromServer.readObject();
+                        }
+                        catch(Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+                    });
+            clientSolveMaze.communicateWithServer();
+        }
+        catch(Exception ignored)
+        {
+            ignored.printStackTrace();
+        }
         setChanged();
         notifyObservers("Maze Solved");
     }
+
+
 
     public Solution getSolution()
     {
