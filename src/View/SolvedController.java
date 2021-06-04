@@ -21,6 +21,8 @@ public class SolvedController
         this.imageView.setImage(image);
         Media sound = new Media(new File("resources/Sounds/solvedMusic.mp3").toURI().toString());
         Main.mediaPlayer = new MediaPlayer(sound);
+        Main.mediaPlayer.setAutoPlay(true);
+        Main.mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         Main.mediaPlayer.play();
     }
 

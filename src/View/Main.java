@@ -9,6 +9,8 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -35,6 +37,8 @@ public class Main extends Application
     {
         Media sound = new Media(new File("resources/Sounds/mainMusic.mp3").toURI().toString());
         mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
         Main.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(Main.class.getResource("MyView.fxml"));
@@ -105,6 +109,8 @@ public class Main extends Application
     {
         Media sound = new Media(new File("resources/Sounds/mainMusic.mp3").toURI().toString());
         mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
         Parent root = FXMLLoader.load(Main.class.getResource("MyView.fxml"));
         Scene scene = new Scene(root,600,450);
