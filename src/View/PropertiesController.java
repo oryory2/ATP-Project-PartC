@@ -19,7 +19,6 @@ public class PropertiesController
 
     public ChoiceBox GeneratingBar;
     public ChoiceBox SolvingBar;
-    public ChoiceBox CompressorBar;
     public Button cancelButton;
     public Button confirmButton;
     ObservableList<String> GeneratingBarList = FXCollections.observableArrayList("EmptyMazeGenerator","SimpleMazeGenerator","MyMazeGenerator");

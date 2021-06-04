@@ -86,4 +86,8 @@ public class MyViewModel extends Observable implements Observer
         return model.getPlayerCol();
     }
 
+    public void restart()
+    {
+        this.model.restart();
+    }
 }

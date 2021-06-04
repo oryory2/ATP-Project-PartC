@@ -18,17 +18,17 @@ public class MyModel extends Observable implements IModel
     public static Solution solution;
     public static int playerRow;
     public static int playerCol;
-    public Object[] properties;
+    public static Object[] properties;
 
     public MyModel()
     {
         Configurations c = Configurations.getInstance();
-        this.properties = (Object[]) (c.LoadProp());
+        properties = (Object[]) (c.LoadProp());
     }
 
     public void generateMaze(int row, int col)
     {
-        IMazeGenerator generator = (IMazeGenerator) (this.properties[1]); // צור לקוח שמבקש ליצור מייז
+        IMazeGenerator generator = (IMazeGenerator) (properties[1]); // צור לקוח שמבקש ליצור מייז
         maze = generator.generate(row,col);
         playerRow = 0;
         playerCol = 0;
@@ -49,7 +49,7 @@ public class MyModel extends Observable implements IModel
 
     public void solveMaze()
     {
-        ISearchingAlgorithm searcher = (ISearchingAlgorithm) this.properties[2];
+        ISearchingAlgorithm searcher = (ISearchingAlgorithm) properties[2];
         ISearchable searchableMaze = new SearchableMaze(maze);
         solution = searcher.solve(searchableMaze);
         setChanged();
@@ -202,6 +202,13 @@ public class MyModel extends Observable implements IModel
         return true;
     }
 
+    public void restart()
+    {
+        maze = null;
+        solution = null;
+        playerRow = 0;
+        playerCol = 0;
+    }
 
 
     public int getPlayerRow()

@@ -86,7 +86,7 @@ public class Main extends Application
     }
 
     public static void mainToSave() throws IOException {
-        MyViewController.properties = Configurations.getInstance().LoadProp();
+        MyModel.properties = Configurations.getInstance().LoadProp();
         Parent root = FXMLLoader.load(Main.class.getResource("Save.fxml"));
         Scene scene = new Scene(root,600,450);
         primaryStage.setScene(scene);
@@ -95,7 +95,7 @@ public class Main extends Application
 
     public static void mainToUserGuide() throws IOException
     {
-        MyViewController.properties = Configurations.getInstance().LoadProp();
+        MyModel.properties = Configurations.getInstance().LoadProp();
         Parent root = FXMLLoader.load(Main.class.getResource("UserGuide.fxml"));
         Scene scene = new Scene(root,600,450);
         primaryStage.setScene(scene);
@@ -104,7 +104,7 @@ public class Main extends Application
 
     public static void mainToAppInfo() throws IOException
     {
-        MyViewController.properties = Configurations.getInstance().LoadProp();
+        MyModel.properties = Configurations.getInstance().LoadProp();
         Parent root = FXMLLoader.load(Main.class.getResource("AppInfo.fxml"));
         Scene scene = new Scene(root,600,450);
         primaryStage.setScene(scene);
@@ -114,7 +114,7 @@ public class Main extends Application
     public static void mainToSolved() throws IOException
     {
         Main.mediaPlayer.stop();
-        MyViewController.properties = Configurations.getInstance().LoadProp();
+        MyModel.properties = Configurations.getInstance().LoadProp();
         Parent root = FXMLLoader.load(Main.class.getResource("Solved.fxml"));
         Scene scene = new Scene(root,600,450);
         primaryStage.setScene(scene);
@@ -128,9 +128,15 @@ public class Main extends Application
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
-        Parent root = FXMLLoader.load(Main.class.getResource("MyView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MyView.fxml"));
+        Parent root = fxmlLoader.load();
         Scene scene = new Scene(root,600,450);
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        IModel model = new MyModel();
+        MyViewModel viewModel = new MyViewModel(model);
+        MyViewController view = fxmlLoader.getController();
+        view.setViewModel(viewModel);
     }
 }

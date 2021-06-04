@@ -40,12 +40,10 @@ import java.util.ResourceBundle;
 public class MyViewController implements IView, Observer
 {
 
-    MyViewModel viewModel;
-
+    public MyViewModel viewModel;
+    public MazeDisplayer mazeDisplayer;
     public TextField textField_mazeRows;
     public TextField textField_mazeColumns;
-    public static Object[] properties;
-    public MazeDisplayer mazeDisplayer;
     public Label thisPose;
     public Button solveMaze;
     private boolean ctrlFlag;
@@ -53,8 +51,6 @@ public class MyViewController implements IView, Observer
 
     public MyViewController()
     {
-        Configurations c = Configurations.getInstance();
-        MyViewController.properties = (Object[]) (c.LoadProp());
         this.mazeDisplayer = new MazeDisplayer();
     }
 
@@ -119,20 +115,6 @@ public class MyViewController implements IView, Observer
         this.solveMaze.setDisable(false);
     }
 
-    private boolean isNumber(String row, String col)
-    {
-        try
-        {
-            Double.parseDouble(row);
-            Double.parseDouble(col);
-            return true;
-        }
-        catch(NumberFormatException e)
-        {
-            return false;
-        }
-    }
-
 
     public void solveMaze(ActionEvent actionEvent)
     {
@@ -171,10 +153,21 @@ public class MyViewController implements IView, Observer
         this.solveMaze.setText("Unsolve Maze");
     }
 
-    public void exit(ActionEvent actionEvent)
+    public void newBar(ActionEvent actionEvent)
     {
-        Platform.exit();
-        System.exit(0);
+        this.mazeDisplayer.clear();
+        this.textField_mazeRows.setText("");
+        this.textField_mazeColumns.setText("");
+        this.viewModel.restart();
+        this.viewModel.setSolution(null);
+        this.solveMaze.setDisable(true);
+        this.thisPose.setText("");
+        this.solveMaze.setText("Solve Maze");
+        this.mazeDisplayer.clickedCounter = 0;
+        Main.mediaPlayer.stop();
+        Media sound = new Media(new File("resources/Sounds/mainMusic.mp3").toURI().toString());
+        Main.mediaPlayer = new MediaPlayer(sound);
+        Main.mediaPlayer.play();
     }
 
     public void loadBar(ActionEvent actionEvent) {
@@ -202,23 +195,6 @@ public class MyViewController implements IView, Observer
         {
             e.printStackTrace();
         }
-    }
-
-    public void newBar(ActionEvent actionEvent)
-    {
-        this.mazeDisplayer.clear();
-        this.textField_mazeRows.setText("");
-        this.textField_mazeColumns.setText("");
-        this.viewModel.setMaze(null);
-        this.viewModel.setSolution(null);
-        this.solveMaze.setDisable(true);
-        this.thisPose.setText("");
-        this.solveMaze.setText("Solve Maze");
-        this.mazeDisplayer.clickedCounter = 0;
-        Main.mediaPlayer.stop();
-        Media sound = new Media(new File("resources/Sounds/mainMusic.mp3").toURI().toString());
-        Main.mediaPlayer = new MediaPlayer(sound);
-        Main.mediaPlayer.play();
     }
 
     public void propertiesBar(ActionEvent actionEvent) throws IOException
@@ -251,7 +227,11 @@ public class MyViewController implements IView, Observer
 
     public void keyPressed(KeyEvent keyEvent)
     {
-
+        if(keyEvent.getCode() == KeyCode.CONTROL)
+        {
+            this.ctrlFlag = true;
+            return;
+        }
         this.viewModel.movePlayer(keyEvent);
         keyEvent.consume();
     }
@@ -281,15 +261,6 @@ public class MyViewController implements IView, Observer
             this.mazeDisplayer.getOnScroll(scrollEvent);
     }
 
-
-    public void ctrlPressed(KeyEvent keyEvent)
-    {
-        if(keyEvent.getCode() == KeyCode.CONTROL)
-        {
-            this.ctrlFlag = true;
-        }
-    }
-
     public void ctrlReleased(KeyEvent keyEvent)
     {
         if(keyEvent.getCode() == KeyCode.CONTROL)
@@ -317,4 +288,25 @@ public class MyViewController implements IView, Observer
             e.printStackTrace();
         }
     }
+
+    public void exit(ActionEvent actionEvent)
+    {
+        Platform.exit();
+        System.exit(0);
+    }
+
+    private boolean isNumber(String row, String col)
+    {
+        try
+        {
+            Double.parseDouble(row);
+            Double.parseDouble(col);
+            return true;
+        }
+        catch(NumberFormatException e)
+        {
+            return false;
+        }
+    }
+
 }
