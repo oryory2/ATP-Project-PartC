@@ -64,8 +64,6 @@ public class MyViewController implements IView
         {
             this.solveMaze.setDisable(true);
         }
-
-
     }
 
     public void generateMaze(ActionEvent actionEvent)
@@ -390,4 +388,5 @@ public class MyViewController implements IView
             this.ctrlFlag = false;
         }
     }
+
 }

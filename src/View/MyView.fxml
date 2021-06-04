@@ -102,7 +102,7 @@
         </VBox>
     </top>
     <center>
-        <Pane onKeyPressed="#ctrlPressed" onKeyReleased="#ctrlReleased" onScroll="#scrollMouse" prefHeight="499.0" prefWidth="454.0" scaleX="0.98" scaleY="0.97" BorderPane.alignment="CENTER">
+        <Pane fx:id="canvas" onKeyPressed="#ctrlPressed" onKeyReleased="#ctrlReleased" onScroll="#scrollMouse" prefHeight="499.0" prefWidth="454.0" scaleX="0.98" scaleY="0.97" BorderPane.alignment="CENTER">
             <children>
                 <MazeDisplayer fx:id="mazeDisplayer" height="400.0" imageFileNamePlayer="resources/Images/Player.jpg" imageFileNameWall="resources/Images/Wall.jpg" onKeyPressed="#keyPressed" width="400.0" />
             </children>

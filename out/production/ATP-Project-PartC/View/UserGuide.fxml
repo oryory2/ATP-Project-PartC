@@ -57,12 +57,12 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="98.0" layoutY="263.0" text="Save">
+      <Label layoutX="93.0" layoutY="263.0" text="Save">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="97.0" layoutY="296.0" text="Load">
+      <Label layoutX="92.0" layoutY="296.0" text="Load">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
@@ -80,7 +80,7 @@
          </font>
       </Label>
       <Circle fill="WHITE" layoutX="167.0" layoutY="338.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label layoutX="98.0" layoutY="328.0" text="Move">
+      <Label layoutX="91.0" layoutY="328.0" text="Move">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
