@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4ebd696f-3dfa-430b-b2e5-dae078e0350c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/UserGuide.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/UserGuide.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/UserGuide.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/UserGuide.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MyView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MyView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,15 +59,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -109,7 +108,15 @@
       <workItem from="1622301802079" duration="4569000" />
       <workItem from="1622387773477" duration="190000" />
       <workItem from="1622389108295" duration="986000" />
-      <workItem from="1622390115749" duration="2603000" />
+      <workItem from="1622390115749" duration="2642000" />
+      <workItem from="1622720394539" duration="2787000" />
+      <workItem from="1622795672499" duration="248000" />
+      <workItem from="1622795947234" duration="1012000" />
+      <workItem from="1622797250810" duration="82000" />
+      <workItem from="1622797344244" duration="78000" />
+      <workItem from="1622797480158" duration="491000" />
+      <workItem from="1622798013927" duration="58000" />
+      <workItem from="1622798210423" duration="946000" />
     </task>
     <servers />
   </component>

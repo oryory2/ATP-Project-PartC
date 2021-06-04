@@ -17,8 +17,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import View.*?>
-<BorderPane onMouseClicked="#mouseClicked" stylesheets="@MainStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
+<?import View.MazeDisplayer?>
+<BorderPane onMouseClicked="#mouseClicked" prefHeight="532.0" prefWidth="626.0" stylesheets="@MainStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
     <left>
         <VBox prefHeight="0.0" prefWidth="172.0" spacing="5.0" BorderPane.alignment="CENTER">
             <children>
@@ -47,7 +47,7 @@
                   <cursor>
                      <Cursor fx:constant="HAND" />
                   </cursor></Button>
-                    <Button fx:id="solveMaze" cancelButton="true" onAction="#solveMaze" prefHeight="25.0" prefWidth="167.0" text="Solve Maze" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                    <Button fx:id="solveMaze" cancelButton="true" onAction="#solveMaze" prefHeight="25.0" prefWidth="179.0" text="Solve Maze" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3">
                   <cursor>
                      <Cursor fx:constant="HAND" />
                   </cursor></Button>
@@ -69,7 +69,7 @@
     <top>
         <VBox BorderPane.alignment="CENTER">
             <children>
-                <MenuBar>
+                <MenuBar prefHeight="0.0" prefWidth="554.0">
                     <menus>
                         <Menu mnemonicParsing="false" text="File">
                             <items>
@@ -102,7 +102,7 @@
         </VBox>
     </top>
     <center>
-        <Pane onKeyPressed="#ctrlPressed" onKeyReleased="#ctrlReleased" onScroll="#scrollMouse" prefHeight="405.0" prefWidth="382.0" BorderPane.alignment="CENTER">
+        <Pane onKeyPressed="#ctrlPressed" onKeyReleased="#ctrlReleased" onScroll="#scrollMouse" prefHeight="499.0" prefWidth="454.0" scaleX="0.98" scaleY="0.97" BorderPane.alignment="CENTER">
             <children>
                 <MazeDisplayer fx:id="mazeDisplayer" height="400.0" imageFileNamePlayer="resources/Images/Player.jpg" imageFileNameWall="resources/Images/Wall.jpg" onKeyPressed="#keyPressed" width="400.0" />
             </children>
