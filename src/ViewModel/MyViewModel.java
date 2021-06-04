@@ -41,9 +41,19 @@ public class MyViewModel extends Observable implements Observer
         return this.model.getMaze();
     }
 
+    public void setMaze(Maze maze)
+    {
+        this.model.setMaze(maze);
+    }
+
     public Solution getSolution()
     {
         return model.getSolution();
+    }
+
+    public void setSolution(Solution solution)
+    {
+        this.model.setSolution(solution);
     }
 
     public void movePlayer(KeyEvent keyEvent)

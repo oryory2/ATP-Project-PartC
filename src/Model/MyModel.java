@@ -29,10 +29,10 @@ public class MyModel extends Observable implements IModel
     public void generateMaze(int row, int col)
     {
         IMazeGenerator generator = (IMazeGenerator) (this.properties[1]); // צור לקוח שמבקש ליצור מייז
-        maze = generator.generate(row,col);
-        playerRow = 0;
-        playerCol = 0;
-        solution = null;
+        this.maze = generator.generate(row,col);
+        this.playerRow = 0;
+        this.playerCol = 0;
+        this.solution = null;
         setChanged();
         notifyObservers("Maze Generated");
     }
@@ -40,6 +40,11 @@ public class MyModel extends Observable implements IModel
     public Maze getMaze()
     {
         return maze;
+    }
+
+    public void setMaze(Maze maze)
+    {
+        this.maze = maze;
     }
 
     public void solveMaze()
@@ -54,6 +59,11 @@ public class MyModel extends Observable implements IModel
     public Solution getSolution()
     {
         return solution;
+    }
+
+    public void setSolution(Solution solution)
+    {
+        this.solution = solution;
     }
 
     public void updatePlayerLocation(MovementDirection direction)
@@ -122,8 +132,6 @@ public class MyModel extends Observable implements IModel
         this.playerCol = col;
         setChanged();
         notifyObservers("Player Moved");
-
-
     }
 
 

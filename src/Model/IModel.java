@@ -9,8 +9,10 @@ public interface IModel
 {
     void generateMaze(int rows, int cols);
     Maze getMaze();
+    void setMaze(Maze maze);
     void solveMaze();
     Solution getSolution();
+    void setSolution(Solution solution);
     void updatePlayerLocation(MovementDirection direction);
     int getPlayerRow();
     int getPlayerCol();

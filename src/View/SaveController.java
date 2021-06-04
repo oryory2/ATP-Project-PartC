@@ -1,5 +1,6 @@
 package View;
 
+import ViewModel.MyViewModel;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -29,7 +30,7 @@ public class SaveController {
             String fileName = "resources\\SavedMaze\\"  + this.fileName.getText() + ".maze";
             FileOutputStream out = new FileOutputStream(fileName);
             ObjectOutputStream output = new ObjectOutputStream(out);
-            output.writeObject(MyViewController.maze);
+            output.writeObject(Main.model.getMaze());
         }
         catch (Exception e)
         {
