@@ -79,6 +79,8 @@ public class MyViewController implements IView, Observer
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("You must fill in the row/column values");
             alert.show();
+            this.textField_mazeRows.setText("");
+            this.textField_mazeColumns.setText("");
             return;
         }
         if(!(isNumber(this.textField_mazeRows.getText(), this.textField_mazeColumns.getText())))
@@ -86,6 +88,8 @@ public class MyViewController implements IView, Observer
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("row/column values must be integers");
             alert.show();
+            this.textField_mazeRows.setText("");
+            this.textField_mazeColumns.setText("");
             return;
         }
 
@@ -95,8 +99,10 @@ public class MyViewController implements IView, Observer
         if((row < 2) || (col < 2))
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("One or more of the supplied sizes are not legal! Row and Column values must be at least 2");
+            alert.setContentText("One or more of the supplied sizes are not legal! \nRow and Column values must be at least 2");
             alert.show();
+            this.textField_mazeRows.setText("");
+            this.textField_mazeColumns.setText("");
             return;
         }
         try

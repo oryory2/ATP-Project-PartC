@@ -33,8 +33,7 @@ public class Main extends Application
 
     public void start(Stage primaryStage) throws Exception
     {
-        System.out.println("");
-        System.out.println("");
+        //System.out.println(System.getProperty("java.io.tmpdir"));
         Main.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("UserGuide.fxml"));
         primaryStage.setTitle("Maze Application");
