@@ -31,9 +31,9 @@ public class Main extends Application
     public static MyViewController myViewController;
 
 
-
     public void start(Stage primaryStage) throws Exception
     {
+        System.out.println("");
         System.out.println("");
         Main.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("UserGuide.fxml"));
