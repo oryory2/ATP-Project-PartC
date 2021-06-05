@@ -5,7 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ebd696f-3dfa-430b-b2e5-dae078e0350c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ATP-Project-PartB.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ATP-Project-PartC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ATP-Project-PartC.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/SavedMaze/25.maze" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/SavedMaze/35.maze" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/SavedMaze/4.maze" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/SavedMaze/44.maze" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/SavedMaze/45.maze" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/SavedMaze/5.maze" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/SavedMaze/aaa.maze" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/SavedMaze/hhhh.maze" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/MyView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/MyView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/MyViewController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/MyViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/MyViewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MyView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MyView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MyViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MyViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +52,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GG" />
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/ATP-Project-PartB/out/artifacts/ATP_Project_PartB_jar/ATP-Project-PartB.jar" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -63,13 +80,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -134,6 +153,7 @@
       <workItem from="1622887858847" duration="32000" />
       <workItem from="1622887910780" duration="1466000" />
       <workItem from="1622903156160" duration="544000" />
+      <workItem from="1622904985399" duration="3462000" />
     </task>
     <servers />
   </component>

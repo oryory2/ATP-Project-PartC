@@ -74,9 +74,6 @@ public class MyViewController implements IView, Observer
 
     public void generateMaze(ActionEvent actionEvent)
     {
-        int row = Integer.parseInt(this.textField_mazeRows.getText());
-        int col = Integer.parseInt(this.textField_mazeColumns.getText());
-
         if((this.textField_mazeRows.getText().equals("")) || (this.textField_mazeColumns.getText().equals("")))
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -91,6 +88,10 @@ public class MyViewController implements IView, Observer
             alert.show();
             return;
         }
+
+        int row = Integer.parseInt(this.textField_mazeRows.getText());
+        int col = Integer.parseInt(this.textField_mazeColumns.getText());
+
         if((row < 2) || (col < 2))
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
