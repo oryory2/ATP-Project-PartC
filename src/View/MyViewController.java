@@ -74,6 +74,8 @@ public class MyViewController implements IView, Observer
 
     public void generateMaze(ActionEvent actionEvent)
     {
+        int row = Integer.parseInt(this.textField_mazeRows.getText());
+        int col = Integer.parseInt(this.textField_mazeColumns.getText());
 
         if((this.textField_mazeRows.getText().equals("")) || (this.textField_mazeColumns.getText().equals("")))
         {
@@ -89,10 +91,13 @@ public class MyViewController implements IView, Observer
             alert.show();
             return;
         }
-
-        int row = Integer.parseInt(this.textField_mazeRows.getText());
-        int col = Integer.parseInt(this.textField_mazeColumns.getText());
-
+        if((row < 2) || (col < 2))
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("One or more of the supplied sizes are not legal! Row and Column values must be at least 2");
+            alert.show();
+            return;
+        }
         try
         {
             this.viewModel.generateMaze(row, col);

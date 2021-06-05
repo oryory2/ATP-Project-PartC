@@ -62,16 +62,17 @@ public class MyModel extends Observable implements IModel
                             maze = new Maze(decompressedMaze);
                             toServer.close();
                             fromServer.close();
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                        } catch (Exception e)
+                        {
+                           e.printStackTrace();
                         }
                     });
             clientMazeGenerator.communicateWithServer();
 
         }
-        catch (Exception ignored)
+        catch (Exception e)
         {
-            ignored.printStackTrace();
+            e.printStackTrace();
         }
         playerRow = 0;
         playerCol = 0;
