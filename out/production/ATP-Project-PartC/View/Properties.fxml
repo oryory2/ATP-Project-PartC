@@ -15,7 +15,7 @@
             <Font name="System Bold Italic" size="31.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="GeneratingBar" layoutX="334.0" layoutY="173.0" prefWidth="150.0">
+      <ChoiceBox fx:id="GeneratingBar" layoutX="334.0" layoutY="200.0" prefWidth="150.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -23,7 +23,7 @@
             <Blend />
          </effect>
       </ChoiceBox>
-      <ChoiceBox fx:id="SolvingBar" layoutX="334.0" layoutY="229.0" prefWidth="150.0">
+      <ChoiceBox fx:id="SolvingBar" layoutX="334.0" layoutY="256.0" prefWidth="150.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -31,12 +31,12 @@
             <Blend />
          </effect>
       </ChoiceBox>
-      <Label alignment="BASELINE_CENTER" layoutX="117.0" layoutY="173.0" prefHeight="25.0" prefWidth="169.0" text="Generating Algorithm">
+      <Label alignment="BASELINE_CENTER" layoutX="118.0" layoutY="200.0" prefHeight="25.0" prefWidth="169.0" text="Generating Algorithm">
          <font>
             <Font name="System Italic" size="17.0" />
          </font>
       </Label>
-      <Label alignment="BASELINE_CENTER" layoutX="117.0" layoutY="229.0" prefHeight="25.0" prefWidth="169.0" text="Solving Algorithm">
+      <Label alignment="BASELINE_CENTER" layoutX="117.0" layoutY="256.0" prefHeight="25.0" prefWidth="169.0" text="Solving Algorithm">
          <font>
             <Font name="System Italic" size="17.0" />
          </font>
@@ -49,5 +49,18 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <ChoiceBox fx:id="ThreadsBar" layoutX="334.0" layoutY="142.0" prefWidth="150.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Blend />
+         </effect>
+      </ChoiceBox>
+      <Label alignment="BASELINE_CENTER" layoutX="118.0" layoutY="141.0" prefHeight="25.0" prefWidth="169.0" text="Number Of Threads">
+         <font>
+            <Font name="System Italic" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

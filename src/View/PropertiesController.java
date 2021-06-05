@@ -19,8 +19,10 @@ public class PropertiesController
 
     public ChoiceBox GeneratingBar;
     public ChoiceBox SolvingBar;
+    public ChoiceBox ThreadsBar;
     public Button cancelButton;
     public Button confirmButton;
+    ObservableList<String> ThreadsList = FXCollections.observableArrayList("3","5","10");
     ObservableList<String> GeneratingBarList = FXCollections.observableArrayList("EmptyMazeGenerator","SimpleMazeGenerator","MyMazeGenerator");
     ObservableList<String> SolvingBarList = FXCollections.observableArrayList("DepthFirstSearch","BreadthFirstSearch","BestFirstSearch");
 
@@ -29,6 +31,10 @@ public class PropertiesController
     private void initialize()
     {
         Object[] properties = Configurations.getInstance().LoadProp();
+
+        int numOfThreads = (int)properties[0];
+        ThreadsBar.setValue(numOfThreads + "");
+        ThreadsBar.setItems(ThreadsList);
 
         IMazeGenerator generator = (IMazeGenerator)properties[1];
         String s1 = generator.getClass().toString();
@@ -50,10 +56,12 @@ public class PropertiesController
     }
 
     public void confirmButton(ActionEvent actionEvent) throws IOException {
+        String  numOfThreads = (String) ThreadsBar.getValue();
         String generator = (String) GeneratingBar.getValue();
         String solver = (String) SolvingBar.getValue();
+
         Configurations c = Configurations.getInstance();
-        c.writeProp("10", generator, solver, "MyCompressorOutputStream");
+        c.writeProp(numOfThreads, generator, solver, "MyCompressorOutputStream");
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText("Properties successfully loaded");
         alert.show();

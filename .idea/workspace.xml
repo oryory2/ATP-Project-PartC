@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="4ebd696f-3dfa-430b-b2e5-dae078e0350c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/Model/MyModel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/Model/MyModel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/Model/MyModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/Model/MyModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/SavedMaze/5.maze" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/SavedMaze/5.maze" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/MyViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/MyViewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/Properties.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/Properties.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/PropertiesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/PropertiesController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/SavedMaze/25.maze" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/SavedMaze/35.maze" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/SavedMaze/4.maze" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/SavedMaze/44.maze" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/SavedMaze/45.maze" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/SavedMaze/5.maze" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/SavedMaze/aaa.maze" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/SavedMaze/hhhh.maze" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/MyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MyModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MyViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MyViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Properties.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Properties.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/PropertiesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/PropertiesController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,6 +133,9 @@
       <workItem from="1622836202265" duration="576000" />
       <workItem from="1622836794536" duration="539000" />
       <workItem from="1622837349577" duration="346000" />
+      <workItem from="1622886230388" duration="112000" />
+      <workItem from="1622886353574" duration="893000" />
+      <workItem from="1622887269360" duration="180000" />
     </task>
     <servers />
   </component>
