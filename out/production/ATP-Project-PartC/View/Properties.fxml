@@ -10,12 +10,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@MainStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.PropertiesController">
    <children>
-      <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="202.0" layoutY="48.0" prefHeight="72.0" prefWidth="169.0" text="Properties" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+      <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="203.0" layoutY="43.0" prefHeight="72.0" prefWidth="169.0" text="Properties" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
          <font>
             <Font name="System Bold Italic" size="31.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="GeneratingBar" layoutX="334.0" layoutY="200.0" prefWidth="150.0">
+      <ChoiceBox fx:id="GeneratingBar" layoutX="333.0" layoutY="200.0" prefWidth="150.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -23,7 +23,7 @@
             <Blend />
          </effect>
       </ChoiceBox>
-      <ChoiceBox fx:id="SolvingBar" layoutX="334.0" layoutY="256.0" prefWidth="150.0">
+      <ChoiceBox fx:id="SolvingBar" layoutX="334.0" layoutY="262.0" prefWidth="150.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -31,21 +31,21 @@
             <Blend />
          </effect>
       </ChoiceBox>
-      <Label alignment="BASELINE_CENTER" layoutX="118.0" layoutY="200.0" prefHeight="25.0" prefWidth="169.0" text="Generating Algorithm">
+      <Label alignment="BASELINE_CENTER" layoutX="117.0" layoutY="200.0" prefHeight="25.0" prefWidth="169.0" text="Generating Algorithm">
          <font>
             <Font name="System Italic" size="17.0" />
          </font>
       </Label>
-      <Label alignment="BASELINE_CENTER" layoutX="117.0" layoutY="256.0" prefHeight="25.0" prefWidth="169.0" text="Solving Algorithm">
+      <Label alignment="BASELINE_CENTER" layoutX="117.0" layoutY="262.0" prefHeight="25.0" prefWidth="169.0" text="Solving Algorithm">
          <font>
             <Font name="System Italic" size="17.0" />
          </font>
       </Label>
-      <Button fx:id="cancelButton" layoutX="171.0" layoutY="330.0" mnemonicParsing="false" onAction="#cancelButton" prefHeight="32.0" prefWidth="86.0" text="Cancel">
+      <Button fx:id="cancelButton" layoutX="171.0" layoutY="335.0" mnemonicParsing="false" onAction="#cancelButton" prefHeight="32.0" prefWidth="86.0" text="Cancel">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="confirmButton" layoutX="344.0" layoutY="330.0" mnemonicParsing="false" onAction="#confirmButton" prefHeight="32.0" prefWidth="86.0" text="Confirm">
+      <Button fx:id="confirmButton" layoutX="344.0" layoutY="335.0" mnemonicParsing="false" onAction="#confirmButton" prefHeight="32.0" prefWidth="86.0" text="Confirm">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
