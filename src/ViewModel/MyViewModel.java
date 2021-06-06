@@ -61,7 +61,8 @@ public class MyViewModel extends Observable implements Observer
     public void movePlayer(KeyEvent keyEvent)
     {
         MovementDirection direction;
-        switch (keyEvent.getCode()){
+        switch (keyEvent.getCode())
+        {
             case NUMPAD8 -> direction = MovementDirection.UP;
             case NUMPAD9 -> direction = MovementDirection.RIGHTU;
             case NUMPAD6 -> direction = MovementDirection.RIGHT;

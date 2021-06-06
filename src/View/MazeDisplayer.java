@@ -38,8 +38,8 @@ public class MazeDisplayer extends Canvas
 
     public void setPlayerPosition(int row, int col)
     {
-        this.playerRow = row;
-        this.playerCol = col;
+        playerRow = row;
+        playerCol = col;
         drawMaze(this.maze);
     }
 
@@ -80,11 +80,6 @@ public class MazeDisplayer extends Canvas
         {
             double canvasHeight = getHeight();
             double canvasWidth = getWidth();
-            int rows = maze.length;
-            int cols = maze[0].length;
-
-            double cellHeight = canvasHeight / rows;
-            double cellWidth = canvasWidth / cols;
 
             GraphicsContext graphicsContext = getGraphicsContext2D(); // מחלקה שבעזרתה ניתן לצייר על הקנבס
             graphicsContext.clearRect(0,0, canvasWidth, canvasHeight);
