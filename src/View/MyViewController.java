@@ -60,6 +60,12 @@ public class MyViewController implements IView, Observer
         this.viewModel.addObserver(this);
         if(viewModel.getMaze() != null)
         {
+            if(LostController.lost)
+            {
+                this.viewModel.setPlayerPosition(0,0);
+                this.mazeDisplayer.setPlayerPosition(0,0);
+                LostController.lost = false;
+            }
             this.mazeDisplayer.drawMaze(this.viewModel.getMaze().getMazeArr());
             this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
             this.solveMaze.setDisable(false);
@@ -250,8 +256,7 @@ public class MyViewController implements IView, Observer
         Main.mainToAppInfo();
     }
 
-    public void keyPressed(KeyEvent keyEvent)
-    {
+    public void keyPressed(KeyEvent keyEvent) throws IOException {
         if(keyEvent.getCode() == KeyCode.CONTROL)
         {
             this.ctrlFlag = true;

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@MainStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.LostController">
+   <children>
+      <Label layoutX="158.0" layoutY="65.0" text="You Lost the game.." textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="167.0" text="You can't touch the Maze walls or to get out from the Maze boundries..">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="tryAgain" layoutX="351.0" layoutY="301.0" mnemonicParsing="false" onAction="#tryAgain" prefHeight="31.0" prefWidth="91.0" text="Try Again" />
+      <Button fx:id="tooHard" layoutX="158.0" layoutY="301.0" mnemonicParsing="false" onAction="#tooHard" prefHeight="31.0" prefWidth="91.0" text="It's Too Hard" />
+   </children>
+</AnchorPane>

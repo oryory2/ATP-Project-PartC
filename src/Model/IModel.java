@@ -5,6 +5,7 @@ import algorithms.mazeGenerators.Maze;
 import algorithms.search.Solution;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.util.Observer;
 
 public interface IModel
@@ -15,7 +16,7 @@ public interface IModel
     void solveMaze();
     Solution getSolution();
     void setSolution(Solution solution);
-    void updatePlayerLocation(MovementDirection direction);
+    void updatePlayerLocation(MovementDirection direction) throws IOException;
     int getPlayerRow();
     int getPlayerCol();
     void assignObserver(Observer o);

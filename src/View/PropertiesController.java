@@ -1,5 +1,6 @@
 package View;
 
+import Model.MyModel;
 import Server.Configurations;
 import algorithms.mazeGenerators.IMazeGenerator;
 import algorithms.search.ISearchingAlgorithm;
@@ -20,8 +21,11 @@ public class PropertiesController
     public ChoiceBox GeneratingBar;
     public ChoiceBox SolvingBar;
     public ChoiceBox ThreadsBar;
+    public ChoiceBox Mode;
     public Button cancelButton;
     public Button confirmButton;
+
+    ObservableList<String> ModeList = FXCollections.observableArrayList("Easy","Hard");
     ObservableList<String> ThreadsList = FXCollections.observableArrayList("3","5","10");
     ObservableList<String> GeneratingBarList = FXCollections.observableArrayList("EmptyMazeGenerator","SimpleMazeGenerator","MyMazeGenerator");
     ObservableList<String> SolvingBarList = FXCollections.observableArrayList("DepthFirstSearch","BreadthFirstSearch","BestFirstSearch");
@@ -31,6 +35,15 @@ public class PropertiesController
     private void initialize()
     {
         Object[] properties = Configurations.getInstance().LoadProp();
+
+        String mode;
+        if(MyModel.easyMode)
+            mode = "Easy";
+        else
+            mode = "Hard";
+        Mode.setValue(mode);
+        Mode.setItems(ModeList);
+
 
         int numOfThreads = (int)properties[0];
         ThreadsBar.setValue(numOfThreads + "");
@@ -59,6 +72,12 @@ public class PropertiesController
         String  numOfThreads = (String) ThreadsBar.getValue();
         String generator = (String) GeneratingBar.getValue();
         String solver = (String) SolvingBar.getValue();
+        String mode = (String) Mode.getValue();
+
+        if(mode == "Easy")
+            MyModel.easyMode = true;
+        else
+            MyModel.easyMode = false;
 
         Configurations c = Configurations.getInstance();
         c.writeProp(numOfThreads, generator, solver, "MyCompressorOutputStream");

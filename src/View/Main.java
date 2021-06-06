@@ -119,6 +119,15 @@ public class Main extends Application
         primaryStage.show();
     }
 
+    public static void manToLost() throws IOException {
+        Main.mediaPlayer.stop();
+        Parent root = FXMLLoader.load(Main.class.getResource("Lost.fxml"));
+        Scene scene = new Scene(root,600,450);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+
     public static void backToMainSolved() throws IOException
     {
         Media sound = new Media(new File("resources/Sounds/mainMusic.mp3").toURI().toString());

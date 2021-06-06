@@ -3,6 +3,7 @@ package Model;
 import IO.MyDecompressorInputStream;
 import Server.Configurations;
 import Server.Server;
+import View.Main;
 import View.MazeDisplayer;
 import View.MyViewController;
 import algorithms.mazeGenerators.IMazeGenerator;
@@ -15,10 +16,7 @@ import Client.*;
 import Server.*;
 import javafx.scene.input.MouseEvent;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.InetAddress;
 import java.util.Observable;
 import java.util.Observer;
@@ -31,6 +29,8 @@ public class MyModel extends Observable implements IModel
     public static int playerCol;
     public static Server mazeGeneratingServer;
     public static Server solveSearchProblemServer;
+    public static boolean easyMode = true;
+
 
     public MyModel()
     {
@@ -134,7 +134,7 @@ public class MyModel extends Observable implements IModel
         MyModel.solution = solution;
     }
 
-    public void updatePlayerLocation(MovementDirection direction)
+    public void updatePlayerLocation(MovementDirection direction) throws IOException
     {
         int row = playerRow;
         int col = playerCol;
@@ -142,52 +142,92 @@ public class MyModel extends Observable implements IModel
         switch (direction) {
             case UP : // up
                 if(!(this.legalMove("up")))
-                    return;
+                {
+                    if(easyMode)
+                        return;
+                    else
+                        Main.manToLost();
+                }
                 row -= 1;
                 break;
 
             case RIGHTU : // up right
                 if(!(this.legalMove("up right")))
-                    return;
+                {
+                    if(easyMode)
+                        return;
+                    else
+                        Main.manToLost();
+                }
                 row -= 1 ;
                 col += 1;
                 break;
 
             case RIGHT : // right
                 if(!(this.legalMove("right")))
-                    return;
+                {
+                    if(easyMode)
+                        return;
+                    else
+                        Main.manToLost();
+                }
                 col += 1;
                 break;
 
             case RIGHTD : // down right
                 if(!(this.legalMove("down right")))
-                    return;
+                {
+                    if(easyMode)
+                        return;
+                    else
+                        Main.manToLost();
+                }
                 row += 1 ;
                 col += 1;
                 break;
 
             case DOWN : // down
                 if(!(this.legalMove("down")))
-                    return;
+                {
+                    if(easyMode)
+                        return;
+                    else
+                        Main.manToLost();
+                }
                 row += 1;
                 break;
 
             case LEFTD : // down left
                 if(!(this.legalMove("down left")))
-                    return;
+                {
+                    if(easyMode)
+                        return;
+                    else
+                        Main.manToLost();
+                }
                 row += 1 ;
                 col -= 1;
                 break;
 
             case LEFT : // left
                 if(!(this.legalMove("left")))
-                    return;
+                {
+                    if(easyMode)
+                        return;
+                    else
+                        Main.manToLost();
+                }
                 col -= 1;
                 break;
 
             case LEFTU : // up left
                 if(!(this.legalMove("up left")))
-                    return;
+                {
+                    if(easyMode)
+                        return;
+                    else
+                        Main.manToLost();
+                }
                 row -= 1 ;
                 col -= 1;
                 break;

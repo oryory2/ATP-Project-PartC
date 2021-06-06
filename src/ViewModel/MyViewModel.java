@@ -4,6 +4,8 @@ import Model.IModel;
 import View.MazeDisplayer;
 import algorithms.mazeGenerators.Maze;
 import algorithms.search.Solution;
+
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 import Model.MovementDirection;
@@ -58,8 +60,7 @@ public class MyViewModel extends Observable implements Observer
         this.model.setSolution(solution);
     }
 
-    public void movePlayer(KeyEvent keyEvent)
-    {
+    public void movePlayer(KeyEvent keyEvent) throws IOException {
         MovementDirection direction;
         switch (keyEvent.getCode())
         {
