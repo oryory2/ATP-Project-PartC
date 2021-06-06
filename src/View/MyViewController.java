@@ -47,7 +47,6 @@ public class MyViewController implements IView, Observer
     public Label thisPose;
     public Button solveMaze;
     private boolean ctrlFlag;
-    private boolean mouseFlag;
 
 
     public MyViewController()
@@ -335,22 +334,13 @@ public class MyViewController implements IView, Observer
         }
     }
 
-    public void mouseCliked(MouseEvent mouseEvent)
-    {
-        this.mouseFlag = true;
-    }
-
     public void mouseDragged(MouseEvent mouseEvent)
     {
-        if(!(this.mouseFlag))
-        {
-            return;
-        }
+        this.viewModel.mouseDragged(mouseEvent, this.mazeDisplayer);
     }
 
     public void mouseReleased(MouseEvent mouseEvent)
     {
-        this.mouseFlag = false;
 
     }
 }

@@ -1,7 +1,9 @@
 package Model;
 
+import View.MazeDisplayer;
 import algorithms.mazeGenerators.Maze;
 import algorithms.search.Solution;
+import javafx.scene.input.MouseEvent;
 
 import java.util.Observer;
 
@@ -19,5 +21,5 @@ public interface IModel
     void assignObserver(Observer o);
     void restart();
     void setPlayerPosition(int row, int col);
-
+    void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer);
 }

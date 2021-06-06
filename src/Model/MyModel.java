@@ -3,6 +3,7 @@ package Model;
 import IO.MyDecompressorInputStream;
 import Server.Configurations;
 import Server.Server;
+import View.MazeDisplayer;
 import View.MyViewController;
 import algorithms.mazeGenerators.IMazeGenerator;
 import algorithms.mazeGenerators.Maze;
@@ -12,6 +13,8 @@ import algorithms.search.SearchableMaze;
 import algorithms.search.Solution;
 import Client.*;
 import Server.*;
+import javafx.scene.input.MouseEvent;
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -282,7 +285,6 @@ public class MyModel extends Observable implements IModel
         playerCol = col;
     }
 
-
     public int getPlayerRow()
     {
         return playerRow;
@@ -292,6 +294,46 @@ public class MyModel extends Observable implements IModel
     {
         return playerCol;
     }
+
+    public void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer) {
+        if (maze != null) {
+            int row = maze.getMax_rows();
+            int col = maze.getMax_columns();
+            double canvasHeight = mazeDisplayer.getHeight();
+            double canvasWidth = mazeDisplayer.getWidth();
+
+            double cellHeight = canvasHeight / row;
+            double cellWidth = canvasWidth / col;
+
+            int updatedRow = canvasIndexRow(mouseEvent.getSceneX(), canvasWidth);
+            int updatedCol = canvasIndexRow(mouseEvent.getSceneY(), canvasHeight);
+
+                for (int i = 0; i < row; i++)
+                {
+                    for (int j = 0; j < col; j++)
+                    {
+                        if (maze.getMazeArr()[i][j] == 1)
+                        {
+                            double x = j * cellWidth;
+                            double y = i * cellHeight;
+                        }
+
+                    }
+                }
+        }
+    }
+
+    public int canvasIndexRow(double SceneX, double cellWidth)
+    {
+        return  0;
+    }
+
+    public int canvasIndexCol(double SceneY, double cellHeight)
+    {
+        return  0;
+    }
+
+
 
     public void assignObserver(Observer o)
     {

@@ -1,12 +1,14 @@
 package ViewModel;
 
 import Model.IModel;
+import View.MazeDisplayer;
 import algorithms.mazeGenerators.Maze;
 import algorithms.search.Solution;
 import java.util.Observable;
 import java.util.Observer;
 import Model.MovementDirection;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 
 public class MyViewModel extends Observable implements Observer
@@ -96,4 +98,8 @@ public class MyViewModel extends Observable implements Observer
         this.model.restart();
     }
 
+    public void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer)
+    {
+        this.model.mouseDragged(mouseEvent, mazeDisplayer);
+    }
 }
