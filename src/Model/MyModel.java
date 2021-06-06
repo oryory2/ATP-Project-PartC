@@ -295,8 +295,10 @@ public class MyModel extends Observable implements IModel
         return playerCol;
     }
 
-    public void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer) {
-        if (maze != null) {
+    public void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer)
+    {
+        if (maze != null)
+        {
             int row = maze.getMax_rows();
             int col = maze.getMax_columns();
             double canvasHeight = mazeDisplayer.getHeight();
@@ -308,11 +310,83 @@ public class MyModel extends Observable implements IModel
             int updatedRow = canvasIndexRow(mouseEvent.getSceneY(), cellHeight);
             int updatedCol = canvasIndexCol(mouseEvent.getSceneX(), cellWidth);
 
-            if ((updatedRow == this.getPlayerRow()) && (updatedCol == this.getPlayerCol())) {
-                return;
-            } else {
-
+            if (!((updatedRow == this.getPlayerRow()) && (updatedCol == this.getPlayerCol())))
+            {
+                if((updatedRow == this.getPlayerRow() - 1) && (updatedCol == this.getPlayerCol()))
+                {
+                    if(!(legalMove("up")))
+                    {
+                        return;
+                    }
+                    setPlayerPosition(this.getPlayerRow() - 1, this.getPlayerCol());
+                }
+                else if ((updatedRow == this.getPlayerRow() - 1) && (updatedCol == this.getPlayerCol() + 1))
+                {
+                    if(!(legalMove("up right")))
+                    {
+                        return;
+                    }
+                    setPlayerPosition(this.getPlayerRow() - 1, this.getPlayerCol() + 1);
+                }
+                else if ((updatedRow == this.getPlayerRow()) && (updatedCol == this.getPlayerCol() + 1))
+                {
+                    if(!(legalMove("right")))
+                    {
+                        return;
+                    }
+                    setPlayerPosition(this.getPlayerRow(), this.getPlayerCol() + 1);
+                }
+                else if ((updatedRow == this.getPlayerRow() + 1) && (updatedCol == this.getPlayerCol() + 1))
+                {
+                    if(!(legalMove("down right")))
+                    {
+                        return;
+                    }
+                    setPlayerPosition(this.getPlayerRow() + 1, this.getPlayerCol() + 1);
+                }
+                else if ((updatedRow == this.getPlayerRow() + 1) && (updatedCol == this.getPlayerCol()))
+                {
+                    if(!(legalMove("down")))
+                    {
+                        return;
+                    }
+                    setPlayerPosition(this.getPlayerRow() + 1, this.getPlayerCol());
+                }
+                else if ((updatedRow == this.getPlayerRow() + 1) && (updatedCol == this.getPlayerCol() - 1))
+                {
+                    if(!(legalMove("down left")))
+                    {
+                        return;
+                    }
+                    setPlayerPosition(this.getPlayerRow() + 1, this.getPlayerCol() - 1);
+                }
+                else if ((updatedRow == this.getPlayerRow()) && (updatedCol == this.getPlayerCol() - 1))
+                {
+                    if(!(legalMove("left")))
+                    {
+                        return;
+                    }
+                    setPlayerPosition(this.getPlayerRow(), this.getPlayerCol() - 1);
+                }
+                else if ((updatedRow == this.getPlayerRow() - 1) && (updatedCol == this.getPlayerCol() - 1))
+                {
+                    if(!(legalMove("up left")))
+                    {
+                        return;
+                    }
+                    setPlayerPosition(this.getPlayerRow() - 1, this.getPlayerCol() - 1);
+                }
             }
+            setChanged();
+            if((this.getPlayerRow() == this.getMaze().getMax_rows() - 1) && (this.getPlayerCol() == this.getMaze().getMax_columns() - 1))
+            {
+                notifyObservers("Player MovedF");
+                maze = null;
+                solution = null;
+                playerCol = 0;
+                playerRow = 0;
+            }
+            notifyObservers("Player Moved");
         }
     }
 
@@ -337,8 +411,6 @@ public class MyModel extends Observable implements IModel
             return this.getPlayerCol() - 1;
         return this.getPlayerCol();
     }
-
-
 
     public void assignObserver(Observer o)
     {

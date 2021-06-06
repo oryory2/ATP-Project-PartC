@@ -338,9 +338,4 @@ public class MyViewController implements IView, Observer
     {
         this.viewModel.mouseDragged(mouseEvent, this.mazeDisplayer);
     }
-
-    public void mouseReleased(MouseEvent mouseEvent)
-    {
-
-    }
 }
