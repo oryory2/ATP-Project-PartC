@@ -146,7 +146,7 @@ public class MyModel extends Observable implements IModel
                     if(easyMode)
                         return;
                     else
-                        Main.manToLost();
+                        Main.mainToLost();
                 }
                 row -= 1;
                 break;
@@ -157,7 +157,7 @@ public class MyModel extends Observable implements IModel
                     if(easyMode)
                         return;
                     else
-                        Main.manToLost();
+                        Main.mainToLost();
                 }
                 row -= 1 ;
                 col += 1;
@@ -169,7 +169,7 @@ public class MyModel extends Observable implements IModel
                     if(easyMode)
                         return;
                     else
-                        Main.manToLost();
+                        Main.mainToLost();
                 }
                 col += 1;
                 break;
@@ -180,7 +180,7 @@ public class MyModel extends Observable implements IModel
                     if(easyMode)
                         return;
                     else
-                        Main.manToLost();
+                        Main.mainToLost();
                 }
                 row += 1 ;
                 col += 1;
@@ -192,7 +192,7 @@ public class MyModel extends Observable implements IModel
                     if(easyMode)
                         return;
                     else
-                        Main.manToLost();
+                        Main.mainToLost();
                 }
                 row += 1;
                 break;
@@ -203,7 +203,7 @@ public class MyModel extends Observable implements IModel
                     if(easyMode)
                         return;
                     else
-                        Main.manToLost();
+                        Main.mainToLost();
                 }
                 row += 1 ;
                 col -= 1;
@@ -215,7 +215,7 @@ public class MyModel extends Observable implements IModel
                     if(easyMode)
                         return;
                     else
-                        Main.manToLost();
+                        Main.mainToLost();
                 }
                 col -= 1;
                 break;
@@ -226,7 +226,7 @@ public class MyModel extends Observable implements IModel
                     if(easyMode)
                         return;
                     else
-                        Main.manToLost();
+                        Main.mainToLost();
                 }
                 row -= 1 ;
                 col -= 1;
@@ -335,8 +335,7 @@ public class MyModel extends Observable implements IModel
         return playerCol;
     }
 
-    public void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer)
-    {
+    public void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer) throws IOException {
         if (maze != null)
         {
             int row = maze.getMax_rows();
@@ -356,7 +355,10 @@ public class MyModel extends Observable implements IModel
                 {
                     if(!(legalMove("up")))
                     {
-                        return;
+                        if(easyMode)
+                            return;
+                        else
+                            Main.mainToLost();
                     }
                     setPlayerPosition(this.getPlayerRow() - 1, this.getPlayerCol());
                 }
@@ -364,7 +366,10 @@ public class MyModel extends Observable implements IModel
                 {
                     if(!(legalMove("up right")))
                     {
-                        return;
+                        if(easyMode)
+                            return;
+                        else
+                            Main.mainToLost();
                     }
                     setPlayerPosition(this.getPlayerRow() - 1, this.getPlayerCol() + 1);
                 }
@@ -372,7 +377,10 @@ public class MyModel extends Observable implements IModel
                 {
                     if(!(legalMove("right")))
                     {
-                        return;
+                        if(easyMode)
+                            return;
+                        else
+                            Main.mainToLost();
                     }
                     setPlayerPosition(this.getPlayerRow(), this.getPlayerCol() + 1);
                 }
@@ -380,7 +388,10 @@ public class MyModel extends Observable implements IModel
                 {
                     if(!(legalMove("down right")))
                     {
-                        return;
+                        if(easyMode)
+                            return;
+                        else
+                            Main.mainToLost();
                     }
                     setPlayerPosition(this.getPlayerRow() + 1, this.getPlayerCol() + 1);
                 }
@@ -388,7 +399,10 @@ public class MyModel extends Observable implements IModel
                 {
                     if(!(legalMove("down")))
                     {
-                        return;
+                        if(easyMode)
+                            return;
+                        else
+                            Main.mainToLost();
                     }
                     setPlayerPosition(this.getPlayerRow() + 1, this.getPlayerCol());
                 }
@@ -396,7 +410,10 @@ public class MyModel extends Observable implements IModel
                 {
                     if(!(legalMove("down left")))
                     {
-                        return;
+                        if(easyMode)
+                            return;
+                        else
+                            Main.mainToLost();
                     }
                     setPlayerPosition(this.getPlayerRow() + 1, this.getPlayerCol() - 1);
                 }
@@ -404,7 +421,10 @@ public class MyModel extends Observable implements IModel
                 {
                     if(!(legalMove("left")))
                     {
-                        return;
+                        if(easyMode)
+                            return;
+                        else
+                            Main.mainToLost();
                     }
                     setPlayerPosition(this.getPlayerRow(), this.getPlayerCol() - 1);
                 }
@@ -412,7 +432,10 @@ public class MyModel extends Observable implements IModel
                 {
                     if(!(legalMove("up left")))
                     {
-                        return;
+                        if(easyMode)
+                            return;
+                        else
+                            Main.mainToLost();
                     }
                     setPlayerPosition(this.getPlayerRow() - 1, this.getPlayerCol() - 1);
                 }

@@ -119,7 +119,7 @@ public class Main extends Application
         primaryStage.show();
     }
 
-    public static void manToLost() throws IOException {
+    public static void mainToLost() throws IOException {
         Main.mediaPlayer.stop();
         Parent root = FXMLLoader.load(Main.class.getResource("Lost.fxml"));
         Scene scene = new Scene(root,600,450);

@@ -22,5 +22,5 @@ public interface IModel
     void assignObserver(Observer o);
     void restart();
     void setPlayerPosition(int row, int col);
-    void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer);
+    void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer) throws IOException;
 }

@@ -100,8 +100,7 @@ public class MyViewModel extends Observable implements Observer
         this.model.restart();
     }
 
-    public void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer)
-    {
+    public void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer) throws IOException {
         this.model.mouseDragged(mouseEvent, mazeDisplayer);
     }
 }

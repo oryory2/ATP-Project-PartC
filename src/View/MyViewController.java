@@ -339,8 +339,7 @@ public class MyViewController implements IView, Observer
         }
     }
 
-    public void mouseDragged(MouseEvent mouseEvent)
-    {
+    public void mouseDragged(MouseEvent mouseEvent) throws IOException {
         this.viewModel.mouseDragged(mouseEvent, this.mazeDisplayer);
     }
 }
