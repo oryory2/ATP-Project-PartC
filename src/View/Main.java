@@ -105,7 +105,7 @@ public class Main extends Application
     public static void mainToAppInfo() throws IOException
     {
         Parent root = FXMLLoader.load(Main.class.getResource("AppInfo.fxml"));
-        Scene scene = new Scene(root,600,450);
+        Scene scene = new Scene(root,644,540);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

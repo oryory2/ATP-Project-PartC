@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@MainStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AppInfoController">
+<AnchorPane prefHeight="540.0" prefWidth="644.0" stylesheets="@MainStyle.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AppInfoController">
    <children>
       <Label layoutX="151.0" layoutY="33.0" prefHeight="52.0" prefWidth="298.0" text="Application Information" textFill="WHITE">
          <font>
@@ -60,7 +60,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="GoBack" layoutX="266.0" layoutY="361.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="25.0" prefWidth="69.0" text="Go Back">
+      <Button fx:id="GoBack" layoutX="288.0" layoutY="467.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="25.0" prefWidth="69.0" text="Go Back">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -74,10 +74,27 @@
       <Hyperlink fx:id="DFSInfo" layoutX="45.0" layoutY="269.0" onAction="#DFSInfo" prefHeight="0.0" prefWidth="0.0" />
       <Hyperlink fx:id="BFSInfo" layoutX="45.0" layoutY="288.0" onAction="#BFSInfo" prefHeight="0.0" prefWidth="0.0" />
       <Hyperlink fx:id="bestInfo" layoutX="45.0" layoutY="307.0" onAction="#bestInfo" prefHeight="0.0" prefWidth="0.0" />
-      <Label layoutX="14.0" layoutY="422.0" text="For more info, Click on the white circles" textFill="WHITE">
+      <Label layoutX="9.0" layoutY="517.0" text="For more info, Click on the white circles" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
+      <Label layoutX="53.0" layoutY="343.0" text="Modes">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" layoutX="66.0" layoutY="378.0" prefHeight="17.0" prefWidth="491.0" text="Easy Mode - Run as fast as you can! You can't fail">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" layoutX="66.0" layoutY="406.0" prefHeight="20.0" prefWidth="578.0" text="Hard Mode - Careful not to touch the Maze walls, or to get our from the Maze bounderies">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Circle layoutX="49.0" layoutY="388.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="49.0" layoutY="416.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </AnchorPane>

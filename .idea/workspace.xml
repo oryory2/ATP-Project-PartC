@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4ebd696f-3dfa-430b-b2e5-dae078e0350c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/LostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/LostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/PropertiesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/PropertiesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/AppInfo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AppInfo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +161,7 @@
       <workItem from="1622983577392" duration="5852000" />
       <workItem from="1622989486051" duration="157000" />
       <workItem from="1622989676172" duration="894000" />
-      <workItem from="1622995512529" duration="5224000" />
+      <workItem from="1622995512529" duration="6611000" />
     </task>
     <servers />
   </component>
