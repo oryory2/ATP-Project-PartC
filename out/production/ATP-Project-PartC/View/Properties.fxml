@@ -15,7 +15,7 @@
             <Font name="System Bold Italic" size="31.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="GeneratingBar" layoutX="334.0" layoutY="232.0" prefHeight="25.0" prefWidth="121.0">
+      <ChoiceBox fx:id="GeneratingBar" layoutX="332.0" layoutY="223.0" prefHeight="25.0" prefWidth="130.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -23,7 +23,7 @@
             <Blend />
          </effect>
       </ChoiceBox>
-      <ChoiceBox fx:id="SolvingBar" layoutX="334.0" layoutY="288.0" prefHeight="25.0" prefWidth="121.0">
+      <ChoiceBox fx:id="SolvingBar" layoutX="332.0" layoutY="279.0" prefHeight="25.0" prefWidth="130.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -31,12 +31,12 @@
             <Blend />
          </effect>
       </ChoiceBox>
-      <Label alignment="BASELINE_CENTER" layoutX="118.0" layoutY="232.0" prefHeight="25.0" prefWidth="169.0" text="Generating Algorithm">
+      <Label alignment="BASELINE_CENTER" layoutX="116.0" layoutY="223.0" prefHeight="25.0" prefWidth="169.0" text="Generating Algorithm">
          <font>
             <Font name="System Italic" size="16.0" />
          </font>
       </Label>
-      <Label alignment="BASELINE_CENTER" layoutX="118.0" layoutY="288.0" prefHeight="25.0" prefWidth="169.0" text="Solving Algorithm">
+      <Label alignment="BASELINE_CENTER" layoutX="116.0" layoutY="279.0" prefHeight="25.0" prefWidth="169.0" text="Solving Algorithm">
          <font>
             <Font name="System Italic" size="16.0" />
          </font>
@@ -49,7 +49,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ChoiceBox fx:id="ThreadsBar" layoutX="334.0" layoutY="176.0" prefHeight="25.0" prefWidth="121.0">
+      <ChoiceBox fx:id="ThreadsBar" layoutX="332.0" layoutY="167.0" prefHeight="25.0" prefWidth="130.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -57,12 +57,12 @@
             <Blend />
          </effect>
       </ChoiceBox>
-      <Label alignment="BASELINE_CENTER" layoutX="118.0" layoutY="176.0" prefHeight="25.0" prefWidth="169.0" text="Number Of Threads">
+      <Label alignment="BASELINE_CENTER" layoutX="116.0" layoutY="167.0" prefHeight="25.0" prefWidth="169.0" text="Number Of Threads">
          <font>
             <Font name="System Italic" size="16.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="Mode" layoutX="332.0" layoutY="120.0" prefHeight="15.0" prefWidth="121.0">
+      <ChoiceBox fx:id="Mode" layoutX="330.0" layoutY="111.0" prefHeight="25.0" prefWidth="130.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -70,7 +70,7 @@
             <Blend />
          </effect>
       </ChoiceBox>
-      <Label alignment="BASELINE_CENTER" layoutX="119.0" layoutY="120.0" prefHeight="25.0" prefWidth="169.0" text="Mode">
+      <Label alignment="BASELINE_CENTER" layoutX="117.0" layoutY="111.0" prefHeight="25.0" prefWidth="169.0" text="Mode">
          <font>
             <Font name="System Italic" size="16.0" />
          </font>

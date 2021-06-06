@@ -2,6 +2,7 @@ package View;
 
 import Model.MyModel;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -33,6 +34,9 @@ public class LostController
     {
         lost = true;
         MyModel.easyMode = true;
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("Switched to Easy Mode");
+        alert.show();
         Main.backToMainSolved();
     }
 }

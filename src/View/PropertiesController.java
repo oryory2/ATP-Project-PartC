@@ -74,15 +74,36 @@ public class PropertiesController
         String solver = (String) SolvingBar.getValue();
         String mode = (String) Mode.getValue();
 
-        if(mode == "Easy")
-            MyModel.easyMode = true;
+        int modeChanged;
+
+        if(MyModel.easyMode)
+            modeChanged = 1;
         else
+            modeChanged = 2;
+
+
+        if(mode.equals("Easy"))
+        {
+            MyModel.easyMode = true;
+            if(modeChanged == 2)
+                modeChanged = 4;
+        }
+        else
+        {
             MyModel.easyMode = false;
+            if(modeChanged == 1)
+                modeChanged = 3;
+        }
 
         Configurations c = Configurations.getInstance();
         c.writeProp(numOfThreads, generator, solver, "MyCompressorOutputStream");
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Properties successfully loaded");
+        if(modeChanged == 4)
+            alert.setContentText("Properties successfully loaded \nSwitched to Easy Mode");
+        else if (modeChanged == 3)
+            alert.setContentText("Properties successfully loaded \nSwitched to Hard Mode");
+        else
+            alert.setContentText("Properties successfully loaded");
         alert.show();
 
         Main.backToMain();
