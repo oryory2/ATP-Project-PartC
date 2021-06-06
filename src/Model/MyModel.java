@@ -305,32 +305,37 @@ public class MyModel extends Observable implements IModel
             double cellHeight = canvasHeight / row;
             double cellWidth = canvasWidth / col;
 
-            int updatedRow = canvasIndexRow(mouseEvent.getSceneX(), canvasWidth);
-            int updatedCol = canvasIndexRow(mouseEvent.getSceneY(), canvasHeight);
+            int updatedRow = canvasIndexRow(mouseEvent.getSceneY(), cellHeight);
+            int updatedCol = canvasIndexCol(mouseEvent.getSceneX(), cellWidth);
 
-                for (int i = 0; i < row; i++)
-                {
-                    for (int j = 0; j < col; j++)
-                    {
-                        if (maze.getMazeArr()[i][j] == 1)
-                        {
-                            double x = j * cellWidth;
-                            double y = i * cellHeight;
-                        }
+            if ((updatedRow == this.getPlayerRow()) && (updatedCol == this.getPlayerCol())) {
+                return;
+            } else {
 
-                    }
-                }
+            }
         }
     }
 
-    public int canvasIndexRow(double SceneX, double cellWidth)
+    public int canvasIndexRow(double SceneY, double cellHeight)
     {
-        return  0;
+        double start = this.getPlayerRow() * cellHeight + 32; // 32
+        double end = (this.getPlayerRow() * cellHeight) + cellHeight + 32;
+        if(SceneY >= end)
+            return this.getPlayerRow() + 1;
+        if(SceneY < start)
+            return this.getPlayerRow() - 1;
+        return this.getPlayerRow();
     }
 
-    public int canvasIndexCol(double SceneY, double cellHeight)
+    public int canvasIndexCol(double SceneX, double cellWidth)
     {
-        return  0;
+        double start = this.getPlayerCol() * cellWidth + 176; // 176
+        double end = (this.getPlayerCol() * cellWidth) + cellWidth + 176;
+        if(SceneX >= end)
+            return this.getPlayerCol() + 1;
+        if(SceneX < start)
+            return this.getPlayerCol() - 1;
+        return this.getPlayerCol();
     }
 
 
