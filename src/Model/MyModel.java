@@ -466,10 +466,10 @@ public class MyModel extends Observable implements IModel
 
     public int canvasIndexRow(double SceneY, double cellHeight)
     {
-        if(SceneY < 32)
+        if(SceneY < 32.6)
             return -2;
-        double start = this.getPlayerRow() * cellHeight + 32; // 32
-        double end = (this.getPlayerRow() * cellHeight) + cellHeight + 32;
+        double start = this.getPlayerRow() * cellHeight + 32.6; // 32
+        double end = (this.getPlayerRow() * cellHeight) + cellHeight + 32.6;
 
         double smallerBound = start - cellHeight;
         double biggerBound = end + cellHeight;
@@ -485,10 +485,10 @@ public class MyModel extends Observable implements IModel
 
     public int canvasIndexCol(double SceneX, double cellWidth)
     {
-        if(SceneX < 176)
+        if(SceneX < 176.54)
             return -2;
-        double start = this.getPlayerCol() * cellWidth + 176; // 176
-        double end = (this.getPlayerCol() * cellWidth) + cellWidth + 176;
+        double start = this.getPlayerCol() * cellWidth + 176.54; // 176
+        double end = (this.getPlayerCol() * cellWidth) + cellWidth + 176.54;
 
         double leftBound = start - cellWidth;
         double rightBound = end + cellWidth;
