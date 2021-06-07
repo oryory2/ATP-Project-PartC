@@ -99,8 +99,7 @@ public class MyModel extends Observable implements IModel
         try {
             Client clientSolveMaze = new Client(InetAddress.getLocalHost(), 5401,
                     (inFromServer, outToServer) -> {
-                        try
-                        {
+                        try {
                             ObjectOutputStream toServer = new ObjectOutputStream(outToServer);
                             ObjectInputStream fromServer = new ObjectInputStream(inFromServer);
                             toServer.flush();

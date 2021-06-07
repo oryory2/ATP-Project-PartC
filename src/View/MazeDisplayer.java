@@ -29,8 +29,8 @@ public class MazeDisplayer extends Canvas
     public MazeDisplayer()
     {
         // Redraw canvas when size changes.
-        widthProperty().addListener(evt -> draw());
-        heightProperty().addListener(evt -> draw());
+        //widthProperty().addListener(evt -> draw());
+        //heightProperty().addListener(evt -> draw());
     }
 
     public int getPlayerRow() {
@@ -216,22 +216,24 @@ public class MazeDisplayer extends Canvas
 
     public void getOnScroll(ScrollEvent scrollEvent)
     {
-        double zooming = 1.0;
-        if (scrollEvent.getDeltaY() < 0) {
-            zooming = 0.9;
+
+        if (scrollEvent.getDeltaY() < 0)
+        {
+            setHeight(getHeight() / 1.1);
+            setWidth(getWidth() / 1.1);
         }
-        else{
+        else
+        {
             if(getWidth()>6200 || getHeight()>6200)
             {
                 return;
             }
-            else{
-                zooming = 1.1;
+            else
+            {
+                setHeight(getHeight() * 1.1);
+                setWidth(getWidth() * 1.1);
             }
         }
-        setScaleY(getScaleY() * zooming);
-        setScaleX(getScaleX() * zooming);
-        scrollEvent.consume();
         draw();
         if(this.solution != null)
         {
