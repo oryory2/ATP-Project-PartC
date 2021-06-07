@@ -29,8 +29,8 @@ public class MazeDisplayer extends Canvas
     public MazeDisplayer()
     {
         // Redraw canvas when size changes.
-        widthProperty().addListener(evt -> draw());
-        heightProperty().addListener(evt -> draw());
+        //widthProperty().addListener(evt -> draw());
+        //heightProperty().addListener(evt -> draw());
     }
 
     public int getPlayerRow() {
