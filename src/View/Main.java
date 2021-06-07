@@ -149,7 +149,10 @@ public class Main extends Application
 
     public void stop()
     {
-        MyModel.mazeGeneratingServer.stop();
-        MyModel.solveSearchProblemServer.stop();
+        if (mediaPlayer != null)
+        {
+            MyModel.mazeGeneratingServer.stop();
+            MyModel.solveSearchProblemServer.stop();
+        }
     }
 }
