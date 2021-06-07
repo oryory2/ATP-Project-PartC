@@ -24,6 +24,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -46,6 +47,8 @@ public class MyViewController implements IView, Observer
     public TextField textField_mazeColumns;
     public Label thisPose;
     public Button solveMaze;
+    public BorderPane BigBorderPane;
+    public Pane canvas;
     private boolean ctrlFlag;
 
 
@@ -131,6 +134,8 @@ public class MyViewController implements IView, Observer
         this.solveMaze.setText("Solve Maze");
         this.mazeDisplayer.clickedCounter = 0;
         this.solveMaze.setDisable(false);
+        //mazeDisplayer.widthProperty().bind(canvas.widthProperty());
+        //mazeDisplayer.heightProperty().bind((canvas.heightProperty()));
     }
 
 
