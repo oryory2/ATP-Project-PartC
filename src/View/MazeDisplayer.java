@@ -26,7 +26,12 @@ public class MazeDisplayer extends Canvas
     private static int playerCol = 0;
     public int clickedCounter;
 
-
+    public MazeDisplayer()
+    {
+        // Redraw canvas when size changes.
+        //widthProperty().addListener(evt -> draw());
+        //heightProperty().addListener(evt -> draw());
+    }
 
     public int getPlayerRow() {
         return playerRow;

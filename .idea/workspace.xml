@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4ebd696f-3dfa-430b-b2e5-dae078e0350c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/MyViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/View/MyViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MyView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MyView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MyViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MyViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MazeDisplayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MazeDisplayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
