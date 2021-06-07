@@ -349,9 +349,6 @@ public class MyModel extends Observable implements IModel
             int updatedRow = canvasIndexRow(mouseEvent.getSceneY(), cellHeight);
             int updatedCol = canvasIndexCol(mouseEvent.getSceneX(), cellWidth);
 
-            if(updatedRow == -1 || updatedCol == -1)
-                return;
-
             if (!((updatedRow == this.getPlayerRow()) && (updatedCol == this.getPlayerCol())))
             {
                 if((updatedRow == this.getPlayerRow() - 1) && (updatedCol == this.getPlayerCol()))
@@ -460,17 +457,11 @@ public class MyModel extends Observable implements IModel
     {
         double start = this.getPlayerRow() * cellHeight + 32; // 32
         double end = (this.getPlayerRow() * cellHeight) + cellHeight + 32;
-
-        double smallerBound = start - cellHeight;
-        double biggerBound = end + cellHeight;
-
-        if(SceneY >= end && SceneY < biggerBound)
+        if(SceneY >= end)
             return this.getPlayerRow() + 1;
-        if(SceneY < start && SceneY >= smallerBound)
+        if(SceneY < start)
             return this.getPlayerRow() - 1;
-        if(SceneY >= start && SceneY < end)
-            return this.getPlayerRow();
-        return -1;
+        return this.getPlayerRow();
     }
 
     public int canvasIndexCol(double SceneX, double cellWidth)
@@ -478,16 +469,11 @@ public class MyModel extends Observable implements IModel
         double start = this.getPlayerCol() * cellWidth + 176; // 176
         double end = (this.getPlayerCol() * cellWidth) + cellWidth + 176;
 
-        double leftBound = start - cellWidth;
-        double rightBound = end + cellWidth;
-
-        if(SceneX >= end && SceneX < rightBound)
+        if(SceneX >= end)
             return this.getPlayerCol() + 1;
-        if(SceneX < start && SceneX >= leftBound)
+        if(SceneX < start)
             return this.getPlayerCol() - 1;
-        if(SceneX >= start && SceneX < end)
-            return this.getPlayerCol();
-        return -1;
+        return this.getPlayerCol();
     }
 
     public void assignObserver(Observer o)
