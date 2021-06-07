@@ -146,4 +146,10 @@ public class Main extends Application
         MyViewController view = fxmlLoader.getController();
         view.setViewModel(viewModel);
     }
+
+    public void stop()
+    {
+        MyModel.mazeGeneratingServer.stop();
+        MyModel.solveSearchProblemServer.stop();
+    }
 }
