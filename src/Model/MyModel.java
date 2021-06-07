@@ -67,7 +67,7 @@ public class MyModel extends Observable implements IModel
                             fromServer.close();
                         } catch (Exception e)
                         {
-                           e.printStackTrace();
+                            e.printStackTrace();
                         }
                     });
             clientMazeGenerator.communicateWithServer();
@@ -349,6 +349,17 @@ public class MyModel extends Observable implements IModel
             int updatedRow = canvasIndexRow(mouseEvent.getSceneY(), cellHeight);
             int updatedCol = canvasIndexCol(mouseEvent.getSceneX(), cellWidth);
 
+            if(updatedRow == -2 || updatedCol == -2)
+            {
+                if(easyMode)
+                    return;
+                else
+                    Main.mainToLost();
+            }
+
+            if(updatedRow == -1 || updatedCol == -1)
+                return;
+
             if (!((updatedRow == this.getPlayerRow()) && (updatedCol == this.getPlayerCol())))
             {
                 if((updatedRow == this.getPlayerRow() - 1) && (updatedCol == this.getPlayerCol()))
@@ -455,25 +466,40 @@ public class MyModel extends Observable implements IModel
 
     public int canvasIndexRow(double SceneY, double cellHeight)
     {
+        if(SceneY < 32)
+            return -2;
         double start = this.getPlayerRow() * cellHeight + 32; // 32
         double end = (this.getPlayerRow() * cellHeight) + cellHeight + 32;
-        if(SceneY >= end)
+
+        double smallerBound = start - cellHeight;
+        double biggerBound = end + cellHeight;
+
+        if(SceneY >= end && SceneY < biggerBound)
             return this.getPlayerRow() + 1;
-        if(SceneY < start)
+        if(SceneY < start && SceneY >= smallerBound)
             return this.getPlayerRow() - 1;
-        return this.getPlayerRow();
+        if(SceneY >= start && SceneY < end)
+            return this.getPlayerRow();
+        return -1;
     }
 
     public int canvasIndexCol(double SceneX, double cellWidth)
     {
+        if(SceneX < 176)
+            return -2;
         double start = this.getPlayerCol() * cellWidth + 176; // 176
         double end = (this.getPlayerCol() * cellWidth) + cellWidth + 176;
 
-        if(SceneX >= end)
+        double leftBound = start - cellWidth;
+        double rightBound = end + cellWidth;
+
+        if(SceneX >= end && SceneX < rightBound)
             return this.getPlayerCol() + 1;
-        if(SceneX < start)
+        if(SceneX < start && SceneX >= leftBound)
             return this.getPlayerCol() - 1;
-        return this.getPlayerCol();
+        if(SceneX >= start && SceneX < end)
+            return this.getPlayerCol();
+        return -1;
     }
 
     public void assignObserver(Observer o)
