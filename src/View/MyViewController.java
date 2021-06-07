@@ -134,8 +134,8 @@ public class MyViewController implements IView, Observer
         this.solveMaze.setText("Solve Maze");
         this.mazeDisplayer.clickedCounter = 0;
         this.solveMaze.setDisable(false);
-        //mazeDisplayer.widthProperty().bind(canvas.widthProperty());
-        //mazeDisplayer.heightProperty().bind((canvas.heightProperty()));
+        mazeDisplayer.widthProperty().bind(canvas.widthProperty());
+        mazeDisplayer.heightProperty().bind((canvas.heightProperty()));
     }
 
 
