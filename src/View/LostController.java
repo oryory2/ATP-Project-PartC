@@ -16,20 +16,35 @@ public class LostController
 {
     public static boolean lost = false;
 
-
+    /**
+     * Enter the losing window after losing in hard mode
+     * Loss in a hard-mode game occurs when you touch a wall
+     * or when you go beyond the maze boundaries
+     */
     public void initialize() throws FileNotFoundException
     {
+        //play losing music
         Media sound = new Media(new File("resources/Sounds/Lost.mp3").toURI().toString());
         Main.mediaPlayer = new MediaPlayer(sound);
         Main.mediaPlayer.play();
     }
 
+    /**
+     * Go back to the beginning and try to solve the maze again
+     * Still in Hard Mode
+     * @param actionEvent Clicking the "Try Again" button
+     */
     public void tryAgain(ActionEvent actionEvent) throws IOException
     {
         lost = true;
         Main.backToMainSolved();
     }
 
+    /**
+     * Go back to the beginning and try to solve the maze again
+     * This time in easy mode
+     * @param actionEvent Clicking the "It's Too Hard" button
+     */
     public void tooHard(ActionEvent actionEvent) throws IOException
     {
         lost = true;

@@ -31,6 +31,10 @@ public class Main extends Application
     public static MyViewController myViewController;
 
 
+    /**
+     * starting the app
+     * @param primaryStage the primary stage in our case the User Guide(Stage)
+     */
     public void start(Stage primaryStage) throws Exception
     {
         //System.out.println(System.getProperty("java.io.tmpdir"));
@@ -41,6 +45,9 @@ public class Main extends Application
         primaryStage.show();
     }
 
+    /**
+     * starting the game itself after reading the user guide
+     */
     public static void realStart() throws IOException
     {
         Media sound = new Media(new File("resources/Sounds/mainMusic.mp3").toURI().toString());
@@ -64,6 +71,9 @@ public class Main extends Application
         launch(args);
     }
 
+    /**
+     * returns to the game window itself from anywhere other than the game window
+     */
     public static void backToMain() throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MyView.fxml"));
@@ -78,6 +88,9 @@ public class Main extends Application
         view.setViewModel(viewModel);
     }
 
+    /**
+     * Moves from the game window to the Properties window
+     */
     public static void mainToProperties() throws IOException
     {
         Parent root = FXMLLoader.load(Main.class.getResource("Properties.fxml"));
@@ -86,6 +99,9 @@ public class Main extends Application
         primaryStage.show();
     }
 
+    /**
+     * Moves from the game window to the Save window
+     */
     public static void mainToSave() throws IOException {
         Parent root = FXMLLoader.load(Main.class.getResource("Save.fxml"));
         Scene scene = new Scene(root,600,450);
@@ -93,6 +109,9 @@ public class Main extends Application
         primaryStage.show();
     }
 
+    /**
+     * Moves from the game window to the User Guide window
+     */
     public static void mainToUserGuide() throws IOException
     {
         Parent root = FXMLLoader.load(Main.class.getResource("UserGuide.fxml"));
@@ -101,6 +120,9 @@ public class Main extends Application
         primaryStage.show();
     }
 
+    /**
+     * Moves from the game window to the Application Info window
+     */
     public static void mainToAppInfo() throws IOException
     {
         Parent root = FXMLLoader.load(Main.class.getResource("AppInfo.fxml"));
@@ -109,6 +131,11 @@ public class Main extends Application
         primaryStage.show();
     }
 
+
+    /**
+     * Moves to the another window after the user has solved the maze
+     * The user receives congratulations for solving the maze
+     */
     public static void mainToSolved() throws IOException
     {
         Main.mediaPlayer.stop();
@@ -118,6 +145,10 @@ public class Main extends Application
         primaryStage.show();
     }
 
+    /**
+     * Moves from the game window to the Losing window
+     * after losing the game in hard mode
+     */
     public static void mainToLost() throws IOException {
         Main.mediaPlayer.stop();
         Parent root = FXMLLoader.load(Main.class.getResource("Lost.fxml"));
@@ -127,6 +158,11 @@ public class Main extends Application
     }
 
 
+    /**
+     * Returns to the game itself from other windows
+     * remembering that the maze is solved according to the user's request
+     * and continues to present the solution
+     */
     public static void backToMainSolved() throws IOException
     {
         Media sound = new Media(new File("resources/Sounds/mainMusic.mp3").toURI().toString());
@@ -146,6 +182,9 @@ public class Main extends Application
         view.setViewModel(viewModel);
     }
 
+    /**
+     * Stops running the app
+     */
     public void stop()
     {
         if (mediaPlayer != null)

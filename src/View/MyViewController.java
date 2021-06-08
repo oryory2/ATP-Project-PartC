@@ -160,7 +160,7 @@ public class MyViewController implements IView, Observer
         }
     }
 
-    private void mazeSolved()
+    public void mazeSolved()
     {
         this.mazeDisplayer.drawSolution(this.viewModel.getSolution());
         this.solveMaze.setText("Unsolve Maze");
