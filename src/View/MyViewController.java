@@ -175,7 +175,7 @@ public class MyViewController implements IView, Observer
             {
                 this.mazeDisplayer.solution = null;
                 this.viewModel.setSolution(null);
-                this.mazeDisplayer.drawMaze(this.viewModel.getMaze().getMazeArr());
+                this.mazeDisplayer.draw(Main.primaryStage.getHeight() - 100 , Main.primaryStage.getWidth() - 150);
                 this.solveMaze.setText("Solve Maze");
             }
         }

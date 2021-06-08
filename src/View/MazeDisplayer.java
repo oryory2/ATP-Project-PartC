@@ -26,8 +26,6 @@ public class MazeDisplayer extends Canvas
     private static int playerRow = 0;
     private static int playerCol = 0;
     public int clickedCounter;
-    private double zoomHeight = 0;
-    private double zoomWidth = 0;
     public boolean zoomFlag;
 
 
@@ -76,8 +74,7 @@ public class MazeDisplayer extends Canvas
     {
         this.maze = maze;
         this.zoomFlag = true;
-        this.zoomHeight = 0;
-        this.zoomWidth = 0;
+
         draw(Main.primaryStage.getHeight() - 100 , Main.primaryStage.getWidth() - 150);
         if(this.solution != null)
         {
@@ -112,8 +109,8 @@ public class MazeDisplayer extends Canvas
         {
             if(this.zoomFlag)
             {
-                this.setHeight(height - 50 + this.zoomHeight);
-                this.setWidth(width - 50 + this.zoomWidth);
+                this.setHeight(height - 50);
+                this.setWidth(width - 50);
             }
 
             this.zoomFlag = false;
@@ -231,8 +228,6 @@ public class MazeDisplayer extends Canvas
 
         if (scrollEvent.getDeltaY() < 0)
         {
-            this.zoomHeight += (getHeight() / 1.1) - getHeight();
-            this.zoomHeight += (getWidth() / 1.1) - getWidth();
             setHeight(getHeight() / 1.1);
             setWidth(getWidth() / 1.1);
         }
@@ -244,8 +239,6 @@ public class MazeDisplayer extends Canvas
             }
             else
             {
-                this.zoomHeight += (getHeight() * 1.1) - getHeight();
-                this.zoomHeight += (getWidth() * 1.1) - getWidth();
                 setHeight(getHeight() * 1.1);
                 setWidth(getWidth() * 1.1);
             }
