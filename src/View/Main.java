@@ -48,7 +48,6 @@ public class Main extends Application
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
-        Main.primaryStage = primaryStage;
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MyView.fxml"));
         Parent root = fxmlLoader.load();
         primaryStage.setTitle("Maze Application");
