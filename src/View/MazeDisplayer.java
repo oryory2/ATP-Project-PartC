@@ -30,14 +30,25 @@ public class MazeDisplayer extends Canvas
 
 
 
+    /**
+     * @return the player row field
+     */
     public int getPlayerRow() {
         return playerRow;
     }
 
+    /**
+     * @return the player column field
+     */
     public int getPlayerCol() {
         return playerCol;
     }
 
+    /**
+     * define the position of the player and present it to the user
+     * @param row The row in the maze where the player will be
+     * @param col The column in the maze where the player will be
+     */
     public void setPlayerPosition(int row, int col)
     {
         playerRow = row;
@@ -49,27 +60,52 @@ public class MazeDisplayer extends Canvas
         }
     }
 
-
-    public String getImageFileNameWall() {
-        return imageFileNameWall.get();
-    }
-
+    /**
+     * set the image of the wall within the mazes
+     * @param imageFileNameWall the name of the wall image file
+     */
     public void setImageFileNameWall(String imageFileNameWall) {
         this.imageFileNameWall.set(imageFileNameWall);
     }
 
-    public String getImageFileNamePlayer() {
-        return imageFileNamePlayer.get();
-    }
-
+    /**
+     * @return the imageFileNamePlayer field
+     */
     public StringProperty imageFileNamePlayerProperty() {
         return imageFileNamePlayer;
     }
 
+    /**
+     * set the image of the wall within the mazes
+     * @param imageFileNamePlayer the name of the player image file
+     */
     public void setImageFileNamePlayer(String imageFileNamePlayer) {
         this.imageFileNamePlayer.set(imageFileNamePlayer);
     }
 
+
+    /**
+     * @return the imageFileNameWall field
+     */
+    public String getImageFileNameWall() {
+        return imageFileNameWall.get();
+    }
+
+
+    /**
+     * @return the file name of the imageFileNamePlayer field
+     */
+    public String getImageFileNamePlayer() {
+        return imageFileNamePlayer.get();
+    }
+
+
+    /**
+     * A function that receives a maze and draws it to the screen
+     * Use this function to redraw
+     * uses other drawing functions
+     * @param maze two-dimensional array that we will use to draw the maze
+     */
     public void drawMaze(int[][] maze)
     {
         this.maze = maze;
@@ -82,6 +118,10 @@ public class MazeDisplayer extends Canvas
         }
     }
 
+    /**
+     * A function that clears the current displayed maze
+     * And clears the solution shown if there is one
+     */
     public void clear()
     {
         if(this.maze != null)
@@ -103,6 +143,13 @@ public class MazeDisplayer extends Canvas
         }
 
     }
+    /**
+     * A function that receives a height and width
+     * And draws on the screen a maze with these dimensions
+     * In addition, the player and the walls will be drawn
+     * @param height the height of the maze(double)
+     * @param width the width of the maze(double)
+     */
     public void draw(double height, double width)
     {
         if(maze != null)
@@ -130,7 +177,14 @@ public class MazeDisplayer extends Canvas
         }
     }
 
-
+    /**
+     * A function that draws the walls within a certain maze
+     * @param graphicsContext class used to issue draw calls to a Canvas
+     * @param cellHeight the height of each cell within the maze
+     * @param cellWidth the width of each cell within the maze
+     * @param rows the amount of rows in the maze
+     * @param cols the amount of columns in the maze
+     */
     private void drawMazeWalls(GraphicsContext graphicsContext, double cellHeight, double cellWidth, int rows, int cols) {
         graphicsContext.setFill(Color.WHITE);
 
@@ -172,6 +226,12 @@ public class MazeDisplayer extends Canvas
 
     }
 
+    /**
+     * A function that draws the player within a certain maze
+     * @param graphicsContext class used to issue draw calls to a Canvas
+     * @param cellHeight the height of each cell within the maze
+     * @param cellWidth the width of each cell within the maze
+     */
     private void drawPlayer(GraphicsContext graphicsContext, double cellHeight, double cellWidth) {
         double x = getPlayerCol()  * cellWidth;
         double y = getPlayerRow() * cellHeight;
@@ -190,6 +250,11 @@ public class MazeDisplayer extends Canvas
     }
 
 
+    /**
+     * A function that draws a solution for the maze
+     * The solution is drawn on the maze itself
+     * @param sol the solution to be displayed
+     */
     public void drawSolution(Solution sol)
     {
 
@@ -223,6 +288,10 @@ public class MazeDisplayer extends Canvas
         }
     }
 
+    /**
+     * Pressing the Ctrl key and moving the mouse scroll will zoom in/out to the game board.
+     * @param scrollEvent ctrl key + mouse scroll done by the user (ScrollEvent)
+     */
     public void getOnScroll(ScrollEvent scrollEvent)
     {
 

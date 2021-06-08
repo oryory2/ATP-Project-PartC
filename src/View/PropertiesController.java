@@ -32,6 +32,10 @@ public class PropertiesController
 
 
     @FXML
+    /**
+     * first displaying the Properties window
+     * set default properties to start with
+     */
     private void initialize()
     {
         Object[] properties = Configurations.getInstance().LoadProp();
@@ -63,11 +67,25 @@ public class PropertiesController
         SolvingBar.setItems(SolvingBarList);
     }
 
+    /**
+     * cancel any changes that the user has made
+     * go back to the previous properties before the changes(if there were any)
+     * and go back to the game
+     * @param actionEvent the user pressing the cancel button (ActionEvent)
+     * @throws IOException
+     */
     public void cancelButton(ActionEvent actionEvent) throws IOException
     {
         Main.backToMain();
     }
 
+    /**
+     * Confirm that these are the settings the user wants
+     * set the mode, number of threads, generating algorithm and solving algorithm accordingly
+     * go back to the game apllying these new settings
+     * @param actionEvent the user pressing the confirm button (ActionEvent)
+     * @throws IOException
+     */
     public void confirmButton(ActionEvent actionEvent) throws IOException {
         String  numOfThreads = (String) ThreadsBar.getValue();
         String generator = (String) GeneratingBar.getValue();

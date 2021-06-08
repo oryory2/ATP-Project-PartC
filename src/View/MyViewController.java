@@ -32,11 +32,18 @@ public class MyViewController implements IView, Observer
     private boolean ctrlFlag;
 
 
+    /**
+     * constructor
+     * Initializing the maze displayer
+     */
     public MyViewController()
     {
         this.mazeDisplayer = new MazeDisplayer();
     }
 
+    /**
+     * @param viewModel the observer of this View (viewModel)
+     */
     public void setViewModel(MyViewModel viewModel)
     {
         this.viewModel = viewModel;
@@ -55,12 +62,16 @@ public class MyViewController implements IView, Observer
         }
         else
         {
+            //disable the option to solve the maze because no maze has been generated yet
             this.solveMaze.setDisable(true);
         }
         Main.primaryStage.widthProperty().addListener(gg -> {reSizeWindow(); });
         Main.primaryStage.heightProperty().addListener(gg -> {reSizeWindow(); });
     }
 
+    /**
+     * resize the window when the width or height property has been changed
+     */
     private void reSizeWindow()
     {
         this.mazeDisplayer.zoomFlag = true;
@@ -71,8 +82,13 @@ public class MyViewController implements IView, Observer
         }
     }
 
+    /**
+     * generating a new maze to be displayed on screen
+     * @param actionEvent pressing on the create new Maze Button (ActionEvent)
+     */
     public void generateMaze(ActionEvent actionEvent)
     {
+        //Check that rows and columns have been inserted by the user
         if((this.textField_mazeRows.getText().equals("")) || (this.textField_mazeColumns.getText().equals("")))
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -82,6 +98,7 @@ public class MyViewController implements IView, Observer
             this.textField_mazeColumns.setText("");
             return;
         }
+        //Check that the user has inserted numbers and numbers only to the rows and columns
         if(!(isNumber(this.textField_mazeRows.getText(), this.textField_mazeColumns.getText())))
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -95,6 +112,7 @@ public class MyViewController implements IView, Observer
         int row = Integer.parseInt(this.textField_mazeRows.getText());
         int col = Integer.parseInt(this.textField_mazeColumns.getText());
 
+        //check that the maze dimensions are greater than 2
         if((row < 2) || (col < 2))
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -116,6 +134,11 @@ public class MyViewController implements IView, Observer
         }
     }
 
+    /**
+     * after a maze has been generated draw the maze
+     * set the player position to 0,0
+     * and enable the option of solving the maze
+     */
     public void mazeGenerated()
     {
         this.mazeDisplayer.setPlayerPosition(0,0);
@@ -128,7 +151,10 @@ public class MyViewController implements IView, Observer
         this.scrollPane.setPannable(false);
     }
 
-
+    /**
+     * solve the maze displayed on screen
+     * @param actionEvent user pressing the "Solve Maze" Button (ActionEvent)
+     */
     public void solveMaze(ActionEvent actionEvent)
     {
         if(this.viewModel.getMaze() == null)
@@ -160,12 +186,21 @@ public class MyViewController implements IView, Observer
         }
     }
 
+    /**
+     * draw the solution of the maze on the screen after the user asked for it
+     * change the "solve maze" button to "unsolve maze"
+     */
     public void mazeSolved()
     {
         this.mazeDisplayer.drawSolution(this.viewModel.getSolution());
         this.solveMaze.setText("Unsolve Maze");
     }
 
+    /**
+     * start a new game
+     * clear the maze or maze and its solution from the screen if needed
+     * @param actionEvent pressing on the "New" Menu Item within THE "File" menu (ActionEvent)
+     */
     public void newBar(ActionEvent actionEvent)
     {
         this.mazeDisplayer.clear();
@@ -183,6 +218,13 @@ public class MyViewController implements IView, Observer
         Main.mediaPlayer.play();
     }
 
+    /**
+     * Load a saved maze
+     * clear the current maze or the current maze and its solution from the screen if needed
+     * display the loaded maze on the screen
+     * and allow the user to continue playing the saved game
+     * @param actionEvent pressing on the "Load" Menu Item within THE "File" menu (ActionEvent)
+     */
     public void loadBar(ActionEvent actionEvent) {
         FileChooser fc = new FileChooser();
         fc.setTitle("Open Maze");
@@ -222,11 +264,20 @@ public class MyViewController implements IView, Observer
         }
     }
 
+    /**
+     * Move from the Game window to the properties window
+     * @param actionEvent pressing on the "Properties" Menu Item within the "Options" menu (ActionEvent)
+     * @throws IOException
+     */
     public void propertiesBar(ActionEvent actionEvent) throws IOException
     {
         Main.mainToProperties();
     }
 
+    /**
+     * Save the current maze to a file
+     * @param actionEvent pressing on the "Save" Menu Item within the "File" menu (ActionEvent)
+     */
     public void saveBar(ActionEvent actionEvent) throws IOException {
         if(this.viewModel.getMaze() == null)
         {
@@ -240,11 +291,21 @@ public class MyViewController implements IView, Observer
         }
     }
 
+    /**
+     * Move from the Game window to the User Guide window
+     * @param actionEvent pressing on the "User Guide" Menu Item within the "Help" menu (ActionEvent)
+     * @throws IOException
+     */
     public void userGuide(ActionEvent actionEvent) throws IOException
     {
         Main.mainToUserGuide();
     }
 
+    /**
+     * Move from the Game window to the User Guide window
+     * @param actionEvent pressing on the "Application Info" Menu Item within the "About" menu (ActionEvent)
+     * @throws IOException
+     */
     public void AppInfo(ActionEvent actionEvent) throws IOException
     {
         Main.mainToAppInfo();
@@ -260,12 +321,25 @@ public class MyViewController implements IView, Observer
         keyEvent.consume();
     }
 
+    /**
+     * when the user moves the player the function will update its position
+     * and the current position label text
+     * @param row the row of the new position of the player (int)
+     * @param col the column of the new position of the player (int)
+     * @throws IOException
+     */
     public void playerMoved(int row, int col) throws IOException
     {
         this.mazeDisplayer.setPlayerPosition(row,col);
         this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
     }
 
+    /**
+     * move the player to the first position 0,0
+     * @param row (int)
+     * @param col (int)
+     * @throws IOException
+     */
     public void playerMovedF(int row, int col) throws IOException
     {
         this.mazeDisplayer.setPlayerPosition(row,col);
@@ -274,6 +348,11 @@ public class MyViewController implements IView, Observer
         this.thisPose.setText("Current Position : (" + mazeDisplayer.getPlayerRow() + "," + mazeDisplayer.getPlayerCol() + ")");
     }
 
+    /**
+     * Requests that this Node get the input focus,
+     * and that this Node's top-level ancestor become the focused window.
+     * @param mouseEvent clicking on the maze (MouseEvent)
+     */
     public void mouseClicked(MouseEvent mouseEvent)
     {
         this.mazeDisplayer.requestFocus();
@@ -287,6 +366,10 @@ public class MyViewController implements IView, Observer
 
     }
 
+    /**
+     * A function that updates that the control key has been released
+     * @param keyEvent user releasing the ctrl button (KeyEvent)
+     */
     public void ctrlReleased(KeyEvent keyEvent)
     {
         if(keyEvent.getCode() == KeyCode.CONTROL)
@@ -295,6 +378,11 @@ public class MyViewController implements IView, Observer
         }
     }
 
+    /**
+     *
+     * @param o
+     * @param arg
+     */
     public void update(Observable o, Object arg)
     {
         String change = (String) arg;
@@ -315,12 +403,23 @@ public class MyViewController implements IView, Observer
         }
     }
 
+    /**
+     * exit the app
+     * @param actionEvent pressing on the exit bar menu item exitApp (ActionEvent)
+     */
     public void exit(ActionEvent actionEvent)
     {
         Platform.exit();
         System.exit(0);
     }
 
+    /**
+     * a function that gets two strings
+     * And checks if the content of each of the strings is a number
+     * @param row The dimension of the rows to be checked (String)
+     * @param col The dimension of the columns to be checked (String)
+     * @return whether these are numbers (boolean)
+     */
     private boolean isNumber(String row, String col)
     {
         try
@@ -335,6 +434,11 @@ public class MyViewController implements IView, Observer
         }
     }
 
+    /**
+     * a function that moves the player using mouse dragging
+     * @param mouseEvent the draggin of the mouse bu the user (MouseEvent)
+     * @throws IOException
+     */
     public void mouseDragged(MouseEvent mouseEvent) throws IOException
     {
         this.viewModel.mouseDragged(mouseEvent, this.mazeDisplayer, this.scrollPane);
