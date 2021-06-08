@@ -14,6 +14,7 @@ import algorithms.search.SearchableMaze;
 import algorithms.search.Solution;
 import Client.*;
 import Server.*;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 
 import java.io.*;
@@ -335,7 +336,7 @@ public class MyModel extends Observable implements IModel
         return playerCol;
     }
 
-    public void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer) throws IOException {
+    public void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer, ScrollPane scrollPane) throws IOException {
         if (maze != null)
         {
             int row = maze.getMax_rows();
@@ -346,8 +347,11 @@ public class MyModel extends Observable implements IModel
             double cellHeight = canvasHeight / row;
             double cellWidth = canvasWidth / col;
 
-            int updatedRow = canvasIndexRow(mouseEvent.getSceneY(), cellHeight);
-            int updatedCol = canvasIndexCol(mouseEvent.getSceneX(), cellWidth);
+            double scrollX = scrollPane.getHvalue();
+            double scrollY = scrollPane.getVvalue();
+
+            int updatedRow = canvasIndexRow(mouseEvent.getSceneY(), cellHeight, scrollY);
+            int updatedCol = canvasIndexCol(mouseEvent.getSceneX(), cellWidth, scrollX);
 
             if(updatedRow == -2 || updatedCol == -2)
             {
@@ -464,10 +468,11 @@ public class MyModel extends Observable implements IModel
         }
     }
 
-    public int canvasIndexRow(double SceneY, double cellHeight)
+    public int canvasIndexRow(double SceneY, double cellHeight, double scrollY)
     {
         if(SceneY < 32.6)
             return -2;
+
         double start = this.getPlayerRow() * cellHeight + 32.6; // 32
         double end = (this.getPlayerRow() * cellHeight) + cellHeight + 32.6;
 
@@ -483,10 +488,11 @@ public class MyModel extends Observable implements IModel
         return -1;
     }
 
-    public int canvasIndexCol(double SceneX, double cellWidth)
+    public int canvasIndexCol(double SceneX, double cellWidth, double scrollX)
     {
         if(SceneX < 176.54)
             return -2;
+
         double start = this.getPlayerCol() * cellWidth + 176.54; // 176
         double end = (this.getPlayerCol() * cellWidth) + cellWidth + 176.54;
 

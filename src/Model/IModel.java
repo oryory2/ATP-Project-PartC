@@ -3,6 +3,7 @@ package Model;
 import View.MazeDisplayer;
 import algorithms.mazeGenerators.Maze;
 import algorithms.search.Solution;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -22,5 +23,5 @@ public interface IModel
     void assignObserver(Observer o);
     void restart();
     void setPlayerPosition(int row, int col);
-    void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer) throws IOException;
+    void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer, ScrollPane scrollPane) throws IOException;
 }

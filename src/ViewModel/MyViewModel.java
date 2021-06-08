@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 import Model.MovementDirection;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
@@ -100,8 +101,8 @@ public class MyViewModel extends Observable implements Observer
         this.model.restart();
     }
 
-    public void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer) throws IOException
+    public void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer, ScrollPane scrollPane) throws IOException
     {
-        this.model.mouseDragged(mouseEvent, mazeDisplayer);
+        this.model.mouseDragged(mouseEvent, mazeDisplayer, scrollPane);
     }
 }

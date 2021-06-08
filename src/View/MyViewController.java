@@ -1,43 +1,22 @@
 package View;
 
-import Model.MyModel;
-import Server.Configurations;
 import ViewModel.MyViewModel;
-import algorithms.mazeGenerators.IMazeGenerator;
 import algorithms.mazeGenerators.Maze;
-import algorithms.mazeGenerators.MyMazeGenerator;
-import algorithms.search.ISearchable;
-import algorithms.search.ISearchingAlgorithm;
-import algorithms.search.SearchableMaze;
-import algorithms.search.Solution;
-import com.sun.prism.paint.Stop;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.transform.Scale;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 
 import java.io.*;
-import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Properties;
-import java.util.ResourceBundle;
 
 public class MyViewController implements IView, Observer
 {
@@ -49,7 +28,7 @@ public class MyViewController implements IView, Observer
     public Label thisPose;
     public Button solveMaze;
     public BorderPane BigBorderPane;
-    public javafx.scene.control.ScrollPane ScrollPane;
+    public javafx.scene.control.ScrollPane scrollPane;
     private boolean ctrlFlag;
 
 
@@ -146,7 +125,7 @@ public class MyViewController implements IView, Observer
         this.solveMaze.setText("Solve Maze");
         this.mazeDisplayer.clickedCounter = 0;
         this.solveMaze.setDisable(false);
-        this.ScrollPane.setPannable(false);
+        this.scrollPane.setPannable(false);
     }
 
 
@@ -358,6 +337,6 @@ public class MyViewController implements IView, Observer
 
     public void mouseDragged(MouseEvent mouseEvent) throws IOException
     {
-        this.viewModel.mouseDragged(mouseEvent, this.mazeDisplayer);
+        this.viewModel.mouseDragged(mouseEvent, this.mazeDisplayer, this.scrollPane);
     }
 }
