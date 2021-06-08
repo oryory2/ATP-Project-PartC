@@ -6,9 +6,26 @@
   <component name="ChangeListManager">
     <list default="true" id="4ebd696f-3dfa-430b-b2e5-dae078e0350c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ATP-Project-PartC/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ATP-Project-PartC/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/IModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/IModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MovementDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MovementDirection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MyModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/AppInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AppInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/IView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/IView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/LostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/LostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MainStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/MazeDisplayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MazeDisplayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MyView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MyView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MyViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MyViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/PropertiesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/PropertiesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Save.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Save.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/SaveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/SaveController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Solved.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Solved.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/SolvedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/SolvedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/UserGuide.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/UserGuide.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/UserGuideController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/UserGuideController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ViewModel/MyViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewModel/MyViewModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +55,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/ATP-Project-PartB" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../a" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -167,7 +184,9 @@
       <workItem from="1623080770356" duration="733000" />
       <workItem from="1623081581073" duration="838000" />
       <workItem from="1623082518000" duration="634000" />
-      <workItem from="1623096659686" duration="2079000" />
+      <workItem from="1623096659686" duration="2116000" />
+      <workItem from="1623138322547" duration="490000" />
+      <workItem from="1623138864442" duration="92000" />
     </task>
     <servers />
   </component>

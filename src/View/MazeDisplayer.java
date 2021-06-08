@@ -9,6 +9,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.paint.Color;
 
@@ -29,8 +30,8 @@ public class MazeDisplayer extends Canvas
     public MazeDisplayer()
     {
         // Redraw canvas when size changes.
-        //widthProperty().addListener(evt -> draw());
-        //heightProperty().addListener(evt -> draw());
+//        widthProperty().addListener(evt -> draw());
+//        heightProperty().addListener(evt -> draw());
     }
 
     public int getPlayerRow() {

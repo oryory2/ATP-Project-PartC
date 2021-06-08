@@ -19,3 +19,8 @@ Button:hover {
     -fx-alignment: CENTER;
     -fx-content-display: LEFT;
 }
+
+.scroll-pane{
+    -fx-background: #2A5058;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}

@@ -28,6 +28,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.transform.Scale;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -48,7 +49,7 @@ public class MyViewController implements IView, Observer
     public Label thisPose;
     public Button solveMaze;
     public BorderPane BigBorderPane;
-    public Pane canvas;
+    public javafx.scene.control.ScrollPane ScrollPane;
     private boolean ctrlFlag;
 
 
@@ -134,8 +135,9 @@ public class MyViewController implements IView, Observer
         this.solveMaze.setText("Solve Maze");
         this.mazeDisplayer.clickedCounter = 0;
         this.solveMaze.setDisable(false);
-        //mazeDisplayer.widthProperty().bind(canvas.widthProperty());
-        //mazeDisplayer.heightProperty().bind((canvas.heightProperty()));
+//        mazeDisplayer.widthProperty().bind(ScrollPane.widthProperty());
+//        mazeDisplayer.heightProperty().bind((ScrollPane.heightProperty()));
+        this.ScrollPane.setPannable(false);
     }
 
 
@@ -292,8 +294,10 @@ public class MyViewController implements IView, Observer
 
     public void scrollMouse(ScrollEvent scrollEvent)
     {
-        if(this.ctrlFlag)
+        if(this.ctrlFlag){
             this.mazeDisplayer.getOnScroll(scrollEvent);
+        }
+
     }
 
     public void ctrlReleased(KeyEvent keyEvent)
