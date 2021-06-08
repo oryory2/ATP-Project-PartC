@@ -78,8 +78,15 @@ public class MyViewController implements IView, Observer
         {
             this.solveMaze.setDisable(true);
         }
+        Main.primaryStage.widthProperty().addListener(gg -> {reSizeWindow(); });
+        Main.primaryStage.heightProperty().addListener(gg -> {reSizeWindow(); });
     }
 
+    private void reSizeWindow()
+    {
+        this.mazeDisplayer.zoomFlag = true;
+        mazeDisplayer.draw(Main.primaryStage.getHeight() - 100, Main.primaryStage.getWidth() - 150);
+    }
 
     public void generateMaze(ActionEvent actionEvent)
     {
@@ -135,8 +142,6 @@ public class MyViewController implements IView, Observer
         this.solveMaze.setText("Solve Maze");
         this.mazeDisplayer.clickedCounter = 0;
         this.solveMaze.setDisable(false);
-//        mazeDisplayer.widthProperty().bind(ScrollPane.widthProperty());
-//        mazeDisplayer.heightProperty().bind((ScrollPane.heightProperty()));
         this.ScrollPane.setPannable(false);
     }
 
@@ -198,7 +203,6 @@ public class MyViewController implements IView, Observer
     public void loadBar(ActionEvent actionEvent) {
         FileChooser fc = new FileChooser();
         fc.setTitle("Open Maze");
-        //fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Maze Files (.maze)",".maze" ));
         fc.setInitialDirectory(new File("resources\\SavedMaze"));
         File chosen = fc.showOpenDialog(null);
         if(chosen == null)

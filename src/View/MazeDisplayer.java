@@ -26,13 +26,11 @@ public class MazeDisplayer extends Canvas
     private static int playerRow = 0;
     private static int playerCol = 0;
     public int clickedCounter;
+    private double zoomHeight = 0;
+    private double zoomWidth = 0;
+    public boolean zoomFlag;
 
-    public MazeDisplayer()
-    {
-        // Redraw canvas when size changes.
-//        widthProperty().addListener(evt -> draw());
-//        heightProperty().addListener(evt -> draw());
-    }
+
 
     public int getPlayerRow() {
         return playerRow;
@@ -46,7 +44,11 @@ public class MazeDisplayer extends Canvas
     {
         playerRow = row;
         playerCol = col;
-        drawMaze(this.maze);
+        draw(Main.primaryStage.getHeight() - 100 , Main.primaryStage.getWidth() - 150);
+        if(this.solution != null)
+        {
+            this.drawSolution(this.solution);
+        }
     }
 
 
@@ -73,7 +75,10 @@ public class MazeDisplayer extends Canvas
     public void drawMaze(int[][] maze)
     {
         this.maze = maze;
-        draw();
+        this.zoomFlag = true;
+        this.zoomHeight = 0;
+        this.zoomWidth = 0;
+        draw(Main.primaryStage.getHeight() - 100 , Main.primaryStage.getWidth() - 150);
         if(this.solution != null)
         {
             this.drawSolution(this.solution);
@@ -101,10 +106,18 @@ public class MazeDisplayer extends Canvas
         }
 
     }
-    private void draw()
+    public void draw(double height, double width)
     {
         if(maze != null)
         {
+            if(this.zoomFlag)
+            {
+                this.setHeight(height - 50 + this.zoomHeight);
+                this.setWidth(width - 50 + this.zoomWidth);
+            }
+
+            this.zoomFlag = false;
+
             double canvasHeight = getHeight();
             double canvasWidth = getWidth();
             int rows = maze.length;
@@ -211,8 +224,6 @@ public class MazeDisplayer extends Canvas
             double y = thisRow * cellHeight;
             graphicsContext.fillRect(x, y, cellWidth, cellHeight);
         }
-
-
     }
 
     public void getOnScroll(ScrollEvent scrollEvent)
@@ -220,6 +231,8 @@ public class MazeDisplayer extends Canvas
 
         if (scrollEvent.getDeltaY() < 0)
         {
+            this.zoomHeight += (getHeight() / 1.1) - getHeight();
+            this.zoomHeight += (getWidth() / 1.1) - getWidth();
             setHeight(getHeight() / 1.1);
             setWidth(getWidth() / 1.1);
         }
@@ -231,11 +244,13 @@ public class MazeDisplayer extends Canvas
             }
             else
             {
+                this.zoomHeight += (getHeight() * 1.1) - getHeight();
+                this.zoomHeight += (getWidth() * 1.1) - getWidth();
                 setHeight(getHeight() * 1.1);
                 setWidth(getWidth() * 1.1);
             }
         }
-        draw();
+        draw(Main.primaryStage.getHeight() - 100 , Main.primaryStage.getWidth() - 150);
         if(this.solution != null)
         {
             this.drawSolution(this.solution);
