@@ -16,11 +16,17 @@ public class SaveController {
     public Button cancel;
 
 
+    /**
+     * confirming saving the maze into a file
+     * @param actionEvent actionEvent pressing the "Confrim" button (ActionEvent)
+     * @throws IOException
+     */
     public void confirm(ActionEvent actionEvent) throws IOException
     {
         if(this.fileName.getText() == "")
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            //user will enter the filename to save the maze to
             alert.setContentText("You must first insert a fileName!");
             alert.show();
             return;
@@ -46,6 +52,11 @@ public class SaveController {
 
     }
 
+    /**
+     * cancel the maze saving and go back to the maze
+     * @param actionEvent pressing the "Cancel" button (ActionEvent)
+     * @throws IOException
+     */
     public void cancel(ActionEvent actionEvent) throws IOException
     {
         Main.backToMain();

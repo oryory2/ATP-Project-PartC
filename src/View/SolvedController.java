@@ -14,6 +14,11 @@ public class SolvedController
 {
     public ImageView imageView;
 
+    /**
+     * initializing the Maze-Solved window
+     * after the user have solved the maze
+     * @throws FileNotFoundException
+     */
     public void initialize() throws FileNotFoundException
     {
         FileInputStream in = new FileInputStream("resources/Images/Solved.jpg");
@@ -26,6 +31,12 @@ public class SolvedController
         Main.mediaPlayer.play();
     }
 
+    /**
+     * going back to the game window
+     * after the user have solved the maze
+     * @param actionEvent pressing the "Go Back" Button
+     * @throws IOException
+     */
     public void goBack(ActionEvent actionEvent) throws IOException
     {
         Main.backToMainSolved();
