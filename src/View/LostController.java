@@ -32,7 +32,7 @@ public class LostController
     /**
      * Go back to the beginning and try to solve the maze again
      * Still in Hard Mode
-     * @param actionEvent Clicking the "Try Again" button
+     * @param actionEvent Clicking the "Try Again" button (ActionEvent)
      */
     public void tryAgain(ActionEvent actionEvent) throws IOException
     {
@@ -43,7 +43,7 @@ public class LostController
     /**
      * Go back to the beginning and try to solve the maze again
      * This time in easy mode
-     * @param actionEvent Clicking the "It's Too Hard" button
+     * @param actionEvent Clicking the "It's Too Hard" button (ActionEvent)
      */
     public void tooHard(ActionEvent actionEvent) throws IOException
     {

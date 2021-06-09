@@ -31,14 +31,14 @@ public class MazeDisplayer extends Canvas
 
 
     /**
-     * @return the player row field
+     * @return the player row field (int)
      */
     public int getPlayerRow() {
         return playerRow;
     }
 
     /**
-     * @return the player column field
+     * @return the player column field (int)
      */
     public int getPlayerCol() {
         return playerCol;
@@ -46,8 +46,8 @@ public class MazeDisplayer extends Canvas
 
     /**
      * define the position of the player and present it to the user
-     * @param row The row in the maze where the player will be
-     * @param col The column in the maze where the player will be
+     * @param row The row in the maze where the player will be (int)
+     * @param col The column in the maze where the player will be (int)
      */
     public void setPlayerPosition(int row, int col)
     {
@@ -62,14 +62,14 @@ public class MazeDisplayer extends Canvas
 
     /**
      * set the image of the wall within the mazes
-     * @param imageFileNameWall the name of the wall image file
+     * @param imageFileNameWall the name of the wall image file (String)
      */
     public void setImageFileNameWall(String imageFileNameWall) {
         this.imageFileNameWall.set(imageFileNameWall);
     }
 
     /**
-     * @return the imageFileNamePlayer field
+     * @return the imageFileNamePlayer field (StringProperty)
      */
     public StringProperty imageFileNamePlayerProperty() {
         return imageFileNamePlayer;
@@ -77,7 +77,7 @@ public class MazeDisplayer extends Canvas
 
     /**
      * set the image of the wall within the mazes
-     * @param imageFileNamePlayer the name of the player image file
+     * @param imageFileNamePlayer the name of the player image file (String)
      */
     public void setImageFileNamePlayer(String imageFileNamePlayer) {
         this.imageFileNamePlayer.set(imageFileNamePlayer);
@@ -85,7 +85,7 @@ public class MazeDisplayer extends Canvas
 
 
     /**
-     * @return the imageFileNameWall field
+     * @return the imageFileNameWall field (String)
      */
     public String getImageFileNameWall() {
         return imageFileNameWall.get();
@@ -93,7 +93,7 @@ public class MazeDisplayer extends Canvas
 
 
     /**
-     * @return the file name of the imageFileNamePlayer field
+     * @return the file name of the imageFileNamePlayer field (String)
      */
     public String getImageFileNamePlayer() {
         return imageFileNamePlayer.get();
@@ -104,7 +104,7 @@ public class MazeDisplayer extends Canvas
      * A function that receives a maze and draws it to the screen
      * Use this function to redraw
      * uses other drawing functions
-     * @param maze two-dimensional array that we will use to draw the maze
+     * @param maze two-dimensional array that we will use to draw the maze (int[][])
      */
     public void drawMaze(int[][] maze)
     {
@@ -179,11 +179,11 @@ public class MazeDisplayer extends Canvas
 
     /**
      * A function that draws the walls within a certain maze
-     * @param graphicsContext class used to issue draw calls to a Canvas
-     * @param cellHeight the height of each cell within the maze
-     * @param cellWidth the width of each cell within the maze
-     * @param rows the amount of rows in the maze
-     * @param cols the amount of columns in the maze
+     * @param graphicsContext class used to issue draw calls to a Canvas (GraphicsContext)
+     * @param cellHeight the height of each cell within the maze (double)
+     * @param cellWidth the width of each cell within the maze (double)
+     * @param rows the amount of rows in the maze (int)
+     * @param cols the amount of columns in the maze (int)
      */
     private void drawMazeWalls(GraphicsContext graphicsContext, double cellHeight, double cellWidth, int rows, int cols) {
         graphicsContext.setFill(Color.WHITE);
@@ -228,9 +228,9 @@ public class MazeDisplayer extends Canvas
 
     /**
      * A function that draws the player within a certain maze
-     * @param graphicsContext class used to issue draw calls to a Canvas
-     * @param cellHeight the height of each cell within the maze
-     * @param cellWidth the width of each cell within the maze
+     * @param graphicsContext class used to issue draw calls to a Canvas (GraphicsContext)
+     * @param cellHeight the height of each cell within the maze (double)
+     * @param cellWidth the width of each cell within the maze (double)
      */
     private void drawPlayer(GraphicsContext graphicsContext, double cellHeight, double cellWidth) {
         double x = getPlayerCol()  * cellWidth;
@@ -253,7 +253,7 @@ public class MazeDisplayer extends Canvas
     /**
      * A function that draws a solution for the maze
      * The solution is drawn on the maze itself
-     * @param sol the solution to be displayed
+     * @param sol the solution to be displayed (Solution)
      */
     public void drawSolution(Solution sol)
     {

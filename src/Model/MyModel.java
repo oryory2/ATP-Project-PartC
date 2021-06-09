@@ -33,6 +33,10 @@ public class MyModel extends Observable implements IModel
     public static boolean easyMode = true;
 
 
+    /**
+     * constructor
+     * starting the maze-generating and maze-solving servers
+     */
     public MyModel()
     {
         if(mazeGeneratingServer == null)
@@ -47,6 +51,14 @@ public class MyModel extends Observable implements IModel
         }
     }
 
+
+    /**
+     * A function that uses the maze-generating server from Part B of the project
+     * In order to give the user a maze when he requests one
+     * notifies the observers when finished generating
+     * @param row the number of rows that will be in the generated maze (int)
+     * @param col the number of columns that will be in the generated maze (int)
+     */
     public void generateMaze(int row, int col) {
 
         try {
@@ -85,16 +97,30 @@ public class MyModel extends Observable implements IModel
         notifyObservers("Maze Generated");
     }
 
+    /**
+     * get the current maze that is being displayed
+     * @return the maze field of this class (Maze)
+     */
     public Maze getMaze()
     {
         return maze;
     }
 
+    /**
+     * set a certain maze as the current maze/maze field
+     * @param maze the maze to set as the maze field of this class (Maze)
+     */
     public void setMaze(Maze maze)
     {
         MyModel.maze = maze;
     }
 
+    /**
+     * A function that uses the maze-solving server from Part B of the project
+     * In order to give the user a solution to the maze that is presented to him
+     * when he requests one
+     * notifies the observers when finished solving
+     */
     public void solveMaze()
     {
         try {
@@ -124,17 +150,30 @@ public class MyModel extends Observable implements IModel
     }
 
 
-
+    /**
+     * Getter of the solution field
+     * @return the solution in the solution field (Solution)
+     */
     public Solution getSolution()
     {
         return solution;
     }
 
+    /**
+     * Setter to the solution field
+     * @param solution the solution to set to the solution field (Solution)
+     */
     public void setSolution(Solution solution)
     {
         MyModel.solution = solution;
     }
 
+    /**
+     * updating the character's position when the user makes a move
+     * notifies the observers when finished
+     * @param direction The direction in which the user wants to move his character (MovementDirection)
+     * @throws IOException
+     */
     public void updatePlayerLocation(MovementDirection direction) throws IOException
     {
         int row = playerRow;
@@ -254,6 +293,11 @@ public class MyModel extends Observable implements IModel
     }
 
 
+    /**
+     * A function designed to check whether a move made by the player is valid
+     * @param direction The direction in which the user wants to move his character (String)
+     * @return Was the move legal or not (boolean)
+     */
     public boolean legalMove(String direction)
     {
         int thisRow = playerRow;
@@ -311,6 +355,9 @@ public class MyModel extends Observable implements IModel
         return true;
     }
 
+    /**
+     * restart the game
+     */
     public void restart()
     {
         maze = null;
@@ -320,22 +367,43 @@ public class MyModel extends Observable implements IModel
     }
 
 
+    /**
+     * set the player's character in some position
+     * @param row the row to set the player in (int)
+     * @param col the column to set the player in (int)
+     */
     public void setPlayerPosition(int row, int col)
     {
         playerRow = row;
         playerCol = col;
     }
 
+    /**
+     * Return the row in which the player is located
+     * @return the Player row field (int)
+     */
     public int getPlayerRow()
     {
         return playerRow;
     }
 
+    /**
+     * Return the column in which the player is located
+     * @return the Player column field (int)
+     */
     public int getPlayerCol()
     {
         return playerCol;
     }
 
+    /**
+     * A function used to move the character
+     * according to the drag of the mouse by the user
+     * @param mouseEvent the user dragging the mouse on screen (MouseEvent)
+     * @param mazeDisplayer the maze displayer that displays the maze on screen (MazeDisplayer)
+     * @param scrollPane the scroll pane that the MazeDisplayeris inside of (ScrollPane)
+     * @throws IOException
+     */
     public void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer, ScrollPane scrollPane) throws IOException {
         if (maze != null)
         {
@@ -468,6 +536,14 @@ public class MyModel extends Observable implements IModel
         }
     }
 
+
+    /**
+     * function used to find where is the player in relation to the maze vertically
+     * @param SceneY the entire scene width height (double)
+     * @param cellHeight height of each cell within the maze (double)
+     * @param scrollY how much did the user scroll vertically (double)
+     * @return the row where the player in relation to the maze vertically
+     */
     public int canvasIndexRow(double SceneY, double cellHeight, double scrollY)
     {
         if(SceneY < 32.6)
@@ -488,6 +564,13 @@ public class MyModel extends Observable implements IModel
         return -1;
     }
 
+    /**
+     * function used to find where is the player in relation to the maze horizontally
+     * @param SceneX the entire scene width (double)
+     * @param cellWidth width of each cell within the maze (double)
+     * @param scrollX how much did the user scroll horizontally (double)
+     * @return the column where the player in relation to the maze horizontally
+     */
     public int canvasIndexCol(double SceneX, double cellWidth, double scrollX)
     {
         if(SceneX < 176.54)
@@ -508,6 +591,10 @@ public class MyModel extends Observable implements IModel
         return -1;
     }
 
+    /**
+     * assign an observer to this observable
+     * @param o the observer to assign to this observable (observer)
+     */
     public void assignObserver(Observer o)
     {
         this.addObserver(o);

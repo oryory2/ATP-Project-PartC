@@ -379,9 +379,10 @@ public class MyViewController implements IView, Observer
     }
 
     /**
-     *
-     * @param o
-     * @param arg
+     * update this class
+     * according to what the observable of this class has notified that happened
+     * @param o an observable of this class (Observable)
+     * @param arg the thing that the observable has notified (Object)
      */
     public void update(Observable o, Object arg)
     {

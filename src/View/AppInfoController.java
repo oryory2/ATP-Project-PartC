@@ -12,7 +12,7 @@ public class AppInfoController
 
     /**
      * returns to the main window after pressing the goBack button
-     * @param actionEvent pressing the goBack button
+     * @param actionEvent pressing the goBack (ActionEvent)
      */
     public void GoBack(ActionEvent actionEvent) throws IOException
     {
@@ -22,7 +22,7 @@ public class AppInfoController
     /**
      * sends the user to the Wikipedia site after clicking on the white circle next to MyMazeGenerator
      * The link is an explanation of the Prim algorithm used to create the mazes
-     * @param actionEvent pressing the white circle next to MyMazeGenerator
+     * @param actionEvent pressing the white circle next to MyMazeGenerator (ActionEvent)
      */
     public void PrimInfo(ActionEvent actionEvent)
     {
@@ -39,7 +39,7 @@ public class AppInfoController
     /**
      * sends the user to the Wikipedia site after clicking on the white circle next to DepthFirstSearch
      * The link is an information about the DFS algorithm that can be used to solve the maze
-     * @param actionEvent pressing the white circle next to DepthFirstSearch
+     * @param actionEvent pressing the white circle next to DepthFirstSearch (ActionEvent)
      */
     public void DFSInfo(ActionEvent actionEvent)
     {
@@ -56,7 +56,7 @@ public class AppInfoController
     /**
      * sends the user to the Wikipedia site after clicking on the white circle next to BreadthFirstSearch
      * The link is an information about the BFS algorithm that can be used to solve the maze
-     * @param actionEvent pressing the white circle next to BreadthFirstSearch
+     * @param actionEvent pressing the white circle next to BreadthFirstSearch (ActionEvent)
      */
     public void BFSInfo(ActionEvent actionEvent)
     {

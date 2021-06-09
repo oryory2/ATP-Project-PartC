@@ -34,7 +34,7 @@ public class SolvedController
     /**
      * going back to the game window
      * after the user have solved the maze
-     * @param actionEvent pressing the "Go Back" Button
+     * @param actionEvent pressing the "Go Back" Button (ActionEvent)
      * @throws IOException
      */
     public void goBack(ActionEvent actionEvent) throws IOException
