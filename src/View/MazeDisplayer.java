@@ -7,19 +7,16 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.paint.Color;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+
 public class MazeDisplayer extends Canvas
 {
-
 
     public int[][] maze;
     public Solution solution;
@@ -29,6 +26,7 @@ public class MazeDisplayer extends Canvas
     private static int playerCol = 0;
     public int clickedCounter;
     public boolean zoomFlag;
+
 
 
     /**
@@ -84,7 +82,6 @@ public class MazeDisplayer extends Canvas
         this.imageFileNamePlayer.set(imageFileNamePlayer);
     }
 
-
     /**
      * @return the imageFileNameWall field (String)
      */
@@ -120,8 +117,7 @@ public class MazeDisplayer extends Canvas
     }
 
     /**
-     * A function that clears the current displayed maze
-     * And clears the solution shown if there is one
+     * A function that clears the current displayed maze and his Solution if displayed
      */
     public void clear()
     {

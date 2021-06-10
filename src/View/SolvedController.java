@@ -1,8 +1,6 @@
 package View;
 
 import javafx.event.ActionEvent;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
@@ -17,7 +15,7 @@ public class SolvedController
     /**
      * initializing the Maze-Solved window
      * after the user have solved the maze
-     * @throws FileNotFoundException
+     * @throw FileNotFoundException
      */
     public void initialize() throws FileNotFoundException
     {
@@ -35,10 +33,10 @@ public class SolvedController
      * going back to the game window
      * after the user have solved the maze
      * @param actionEvent pressing the "Go Back" Button (ActionEvent)
-     * @throws IOException
+     * @throw IOException
      */
     public void goBack(ActionEvent actionEvent) throws IOException
     {
-        Main.backToMainSolved();
+        Main.solvedLostToMain();
     }
 }

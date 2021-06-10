@@ -1,20 +1,13 @@
 package Model;
 
 import IO.MyDecompressorInputStream;
-import Server.Configurations;
 import Server.Server;
 import View.Main;
 import View.MazeDisplayer;
-import View.MyViewController;
-import algorithms.mazeGenerators.IMazeGenerator;
 import algorithms.mazeGenerators.Maze;
-import algorithms.search.ISearchable;
-import algorithms.search.ISearchingAlgorithm;
-import algorithms.search.SearchableMaze;
 import algorithms.search.Solution;
 import Client.*;
 import Server.*;
-import javafx.geometry.Bounds;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 
@@ -35,8 +28,8 @@ public class MyModel extends Observable implements IModel
 
 
     /**
-     * constructor
-     * starting the maze-generating and maze-solving servers
+     * Constructor
+     * Starting the maze-generating and maze-solving servers (if not started yet)
      */
     public MyModel()
     {
@@ -52,16 +45,15 @@ public class MyModel extends Observable implements IModel
         }
     }
 
-
     /**
      * A function that uses the maze-generating server from Part B of the project
-     * In order to give the user a maze when he requests one
+     * In order to generate a maze when needed
      * notifies the observers when finished generating
      * @param row the number of rows that will be in the generated maze (int)
      * @param col the number of columns that will be in the generated maze (int)
      */
-    public void generateMaze(int row, int col) {
-
+    public void generateMaze(int row, int col)
+    {
         try {
             Client clientMazeGenerator = new Client(InetAddress.getLocalHost(), 5400,
                     (inFromServer, outToServer) -> {
@@ -99,7 +91,7 @@ public class MyModel extends Observable implements IModel
     }
 
     /**
-     * get the current maze that is being displayed
+     * Gets the current maze that is being displayed
      * @return the maze field of this class (Maze)
      */
     public Maze getMaze()
@@ -119,7 +111,7 @@ public class MyModel extends Observable implements IModel
     /**
      * A function that uses the maze-solving server from Part B of the project
      * In order to give the user a solution to the maze that is presented to him
-     * when he requests one
+     * when he requests it
      * notifies the observers when finished solving
      */
     public void solveMaze()
@@ -142,14 +134,13 @@ public class MyModel extends Observable implements IModel
                     });
             clientSolveMaze.communicateWithServer();
         }
-        catch(Exception ignored)
+        catch(Exception e)
         {
-            ignored.printStackTrace();
+            e.printStackTrace();
         }
         setChanged();
         notifyObservers("Maze Solved");
     }
-
 
     /**
      * Getter of the solution field
@@ -173,7 +164,7 @@ public class MyModel extends Observable implements IModel
      * updating the character's position when the user makes a move
      * notifies the observers when finished
      * @param direction The direction in which the user wants to move his character (MovementDirection)
-     * @throws IOException
+     * @throw IOException
      */
     public void updatePlayerLocation(MovementDirection direction) throws IOException
     {
@@ -539,7 +530,7 @@ public class MyModel extends Observable implements IModel
 
 
     /**
-     * function used to find where is the player in relation to the maze vertically
+     * function used to find where is the mouse player in relation to the maze vertically
      * @param SceneY the entire scene width height (double)
      * @param cellHeight height of each cell within the maze (double)
      * @param scrollY how much did the user scroll vertically (double)
@@ -566,7 +557,7 @@ public class MyModel extends Observable implements IModel
     }
 
     /**
-     * function used to find where is the player in relation to the maze horizontally
+     * function used to find where is the mouse player in relation to the maze horizontally
      * @param SceneX the entire scene width (double)
      * @param cellWidth width of each cell within the maze (double)
      * @param scrollX how much did the user scroll horizontally (double)

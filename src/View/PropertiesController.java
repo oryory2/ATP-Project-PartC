@@ -11,9 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-
 import java.io.IOException;
-import java.io.OutputStream;
 
 public class PropertiesController
 {
@@ -34,7 +32,7 @@ public class PropertiesController
     @FXML
     /**
      * first displaying the Properties window
-     * set default properties to start with
+     * set the current properties to start with
      */
     private void initialize()
     {
@@ -72,7 +70,7 @@ public class PropertiesController
      * go back to the previous properties before the changes(if there were any)
      * and go back to the game
      * @param actionEvent the user pressing the cancel button (ActionEvent)
-     * @throws IOException
+     * @throw IOException
      */
     public void cancelButton(ActionEvent actionEvent) throws IOException
     {
@@ -82,9 +80,9 @@ public class PropertiesController
     /**
      * Confirm that these are the settings the user wants
      * set the mode, number of threads, generating algorithm and solving algorithm accordingly
-     * go back to the game apllying these new settings
+     * go back to the game and apply these new settings
      * @param actionEvent the user pressing the confirm button (ActionEvent)
-     * @throws IOException
+     * @throw IOException
      */
     public void confirmButton(ActionEvent actionEvent) throws IOException {
         String  numOfThreads = (String) ThreadsBar.getValue();
@@ -98,8 +96,7 @@ public class PropertiesController
             modeChanged = 1;
         else
             modeChanged = 2;
-
-
+        
         if(mode.equals("Easy"))
         {
             MyModel.easyMode = true;

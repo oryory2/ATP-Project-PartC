@@ -2,8 +2,6 @@ package View;
 
 import Model.IModel;
 import Model.MyModel;
-import Server.Configurations;
-import Server.Server;
 import ViewModel.MyViewModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -66,7 +65,7 @@ public class Main extends Application
     }
 
     /**
-     * returns to the game window itself from anywhere other than the game window
+     * returns to the game window itself from anywhere other than the game window, and the Solved/Lost windows
      */
     public static void backToMain() throws IOException
     {
@@ -127,8 +126,7 @@ public class Main extends Application
 
 
     /**
-     * Moves to the another window after the user has solved the maze
-     * The user receives congratulations for solving the maze
+     * Moves to the Solved window after the user has solved the maze
      */
     public static void mainToSolved() throws IOException
     {
@@ -153,11 +151,11 @@ public class Main extends Application
 
 
     /**
-     * Returns to the game itself from other windows
+     * Returns to the game itself from Solved/Lost windows
      * remembering that the maze is solved according to the user's request
      * and continues to present the solution
      */
-    public static void backToMainSolved() throws IOException
+    public static void solvedLostToMain() throws IOException
     {
         Media sound = new Media(new File("resources/Sounds/mainMusic.mp3").toURI().toString());
         mediaPlayer = new MediaPlayer(sound);
@@ -177,7 +175,7 @@ public class Main extends Application
     }
 
     /**
-     * Stops running the app
+     * Stops running the App
      */
     public void stop()
     {

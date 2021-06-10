@@ -100,7 +100,7 @@ public class MyViewModel extends Observable implements Observer
      * a function used to move the user's character/player within the maze
      * converts the NUMPAD keys into movement directions
      * @param keyEvent the user pressing on of the NUMPAD keys other than NUMPAD5 (KeyEvent)
-     * @throws IOException
+     * @throw IOException
      */
     public void movePlayer(KeyEvent keyEvent) throws IOException {
         MovementDirection direction;
@@ -165,7 +165,7 @@ public class MyViewModel extends Observable implements Observer
      * @param mouseEvent the user dragging the mouse on screen (MouseEvent)
      * @param mazeDisplayer the maze displayer that displays the maze on screen (MazeDisplayer)
      * @param scrollPane the scroll pane that the MazeDisplayeris inside of (ScrollPane)
-     * @throws IOException
+     * @throw IOException
      */
     public void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer, ScrollPane scrollPane) throws IOException
     {

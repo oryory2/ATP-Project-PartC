@@ -3,12 +3,9 @@ package View;
 import Model.MyModel;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
-import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -30,18 +27,18 @@ public class LostController
     }
 
     /**
-     * Go back to the beginning and try to solve the maze again
+     * Go back to the beginning of the Maze and try to solve it again
      * Still in Hard Mode
      * @param actionEvent Clicking the "Try Again" button (ActionEvent)
      */
     public void tryAgain(ActionEvent actionEvent) throws IOException
     {
         lost = true;
-        Main.backToMainSolved();
+        Main.solvedLostToMain();
     }
 
     /**
-     * Go back to the beginning and try to solve the maze again
+     * Go back to the beginning of the MAze and try to solve it again
      * This time in easy mode
      * @param actionEvent Clicking the "It's Too Hard" button (ActionEvent)
      */
@@ -52,6 +49,6 @@ public class LostController
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText("Switched to Easy Mode");
         alert.show();
-        Main.backToMainSolved();
+        Main.solvedLostToMain();
     }
 }

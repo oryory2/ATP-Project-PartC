@@ -1,14 +1,13 @@
 package View;
 
-import ViewModel.MyViewModel;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+
 
 public class SaveController {
     public TextField fileName;
@@ -17,9 +16,9 @@ public class SaveController {
 
 
     /**
-     * confirming saving the maze into a file
-     * @param actionEvent actionEvent pressing the "Confrim" button (ActionEvent)
-     * @throws IOException
+     * confirming the saving of the maze into a new file
+     * @param actionEvent actionEvent pressing the "Confirm" button (ActionEvent)
+     * @throw IOException
      */
     public void confirm(ActionEvent actionEvent) throws IOException
     {
@@ -55,7 +54,7 @@ public class SaveController {
     /**
      * cancel the maze saving and go back to the maze
      * @param actionEvent pressing the "Cancel" button (ActionEvent)
-     * @throws IOException
+     * @throw IOException
      */
     public void cancel(ActionEvent actionEvent) throws IOException
     {

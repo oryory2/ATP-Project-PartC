@@ -15,7 +15,7 @@ public class UserGuideController
      */
     public void initialize()
     {
-        if(flag == true)
+        if(flag)
             goBack.setText("Go Back");
     }
 
@@ -23,15 +23,14 @@ public class UserGuideController
     /**
      * going back to the game window from the user guide window
      * @param actionEvent pressing the "Go Back" button (ActionEvent)
-     * @throws IOException
+     * @throw IOException
      */
     public void goBack(ActionEvent actionEvent) throws IOException
     {
-        if(flag == false)
+        if(!flag)
         {
             flag = true;
             Main.realStart();
-            return;
         }
         else
         {

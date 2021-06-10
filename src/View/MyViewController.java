@@ -42,6 +42,9 @@ public class MyViewController implements IView, Observer
     }
 
     /**
+     * Function that setting this class as an observer of the viewModel
+     * draw the maze/solution if exist
+     * attach the size of the display game as the size of the window application
      * @param viewModel the observer of this View (viewModel)
      */
     public void setViewModel(MyViewModel viewModel)
@@ -83,7 +86,7 @@ public class MyViewController implements IView, Observer
     }
 
     /**
-     * generating a new maze to be displayed on screen
+     * generating a new maze, and display it on the screen application
      * @param actionEvent pressing on the create new Maze Button (ActionEvent)
      */
     public void generateMaze(ActionEvent actionEvent)
@@ -198,7 +201,7 @@ public class MyViewController implements IView, Observer
 
     /**
      * start a new game
-     * clear the maze or maze and its solution from the screen if needed
+     * clear the maze/solution from the screen if needed
      * @param actionEvent pressing on the "New" Menu Item within THE "File" menu (ActionEvent)
      */
     public void newBar(ActionEvent actionEvent)
@@ -220,9 +223,9 @@ public class MyViewController implements IView, Observer
 
     /**
      * Load a saved maze
-     * clear the current maze or the current maze and its solution from the screen if needed
+     * clear the current maze/solution from the screen if needed
      * display the loaded maze on the screen
-     * and allow the user to continue playing the saved game
+     * and allow the user to play with the new maze
      * @param actionEvent pressing on the "Load" Menu Item within THE "File" menu (ActionEvent)
      */
     public void loadBar(ActionEvent actionEvent) {
@@ -267,7 +270,7 @@ public class MyViewController implements IView, Observer
     /**
      * Move from the Game window to the properties window
      * @param actionEvent pressing on the "Properties" Menu Item within the "Options" menu (ActionEvent)
-     * @throws IOException
+     * @throw IOException
      */
     public void propertiesBar(ActionEvent actionEvent) throws IOException
     {
@@ -294,7 +297,7 @@ public class MyViewController implements IView, Observer
     /**
      * Move from the Game window to the User Guide window
      * @param actionEvent pressing on the "User Guide" Menu Item within the "Help" menu (ActionEvent)
-     * @throws IOException
+     * @throw IOException
      */
     public void userGuide(ActionEvent actionEvent) throws IOException
     {
@@ -302,15 +305,22 @@ public class MyViewController implements IView, Observer
     }
 
     /**
-     * Move from the Game window to the User Guide window
+     * Move from the Game window to the Application Info window
      * @param actionEvent pressing on the "Application Info" Menu Item within the "About" menu (ActionEvent)
-     * @throws IOException
+     * @throw IOException
      */
     public void AppInfo(ActionEvent actionEvent) throws IOException
     {
         Main.mainToAppInfo();
     }
 
+
+    /**
+     * Function that responsible to check if the user want to move his player in the app
+     * also, check if ctrl is pressed (for the zoom function)
+     * @param keyEvent the key that has been pressed in the user keyboard
+     * @throw IOException
+     */
     public void keyPressed(KeyEvent keyEvent) throws IOException {
         if(keyEvent.getCode() == KeyCode.CONTROL)
         {
@@ -322,11 +332,10 @@ public class MyViewController implements IView, Observer
     }
 
     /**
-     * when the user moves the player the function will update its position
-     * and the current position label text
+     * when the user moves the player the function will update its position if needed
      * @param row the row of the new position of the player (int)
      * @param col the column of the new position of the player (int)
-     * @throws IOException
+     * @throw IOException
      */
     public void playerMoved(int row, int col) throws IOException
     {
@@ -335,10 +344,10 @@ public class MyViewController implements IView, Observer
     }
 
     /**
-     * move the player to the first position 0,0
+     * Function that runs when the user solved the maze (restart all the Position values)
      * @param row (int)
      * @param col (int)
-     * @throws IOException
+     * @throw IOException
      */
     public void playerMovedF(int row, int col) throws IOException
     {
@@ -349,7 +358,7 @@ public class MyViewController implements IView, Observer
     }
 
     /**
-     * Requests that this Node get the input focus,
+     * Requests that this Node will get the input focus,
      * and that this Node's top-level ancestor become the focused window.
      * @param mouseEvent clicking on the maze (MouseEvent)
      */
@@ -416,7 +425,7 @@ public class MyViewController implements IView, Observer
 
     /**
      * a function that gets two strings
-     * And checks if the content of each of the strings is a number
+     * And checks if the content of each string is a number
      * @param row The dimension of the rows to be checked (String)
      * @param col The dimension of the columns to be checked (String)
      * @return whether these are numbers (boolean)
@@ -437,8 +446,8 @@ public class MyViewController implements IView, Observer
 
     /**
      * a function that moves the player using mouse dragging
-     * @param mouseEvent the draggin of the mouse bu the user (MouseEvent)
-     * @throws IOException
+     * @param mouseEvent the Position of the mouse after the dragging by the user (MouseEvent)
+     * @throw IOException
      */
     public void mouseDragged(MouseEvent mouseEvent) throws IOException
     {
