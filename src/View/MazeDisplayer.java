@@ -19,6 +19,8 @@ import java.util.ArrayList;
 
 public class MazeDisplayer extends Canvas
 {
+
+
     public int[][] maze;
     public Solution solution;
     StringProperty imageFileNameWall = new SimpleStringProperty();
@@ -27,7 +29,6 @@ public class MazeDisplayer extends Canvas
     private static int playerCol = 0;
     public int clickedCounter;
     public boolean zoomFlag;
-
 
 
     /**

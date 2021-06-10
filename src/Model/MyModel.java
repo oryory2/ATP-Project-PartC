@@ -14,6 +14,7 @@ import algorithms.search.SearchableMaze;
 import algorithms.search.Solution;
 import Client.*;
 import Server.*;
+import javafx.geometry.Bounds;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 
@@ -546,11 +547,11 @@ public class MyModel extends Observable implements IModel
      */
     public int canvasIndexRow(double SceneY, double cellHeight, double scrollY)
     {
-        if(SceneY < 32.6)
+        if(SceneY < 21)
             return -2;
 
-        double start = this.getPlayerRow() * cellHeight + 32.6; // 32
-        double end = (this.getPlayerRow() * cellHeight) + cellHeight + 32.6;
+        double start = this.getPlayerRow() * cellHeight + 21; // 21
+        double end = (this.getPlayerRow() * cellHeight) + cellHeight + 21;
 
         double smallerBound = start - cellHeight;
         double biggerBound = end + cellHeight;
@@ -573,11 +574,11 @@ public class MyModel extends Observable implements IModel
      */
     public int canvasIndexCol(double SceneX, double cellWidth, double scrollX)
     {
-        if(SceneX < 176.54)
+        if(SceneX < 167)
             return -2;
 
-        double start = this.getPlayerCol() * cellWidth + 176.54; // 176
-        double end = (this.getPlayerCol() * cellWidth) + cellWidth + 176.54;
+        double start = this.getPlayerCol() * cellWidth + 167; // 167
+        double end = (this.getPlayerCol() * cellWidth) + cellWidth + 167;
 
         double leftBound = start - cellWidth;
         double rightBound = end + cellWidth;

@@ -7,16 +7,16 @@ import java.io.IOException;
 
 public interface IView
 {
-    public void setViewModel(MyViewModel viewModel);
-    public void generateMaze(ActionEvent actionEvent);
-    public void mazeGenerated();
-    public void solveMaze(ActionEvent actionEvent);
-    public void mazeSolved();
-    public void newBar(ActionEvent actionEvent);
-    public void loadBar(ActionEvent actionEvent);
-    public void propertiesBar(ActionEvent actionEvent) throws IOException;
-    public void saveBar(ActionEvent actionEvent) throws IOException;
-    public void userGuide(ActionEvent actionEvent) throws IOException;
-    public void AppInfo(ActionEvent actionEvent) throws IOException;
-    public void exit(ActionEvent actionEvent);
+    void setViewModel(MyViewModel viewModel);
+    void generateMaze(ActionEvent actionEvent);
+    void mazeGenerated();
+    void solveMaze(ActionEvent actionEvent);
+    void mazeSolved();
+    void newBar(ActionEvent actionEvent);
+    void loadBar(ActionEvent actionEvent);
+    void propertiesBar(ActionEvent actionEvent) throws IOException;
+    void saveBar(ActionEvent actionEvent) throws IOException;
+    void userGuide(ActionEvent actionEvent) throws IOException;
+    void AppInfo(ActionEvent actionEvent) throws IOException;
+    void exit(ActionEvent actionEvent);
 }
