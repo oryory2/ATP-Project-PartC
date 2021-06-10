@@ -204,7 +204,7 @@
       <workItem from="1623325637064" duration="874000" />
       <workItem from="1623326527676" duration="271000" />
       <workItem from="1623326826845" duration="394000" />
-      <workItem from="1623348674357" duration="5505000" />
+      <workItem from="1623348674357" duration="5975000" />
     </task>
     <servers />
   </component>
@@ -222,16 +222,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/View/MyViewController.java</url>
-          <line>453</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

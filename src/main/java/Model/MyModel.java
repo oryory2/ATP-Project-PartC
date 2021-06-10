@@ -431,7 +431,7 @@ public class MyModel extends Observable implements IModel
             boolean upLeft = false;
 
             if((playerRow < mouseRow / cellHeight && playerRow + 1 > mouseRow / cellHeight) && (playerCol < mouseCol / cellWidth && playerCol + 1 > mouseCol / cellWidth))
-                return;
+                return; // player didn't move
             if (playerRow < mouseRow / cellHeight && mouseRow / cellHeight <= playerRow + 2 && playerCol + 1 >= mouseCol / cellWidth && playerCol <= mouseCol / cellWidth) {// down
                 if (legalMove("down"))
                     down = true;
