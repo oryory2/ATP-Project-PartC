@@ -7,6 +7,7 @@
     <list default="true" id="4ebd696f-3dfa-430b-b2e5-dae078e0350c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/log info" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/MyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/MyModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +204,7 @@
       <workItem from="1623325637064" duration="874000" />
       <workItem from="1623326527676" duration="271000" />
       <workItem from="1623326826845" duration="394000" />
-      <workItem from="1623348674357" duration="587000" />
+      <workItem from="1623348674357" duration="5505000" />
     </task>
     <servers />
   </component>
@@ -221,5 +222,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/View/MyViewController.java</url>
+          <line>453</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

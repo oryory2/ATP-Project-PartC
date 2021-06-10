@@ -403,139 +403,69 @@ public class MyModel extends Observable implements IModel
      * @param mouseEvent the user dragging the mouse on screen (MouseEvent)
      * @param mazeDisplayer the maze displayer that displays the maze on screen (MazeDisplayer)
      * @param scrollPane the scroll pane that the MazeDisplayeris inside of (ScrollPane)
-     * @throws IOException
+     * @throw IOException
      */
-    public void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer, ScrollPane scrollPane) throws IOException {
+    public void mouseDragged(MouseEvent mouseEvent, MazeDisplayer mazeDisplayer, ScrollPane scrollPane) throws IOException
+    {
         if (maze != null)
         {
-            int row = maze.getMax_rows();
-            int col = maze.getMax_columns();
+            if (mazeDisplayer == null || (playerRow == maze.getGoalPosition().getRowIndex() && playerCol == maze.getGoalPosition().getColumnIndex()))
+                return;
             double canvasHeight = mazeDisplayer.getHeight();
             double canvasWidth = mazeDisplayer.getWidth();
+            int rows = maze.getMax_rows();
+            int cols = maze.getMax_columns();
 
-            double cellHeight = canvasHeight / row;
-            double cellWidth = canvasWidth / col;
+            double mouseRow = (mouseEvent.getY());
+            double mouseCol = (mouseEvent.getX());
+            double cellHeight = canvasHeight / rows;
+            double cellWidth = canvasWidth / cols;
 
-            double scrollX = scrollPane.getHvalue();
-            double scrollY = scrollPane.getVvalue();
+            boolean up = false;
+            boolean upRight = false;
+            boolean right = false;
+            boolean downRight = false;
+            boolean down = false;
+            boolean downLeft = false;
+            boolean left = false;
+            boolean upLeft = false;
 
-            int updatedRow = canvasIndexRow(mouseEvent.getSceneY(), cellHeight, scrollY); // the updated row
-            int updatedCol = canvasIndexCol(mouseEvent.getSceneX(), cellWidth, scrollX); // the updated col
-
-            if(updatedRow == -2 || updatedCol == -2) // the player is out of bounds/touched the maze walls
-            {
-                if(easyMode)
-                    return;
-                else
-                    Main.mainToLost();
-            }
-
-            if(updatedRow == -1 || updatedCol == -1) // the player stayed in the same position
+            if((playerRow < mouseRow / cellHeight && playerRow + 1 > mouseRow / cellHeight) && (playerCol < mouseCol / cellWidth && playerCol + 1 > mouseCol / cellWidth))
                 return;
-
-            if (!((updatedRow == this.getPlayerRow()) && (updatedCol == this.getPlayerCol())))
-            {
-                if((updatedRow == this.getPlayerRow() - 1) && (updatedCol == this.getPlayerCol()))
-                {
-                    if(!(legalMove("up")))
-                    {
-                        if(easyMode)
-                            return;
-                        else
-                            Main.mainToLost();
-                    }
-                    setPlayerPosition(this.getPlayerRow() - 1, this.getPlayerCol());
-                }
-                else if ((updatedRow == this.getPlayerRow() - 1) && (updatedCol == this.getPlayerCol() + 1))
-                {
-                    if(!(legalMove("up right")))
-                    {
-                        if(easyMode)
-                            return;
-                        else
-                            Main.mainToLost();
-                    }
-                    setPlayerPosition(this.getPlayerRow() - 1, this.getPlayerCol() + 1);
-                }
-                else if ((updatedRow == this.getPlayerRow()) && (updatedCol == this.getPlayerCol() + 1))
-                {
-                    if(!(legalMove("right")))
-                    {
-                        if(easyMode)
-                            return;
-                        else
-                            Main.mainToLost();
-                    }
-                    setPlayerPosition(this.getPlayerRow(), this.getPlayerCol() + 1);
-                }
-                else if ((updatedRow == this.getPlayerRow() + 1) && (updatedCol == this.getPlayerCol() + 1))
-                {
-                    if(!(legalMove("down right")))
-                    {
-                        if(easyMode)
-                            return;
-                        else
-                            Main.mainToLost();
-                    }
-                    setPlayerPosition(this.getPlayerRow() + 1, this.getPlayerCol() + 1);
-                }
-                else if ((updatedRow == this.getPlayerRow() + 1) && (updatedCol == this.getPlayerCol()))
-                {
-                    if(!(legalMove("down")))
-                    {
-                        if(easyMode)
-                            return;
-                        else
-                            Main.mainToLost();
-                    }
-                    setPlayerPosition(this.getPlayerRow() + 1, this.getPlayerCol());
-                }
-                else if ((updatedRow == this.getPlayerRow() + 1) && (updatedCol == this.getPlayerCol() - 1))
-                {
-                    if(!(legalMove("down left")))
-                    {
-                        if(easyMode)
-                            return;
-                        else
-                            Main.mainToLost();
-                    }
-                    setPlayerPosition(this.getPlayerRow() + 1, this.getPlayerCol() - 1);
-                }
-                else if ((updatedRow == this.getPlayerRow()) && (updatedCol == this.getPlayerCol() - 1))
-                {
-                    if(!(legalMove("left")))
-                    {
-                        if(easyMode)
-                            return;
-                        else
-                            Main.mainToLost();
-                    }
-                    setPlayerPosition(this.getPlayerRow(), this.getPlayerCol() - 1);
-                }
-                else if ((updatedRow == this.getPlayerRow() - 1) && (updatedCol == this.getPlayerCol() - 1))
-                {
-                    if(!(legalMove("up left")))
-                    {
-                        if(easyMode)
-                            return;
-                        else
-                            Main.mainToLost();
-                    }
-                    setPlayerPosition(this.getPlayerRow() - 1, this.getPlayerCol() - 1);
-                }
+            if (playerRow < mouseRow / cellHeight && mouseRow / cellHeight <= playerRow + 2 && playerCol + 1 >= mouseCol / cellWidth && playerCol <= mouseCol / cellWidth) {// down
+                if (legalMove("down"))
+                    down = true;
             }
-            setChanged();
-            if((this.getPlayerRow() == this.getMaze().getMax_rows() - 1) && (this.getPlayerCol() == this.getMaze().getMax_columns() - 1))
-            {
-                logger.info("Client: " + InetAddress.getLocalHost() + " solved the Maze");
-
-                notifyObservers("Player MovedF"); // the player solved the maze
-                maze = null;
-                solution = null;
-                playerCol = 0;
-                playerRow = 0;
+            if (playerRow > mouseRow / cellHeight && mouseRow / cellHeight + 2 >= playerRow && playerCol + 1 >= mouseCol / cellWidth && playerCol <= mouseCol / cellWidth) {// up
+                if (legalMove("up"))
+                    up = true;
             }
-            notifyObservers("Player Moved"); // the player moved
+            if (playerCol > mouseCol / cellWidth && mouseCol / cellWidth + 1 >= playerCol && playerRow + 1 >= mouseRow / cellHeight && playerRow <= mouseRow / cellHeight) {// left
+                if (legalMove("left"))
+                    left = true;
+            }
+            if (playerCol + 1 < mouseCol / cellWidth && mouseCol / cellWidth <= playerCol + 2 && playerRow + 1 >= mouseRow / cellHeight && playerRow <= mouseRow / cellHeight) {// right
+                if (legalMove("right"))
+                    right = true;
+
+            }
+
+            if(up && right)
+                updatePlayerLocation(MovementDirection.RIGHTU);
+            else if (up && left)
+                updatePlayerLocation(MovementDirection.LEFTU);
+            else if (down && right)
+                updatePlayerLocation(MovementDirection.RIGHTD);
+            else if (down && left)
+                updatePlayerLocation(MovementDirection.LEFTD);
+            else if (up)
+                updatePlayerLocation(MovementDirection.UP);
+            else if (right)
+                updatePlayerLocation(MovementDirection.RIGHT);
+            else if (down)
+                updatePlayerLocation(MovementDirection.DOWN);
+            else if (left)
+                updatePlayerLocation(MovementDirection.LEFT);
         }
     }
 
