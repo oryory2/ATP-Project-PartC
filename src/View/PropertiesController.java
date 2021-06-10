@@ -101,13 +101,13 @@ public class PropertiesController
         {
             MyModel.easyMode = true;
             if(modeChanged == 2)
-                modeChanged = 4;
+                modeChanged = 4; // Switched from hard to easy
         }
         else
         {
             MyModel.easyMode = false;
             if(modeChanged == 1)
-                modeChanged = 3;
+                modeChanged = 3; // Switched from easy to hard
         }
 
         Configurations c = Configurations.getInstance();

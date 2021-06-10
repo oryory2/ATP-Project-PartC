@@ -28,7 +28,6 @@ public class MazeDisplayer extends Canvas
     public boolean zoomFlag;
 
 
-
     /**
      * @return the player row field (int)
      */
@@ -126,15 +125,15 @@ public class MazeDisplayer extends Canvas
             double canvasHeight = getHeight();
             double canvasWidth = getWidth();
 
-            GraphicsContext graphicsContext = getGraphicsContext2D(); // מחלקה שבעזרתה ניתן לצייר על הקנבס
+            GraphicsContext graphicsContext = getGraphicsContext2D();
             graphicsContext.clearRect(0,0, canvasWidth, canvasHeight);
             this.maze = null;
             this.solution = null;
         }
         else
         {
-            GraphicsContext graphicsContext = getGraphicsContext2D(); // מחלקה שבעזרתה ניתן לצייר על הקנבס
-            graphicsContext.clearRect(0,0, 0, 0); // ניקוי הקנבס (במקרה שכבר ציירנו עליו מבוך)
+            GraphicsContext graphicsContext = getGraphicsContext2D();
+            graphicsContext.clearRect(0,0, 0, 0);
             this.maze = null;
             this.solution = null;
         }
@@ -151,7 +150,7 @@ public class MazeDisplayer extends Canvas
     {
         if(maze != null)
         {
-            if(this.zoomFlag)
+            if(this.zoomFlag) // check if we need to change the size of the mazeDisplayer window
             {
                 this.setHeight(height - 50);
                 this.setWidth(width - 50);
@@ -167,8 +166,8 @@ public class MazeDisplayer extends Canvas
             double cellHeight = canvasHeight / rows;
             double cellWidth = canvasWidth / cols;
 
-            GraphicsContext graphicsContext = getGraphicsContext2D(); // מחלקה שבעזרתה ניתן לצייר על הקנבס
-            graphicsContext.clearRect(0,0, canvasWidth, canvasHeight); // ניקוי הקנבס (במקרה שכבר ציירנו עליו מבוך)
+            GraphicsContext graphicsContext = getGraphicsContext2D();
+            graphicsContext.clearRect(0,0, canvasWidth, canvasHeight);
             drawMazeWalls(graphicsContext, cellHeight, cellWidth, rows, cols);
             drawPlayer(graphicsContext, cellHeight, cellWidth);
         }
@@ -263,7 +262,7 @@ public class MazeDisplayer extends Canvas
 
         double cellHeight = canvasHeight / rows;
         double cellWidth = canvasWidth / cols;
-        GraphicsContext graphicsContext = getGraphicsContext2D(); // מחלקה שבעזרתה ניתן לצייר על הקנבס
+        GraphicsContext graphicsContext = getGraphicsContext2D();
         graphicsContext.setFill(Color.GREEN);
 
 
@@ -292,7 +291,7 @@ public class MazeDisplayer extends Canvas
     public void getOnScroll(ScrollEvent scrollEvent)
     {
 
-        if (scrollEvent.getDeltaY() < 0)
+        if (scrollEvent.getDeltaY() < 0) // zoom out
         {
             setHeight(getHeight() / 1.1);
             setWidth(getWidth() / 1.1);
@@ -303,7 +302,7 @@ public class MazeDisplayer extends Canvas
             {
                 return;
             }
-            else
+            else // zoom in
             {
                 setHeight(getHeight() * 1.1);
                 setWidth(getWidth() * 1.1);

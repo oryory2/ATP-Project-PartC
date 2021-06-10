@@ -68,8 +68,8 @@ public class MyViewController implements IView, Observer
             //disable the option to solve the maze because no maze has been generated yet
             this.solveMaze.setDisable(true);
         }
-        Main.primaryStage.widthProperty().addListener(gg -> {reSizeWindow(); });
-        Main.primaryStage.heightProperty().addListener(gg -> {reSizeWindow(); });
+        Main.primaryStage.widthProperty().addListener(gg -> {reSizeWindow(); }); // add listener to the window widthProperty
+        Main.primaryStage.heightProperty().addListener(gg -> {reSizeWindow(); }); // add listener to the window heightProperty
     }
 
     /**
@@ -127,7 +127,7 @@ public class MyViewController implements IView, Observer
         }
         try
         {
-            this.viewModel.generateMaze(row, col);
+            this.viewModel.generateMaze(row, col); // creating the maze
         }
         catch (Exception e)
         {
@@ -168,18 +168,18 @@ public class MyViewController implements IView, Observer
         }
         else
         {
-            this.mazeDisplayer.clickedCounter++;
+            this.mazeDisplayer.clickedCounter++; // counter the times the solve button has been clicked by the user
 
-            if(this.mazeDisplayer.clickedCounter % 2 == 1)
+            if(this.mazeDisplayer.clickedCounter % 2 == 1) // Solve
             {
-                if(this.mazeDisplayer.solution != null)
+                if(this.mazeDisplayer.solution != null) // there is already existing solution
                 {
                     this.mazeDisplayer.drawSolution(this.mazeDisplayer.solution);
                     return;
                 }
-                this.viewModel.solveMaze();
+                this.viewModel.solveMaze(); // solve the maze
             }
-            else
+            else // UnSolve
             {
                 this.mazeDisplayer.solution = null;
                 this.viewModel.setSolution(null);

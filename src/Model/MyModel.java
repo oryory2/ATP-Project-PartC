@@ -410,10 +410,10 @@ public class MyModel extends Observable implements IModel
             double scrollX = scrollPane.getHvalue();
             double scrollY = scrollPane.getVvalue();
 
-            int updatedRow = canvasIndexRow(mouseEvent.getSceneY(), cellHeight, scrollY);
-            int updatedCol = canvasIndexCol(mouseEvent.getSceneX(), cellWidth, scrollX);
+            int updatedRow = canvasIndexRow(mouseEvent.getSceneY(), cellHeight, scrollY); // the updated row
+            int updatedCol = canvasIndexCol(mouseEvent.getSceneX(), cellWidth, scrollX); // the updated col
 
-            if(updatedRow == -2 || updatedCol == -2)
+            if(updatedRow == -2 || updatedCol == -2) // the player is out of bounds/touched the maze walls
             {
                 if(easyMode)
                     return;
@@ -421,7 +421,7 @@ public class MyModel extends Observable implements IModel
                     Main.mainToLost();
             }
 
-            if(updatedRow == -1 || updatedCol == -1)
+            if(updatedRow == -1 || updatedCol == -1) // the player stayed in the same position
                 return;
 
             if (!((updatedRow == this.getPlayerRow()) && (updatedCol == this.getPlayerCol())))
@@ -518,13 +518,13 @@ public class MyModel extends Observable implements IModel
             setChanged();
             if((this.getPlayerRow() == this.getMaze().getMax_rows() - 1) && (this.getPlayerCol() == this.getMaze().getMax_columns() - 1))
             {
-                notifyObservers("Player MovedF");
+                notifyObservers("Player MovedF"); // the player solved the maze
                 maze = null;
                 solution = null;
                 playerCol = 0;
                 playerRow = 0;
             }
-            notifyObservers("Player Moved");
+            notifyObservers("Player Moved"); // the player moved
         }
     }
 
@@ -538,20 +538,20 @@ public class MyModel extends Observable implements IModel
      */
     public int canvasIndexRow(double SceneY, double cellHeight, double scrollY)
     {
-        if(SceneY < 21)
+        if(SceneY < 21) // check if the player is out of bounds
             return -2;
 
         double start = this.getPlayerRow() * cellHeight + 21; // 21
         double end = (this.getPlayerRow() * cellHeight) + cellHeight + 21;
 
-        double smallerBound = start - cellHeight;
-        double biggerBound = end + cellHeight;
+        double smallerBound = start - cellHeight; // the "thisRow - 1" index bound
+        double biggerBound = end + cellHeight; // the "thisRow + 1" index bound
 
-        if(SceneY >= end && SceneY < biggerBound)
+        if(SceneY >= end && SceneY < biggerBound) // up
             return this.getPlayerRow() + 1;
-        if(SceneY < start && SceneY >= smallerBound)
+        if(SceneY < start && SceneY >= smallerBound) // down
             return this.getPlayerRow() - 1;
-        if(SceneY >= start && SceneY < end)
+        if(SceneY >= start && SceneY < end) // didn't move
             return this.getPlayerRow();
         return -1;
     }
@@ -565,20 +565,20 @@ public class MyModel extends Observable implements IModel
      */
     public int canvasIndexCol(double SceneX, double cellWidth, double scrollX)
     {
-        if(SceneX < 167)
+        if(SceneX < 167) // check if the player is out of bounds
             return -2;
 
         double start = this.getPlayerCol() * cellWidth + 167; // 167
         double end = (this.getPlayerCol() * cellWidth) + cellWidth + 167;
 
-        double leftBound = start - cellWidth;
-        double rightBound = end + cellWidth;
+        double leftBound = start - cellWidth; // the "thisCol + 1" index bound
+        double rightBound = end + cellWidth; // the "thisCol + 1" index bound
 
-        if(SceneX >= end && SceneX < rightBound)
+        if(SceneX >= end && SceneX < rightBound) // right
             return this.getPlayerCol() + 1;
-        if(SceneX < start && SceneX >= leftBound)
+        if(SceneX < start && SceneX >= leftBound) // left
             return this.getPlayerCol() - 1;
-        if(SceneX >= start && SceneX < end)
+        if(SceneX >= start && SceneX < end) // didn't move
             return this.getPlayerCol();
         return -1;
     }
