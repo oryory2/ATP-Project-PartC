@@ -10,6 +10,8 @@ import Client.*;
 import Server.*;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.net.InetAddress;
@@ -25,7 +27,7 @@ public class MyModel extends Observable implements IModel
     public static Server mazeGeneratingServer;
     public static Server solveSearchProblemServer;
     public static boolean easyMode = true;
-
+    private final Logger logger = LogManager.getLogger();
 
     /**
      * Constructor
@@ -62,6 +64,9 @@ public class MyModel extends Observable implements IModel
                             ObjectInputStream fromServer = new ObjectInputStream(inFromServer);
                             toServer.flush();
                             int[] mazeDimensions = new int[]{row, col};
+
+                            logger.info("Client: " + InetAddress.getLocalHost() + " requesting a new Maze of size: (" + row +"," + col + ")");
+
                             toServer.writeObject(mazeDimensions);
                             toServer.flush();
                             byte[] compressedMaze = (byte[]) fromServer.readObject();
@@ -73,15 +78,14 @@ public class MyModel extends Observable implements IModel
                             fromServer.close();
                         } catch (Exception e)
                         {
-                            e.printStackTrace();
+                            logger.error("Exception", e);
                         }
                     });
             clientMazeGenerator.communicateWithServer();
-
         }
         catch (Exception e)
         {
-            e.printStackTrace();
+            logger.error("Exception", e);
         }
         playerRow = 0;
         playerCol = 0;
@@ -123,20 +127,23 @@ public class MyModel extends Observable implements IModel
                             ObjectOutputStream toServer = new ObjectOutputStream(outToServer);
                             ObjectInputStream fromServer = new ObjectInputStream(inFromServer);
                             toServer.flush();
+
+                            logger.info("Client:" + InetAddress.getLocalHost() + " requesting for a Solution");
+
                             toServer.writeObject(maze);
                             toServer.flush();
                             solution = (Solution) fromServer.readObject();
                         }
                         catch(Exception e)
                         {
-                            e.printStackTrace();
+                            logger.error("Exception", e);
                         }
                     });
             clientSolveMaze.communicateWithServer();
         }
         catch(Exception e)
         {
-            e.printStackTrace();
+            logger.error("Exception", e);
         }
         setChanged();
         notifyObservers("Maze Solved");
@@ -274,6 +281,8 @@ public class MyModel extends Observable implements IModel
         setChanged();
         if((row == this.getMaze().getMax_rows() - 1) && (col == this.getMaze().getMax_columns() - 1))
         {
+            logger.info("Client: " + InetAddress.getLocalHost() + " solved the Maze");
+
             notifyObservers("Player MovedF");
             maze = null;
             solution = null;
@@ -518,6 +527,8 @@ public class MyModel extends Observable implements IModel
             setChanged();
             if((this.getPlayerRow() == this.getMaze().getMax_rows() - 1) && (this.getPlayerCol() == this.getMaze().getMax_columns() - 1))
             {
+                logger.info("Client: " + InetAddress.getLocalHost() + " solved the Maze");
+
                 notifyObservers("Player MovedF"); // the player solved the maze
                 maze = null;
                 solution = null;
