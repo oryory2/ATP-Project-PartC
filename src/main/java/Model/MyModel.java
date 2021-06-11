@@ -409,46 +409,57 @@ public class MyModel extends Observable implements IModel
     {
         if (maze != null)
         {
-            if (mazeDisplayer == null || (playerRow == maze.getGoalPosition().getRowIndex() && playerCol == maze.getGoalPosition().getColumnIndex()))
-                return;
             double canvasHeight = mazeDisplayer.getHeight();
             double canvasWidth = mazeDisplayer.getWidth();
+
             int rows = maze.getMax_rows();
             int cols = maze.getMax_columns();
 
-            double mouseRow = (mouseEvent.getY());
-            double mouseCol = (mouseEvent.getX());
+            double mouseRowPosition = (mouseEvent.getY());
+            double mouseColPosition = (mouseEvent.getX());
+
             double cellHeight = canvasHeight / rows;
             double cellWidth = canvasWidth / cols;
 
+            double currentRow = mouseRowPosition / cellHeight;
+            double currentCol = mouseColPosition / cellWidth;
+
             boolean up = false;
-            boolean upRight = false;
             boolean right = false;
-            boolean downRight = false;
             boolean down = false;
-            boolean downLeft = false;
             boolean left = false;
-            boolean upLeft = false;
 
-            if((playerRow < mouseRow / cellHeight && playerRow + 1 > mouseRow / cellHeight) && (playerCol < mouseCol / cellWidth && playerCol + 1 > mouseCol / cellWidth))
+
+
+
+            if((playerRow < currentRow) && (playerRow + 1 > currentRow) && (playerCol < currentCol) && (playerCol + 1 > currentCol))
                 return; // player didn't move
-            if (playerRow < mouseRow / cellHeight && mouseRow / cellHeight <= playerRow + 2 && playerCol + 1 >= mouseCol / cellWidth && playerCol <= mouseCol / cellWidth) {// down
-                if (legalMove("down"))
-                    down = true;
-            }
-            if (playerRow > mouseRow / cellHeight && mouseRow / cellHeight + 2 >= playerRow && playerCol + 1 >= mouseCol / cellWidth && playerCol <= mouseCol / cellWidth) {// up
+
+            if ((playerRow > currentRow) && (currentRow >= playerRow - 2) && (playerCol + 1 >= currentCol) && (playerCol <= currentCol))
+            {
                 if (legalMove("up"))
-                    up = true;
+                    up = true; // player moved up
             }
-            if (playerCol > mouseCol / cellWidth && mouseCol / cellWidth + 1 >= playerCol && playerRow + 1 >= mouseRow / cellHeight && playerRow <= mouseRow / cellHeight) {// left
-                if (legalMove("left"))
-                    left = true;
-            }
-            if (playerCol + 1 < mouseCol / cellWidth && mouseCol / cellWidth <= playerCol + 2 && playerRow + 1 >= mouseRow / cellHeight && playerRow <= mouseRow / cellHeight) {// right
+
+            if ((playerCol + 1 < currentCol) && (currentCol <= playerCol + 2) && (playerRow + 1 >= currentRow) && (playerRow <= currentRow))
+            {
                 if (legalMove("right"))
-                    right = true;
+                    right = true; // player moved right
 
             }
+
+            if ((playerRow < currentRow) && (currentRow <= playerRow + 2) && (playerCol + 1 >= currentCol) && (playerCol <= currentCol))
+            {
+                if (legalMove("down"))
+                    down = true; // player moved down
+            }
+
+            if ((playerCol > currentCol) && (currentCol >= playerCol - 1) && (playerRow + 1 >= currentRow) && (playerRow <= currentRow))
+            {
+                if (legalMove("left"))
+                    left = true; // player moved left
+            }
+
 
             if(up && right)
                 updatePlayerLocation(MovementDirection.RIGHTU);
@@ -469,60 +480,6 @@ public class MyModel extends Observable implements IModel
         }
     }
 
-
-    /**
-     * function used to find where is the mouse player in relation to the maze vertically
-     * @param SceneY the entire scene width height (double)
-     * @param cellHeight height of each cell within the maze (double)
-     * @param scrollY how much did the user scroll vertically (double)
-     * @return the row where the player in relation to the maze vertically
-     */
-    public int canvasIndexRow(double SceneY, double cellHeight, double scrollY)
-    {
-        if(SceneY < 21) // check if the player is out of bounds
-            return -2;
-
-        double start = this.getPlayerRow() * cellHeight + 21; // 21
-        double end = (this.getPlayerRow() * cellHeight) + cellHeight + 21;
-
-        double smallerBound = start - cellHeight; // the "thisRow - 1" index bound
-        double biggerBound = end + cellHeight; // the "thisRow + 1" index bound
-
-        if(SceneY >= end && SceneY < biggerBound) // up
-            return this.getPlayerRow() + 1;
-        if(SceneY < start && SceneY >= smallerBound) // down
-            return this.getPlayerRow() - 1;
-        if(SceneY >= start && SceneY < end) // didn't move
-            return this.getPlayerRow();
-        return -1;
-    }
-
-    /**
-     * function used to find where is the mouse player in relation to the maze horizontally
-     * @param SceneX the entire scene width (double)
-     * @param cellWidth width of each cell within the maze (double)
-     * @param scrollX how much did the user scroll horizontally (double)
-     * @return the column where the player in relation to the maze horizontally
-     */
-    public int canvasIndexCol(double SceneX, double cellWidth, double scrollX)
-    {
-        if(SceneX < 167) // check if the player is out of bounds
-            return -2;
-
-        double start = this.getPlayerCol() * cellWidth + 167; // 167
-        double end = (this.getPlayerCol() * cellWidth) + cellWidth + 167;
-
-        double leftBound = start - cellWidth; // the "thisCol + 1" index bound
-        double rightBound = end + cellWidth; // the "thisCol + 1" index bound
-
-        if(SceneX >= end && SceneX < rightBound) // right
-            return this.getPlayerCol() + 1;
-        if(SceneX < start && SceneX >= leftBound) // left
-            return this.getPlayerCol() - 1;
-        if(SceneX >= start && SceneX < end) // didn't move
-            return this.getPlayerCol();
-        return -1;
-    }
 
     /**
      * assign an observer to this observable
