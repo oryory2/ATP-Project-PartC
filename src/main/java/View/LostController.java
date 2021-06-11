@@ -21,9 +21,14 @@ public class LostController
     public void initialize() throws FileNotFoundException
     {
         //play losing music
+
         Media sound = new Media(new File("resources/Sounds/Lost.mp3").toURI().toString());
         Main.mediaPlayer = new MediaPlayer(sound);
         Main.mediaPlayer.play();
+        if(PropertiesController.music)
+        {
+            Main.mediaPlayer.setMute(true);
+        }
     }
 
     /**

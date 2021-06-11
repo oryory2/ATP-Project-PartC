@@ -27,6 +27,11 @@ public class SolvedController
         Main.mediaPlayer.setAutoPlay(true);
         Main.mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         Main.mediaPlayer.play();
+
+        if(PropertiesController.music)
+        {
+            Main.mediaPlayer.setMute(true);
+        }
     }
 
     /**

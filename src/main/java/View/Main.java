@@ -161,12 +161,17 @@ public class Main extends Application
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
+
+        if(PropertiesController.music)
+        {
+            Main.mediaPlayer.setMute(true);
+        }
+
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MyView.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root,600,450);
         primaryStage.setScene(scene);
         primaryStage.show();
-
         IModel model = new MyModel();
         MyViewModel viewModel = new MyViewModel(model);
         MyViewController view = fxmlLoader.getController();

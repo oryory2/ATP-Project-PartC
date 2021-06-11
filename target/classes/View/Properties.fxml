@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -75,5 +76,10 @@
             <Font name="System Italic" size="16.0" />
          </font>
       </Label>
+      <RadioButton fx:id="Music" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onAction="#Music" prefHeight="19.0" prefWidth="122.0" text="Disable Sound">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
    </children>
 </AnchorPane>

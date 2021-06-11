@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.RadioButton;
+
 import java.io.IOException;
 
 public class PropertiesController
@@ -22,6 +24,8 @@ public class PropertiesController
     public ChoiceBox Mode;
     public Button cancelButton;
     public Button confirmButton;
+    public RadioButton Music;
+    public static boolean music = false;
 
     ObservableList<String> ModeList = FXCollections.observableArrayList("Easy","Hard");
     ObservableList<String> ThreadsList = FXCollections.observableArrayList("3","5","10");
@@ -63,6 +67,7 @@ public class PropertiesController
         s2 = s2.substring(24);
         SolvingBar.setValue(s2);
         SolvingBar.setItems(SolvingBarList);
+        Music.setSelected(PropertiesController.music);
     }
 
     /**
@@ -122,5 +127,20 @@ public class PropertiesController
         alert.show();
 
         Main.backToMain();
+    }
+
+    public void Music(ActionEvent actionEvent)
+    {
+        if(Music.isSelected())
+        {
+            Main.mediaPlayer.setMute(true);
+            PropertiesController.music = true;
+        }
+        else
+        {
+            Main.mediaPlayer.setMute(false);
+            PropertiesController.music = false;
+        }
+
     }
 }
