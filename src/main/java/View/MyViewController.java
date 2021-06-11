@@ -78,7 +78,8 @@ public class MyViewController implements IView, Observer
     private void reSizeWindow()
     {
         this.mazeDisplayer.zoomFlag = true;
-        mazeDisplayer.draw(Main.primaryStage.getHeight() - 100, Main.primaryStage.getWidth() - 150);
+        mazeDisplayer.draw(Main.primaryStage.getHeight() - 17 , Main.primaryStage.getWidth() - 140);
+
         if(this.viewModel.getSolution() != null)
         {
             this.mazeDisplayer.drawSolution(this.viewModel.getSolution());
@@ -183,7 +184,7 @@ public class MyViewController implements IView, Observer
             {
                 this.mazeDisplayer.solution = null;
                 this.viewModel.setSolution(null);
-                this.mazeDisplayer.draw(Main.primaryStage.getHeight() - 100 , Main.primaryStage.getWidth() - 150);
+                mazeDisplayer.draw(Main.primaryStage.getHeight() - 17 , Main.primaryStage.getWidth() - 140);
                 this.solveMaze.setText("Solve Maze");
             }
         }
