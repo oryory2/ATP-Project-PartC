@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/log info" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/MyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/MyModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/MyModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/MyModel.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +208,7 @@
       <workItem from="1623326527676" duration="271000" />
       <workItem from="1623326826845" duration="394000" />
       <workItem from="1623348674357" duration="6011000" />
-      <workItem from="1623399797963" duration="1818000" />
+      <workItem from="1623399797963" duration="4904000" />
     </task>
     <servers />
   </component>

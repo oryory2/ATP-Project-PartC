@@ -430,53 +430,103 @@ public class MyModel extends Observable implements IModel
             boolean left = false;
 
 
-
-
             if((playerRow < currentRow) && (playerRow + 1 > currentRow) && (playerCol < currentCol) && (playerCol + 1 > currentCol))
                 return; // player didn't move
 
-            if ((playerRow > currentRow) && (currentRow >= playerRow - 2) && (playerCol + 1 >= currentCol) && (playerCol <= currentCol))
+            if ((playerRow > currentRow))
             {
-                if (legalMove("up"))
-                    up = true; // player moved up
+                up = true; // player moved up
             }
 
-            if ((playerCol + 1 < currentCol) && (currentCol <= playerCol + 2) && (playerRow + 1 >= currentRow) && (playerRow <= currentRow))
+            if ((playerCol + 1 < currentCol))
             {
-                if (legalMove("right"))
-                    right = true; // player moved right
-
+                right = true; // player moved right
             }
 
-            if ((playerRow < currentRow) && (currentRow <= playerRow + 2) && (playerCol + 1 >= currentCol) && (playerCol <= currentCol))
+            if ((playerRow + 1 < currentRow))
             {
-                if (legalMove("down"))
-                    down = true; // player moved down
+                down = true; // player moved down
             }
 
-            if ((playerCol > currentCol) && (currentCol >= playerCol - 1) && (playerRow + 1 >= currentRow) && (playerRow <= currentRow))
+            if ((playerCol > currentCol))
             {
-                if (legalMove("left"))
-                    left = true; // player moved left
+                left = true; // player moved left
             }
 
+            if(((playerRow + 2 >= currentRow) && (playerRow - 1 <= currentRow)) && ((playerCol + 2 >= currentCol) && (playerCol - 1 <= currentCol)))
+            {
 
-            if(up && right)
-                updatePlayerLocation(MovementDirection.RIGHTU);
-            else if (up && left)
-                updatePlayerLocation(MovementDirection.LEFTU);
-            else if (down && right)
-                updatePlayerLocation(MovementDirection.RIGHTD);
-            else if (down && left)
-                updatePlayerLocation(MovementDirection.LEFTD);
-            else if (up)
-                updatePlayerLocation(MovementDirection.UP);
-            else if (right)
-                updatePlayerLocation(MovementDirection.RIGHT);
-            else if (down)
-                updatePlayerLocation(MovementDirection.DOWN);
-            else if (left)
-                updatePlayerLocation(MovementDirection.LEFT);
+                if(up && right)
+                {
+                    if (legalMove("up right"))
+                    {
+                        updatePlayerLocation(MovementDirection.RIGHTU);
+                        return;
+                    }
+                }
+
+                if (up && left)
+                {
+                    if (legalMove("up left"))
+                    {
+                        updatePlayerLocation(MovementDirection.LEFTU);
+                        return;
+                    }
+                }
+
+                if (down && right)
+                {
+                    if (legalMove("down right"))
+                    {
+                        updatePlayerLocation(MovementDirection.RIGHTD);
+                        return;
+                    }
+                }
+
+                if (down && left)
+                {
+                    if (legalMove("down left"))
+                    {
+                        updatePlayerLocation(MovementDirection.LEFTD);
+                        return;
+                    }
+                }
+
+                if (up)
+                {
+                    if (legalMove("up"))
+                    {
+                        updatePlayerLocation(MovementDirection.UP);
+                        return;
+                    }
+                }
+
+                if (right)
+                {
+                    if (legalMove("right"))
+                    {
+                        updatePlayerLocation(MovementDirection.RIGHT);
+                        return;
+                    }
+                }
+
+                if (down)
+                {
+                    if (legalMove("down"))
+                    {
+                        updatePlayerLocation(MovementDirection.DOWN);
+                        return;
+                    }
+                }
+
+                if (left)
+                {
+                    if (legalMove("left"))
+                    {
+                        updatePlayerLocation(MovementDirection.LEFT);
+                    }
+                }
+            }
         }
     }
 
