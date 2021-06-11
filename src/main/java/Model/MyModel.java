@@ -463,6 +463,13 @@ public class MyModel extends Observable implements IModel
                         updatePlayerLocation(MovementDirection.RIGHTU);
                         return;
                     }
+                    else
+                    {
+                        if(easyMode)
+                            return;
+                        else
+                            Main.mainToLost();
+                    }
                 }
 
                 if (up && left)
@@ -471,6 +478,13 @@ public class MyModel extends Observable implements IModel
                     {
                         updatePlayerLocation(MovementDirection.LEFTU);
                         return;
+                    }
+                    else
+                    {
+                        if(easyMode)
+                            return;
+                        else
+                            Main.mainToLost();
                     }
                 }
 
@@ -481,6 +495,13 @@ public class MyModel extends Observable implements IModel
                         updatePlayerLocation(MovementDirection.RIGHTD);
                         return;
                     }
+                    else
+                    {
+                        if(easyMode)
+                            return;
+                        else
+                            Main.mainToLost();
+                    }
                 }
 
                 if (down && left)
@@ -489,6 +510,13 @@ public class MyModel extends Observable implements IModel
                     {
                         updatePlayerLocation(MovementDirection.LEFTD);
                         return;
+                    }
+                    else
+                    {
+                        if(easyMode)
+                            return;
+                        else
+                            Main.mainToLost();
                     }
                 }
 
@@ -499,6 +527,13 @@ public class MyModel extends Observable implements IModel
                         updatePlayerLocation(MovementDirection.UP);
                         return;
                     }
+                    else
+                    {
+                        if(easyMode)
+                            return;
+                        else
+                            Main.mainToLost();
+                    }
                 }
 
                 if (right)
@@ -507,6 +542,13 @@ public class MyModel extends Observable implements IModel
                     {
                         updatePlayerLocation(MovementDirection.RIGHT);
                         return;
+                    }
+                    else
+                    {
+                        if(easyMode)
+                            return;
+                        else
+                            Main.mainToLost();
                     }
                 }
 
@@ -517,6 +559,13 @@ public class MyModel extends Observable implements IModel
                         updatePlayerLocation(MovementDirection.DOWN);
                         return;
                     }
+                    else
+                    {
+                        if(easyMode)
+                            return;
+                        else
+                            Main.mainToLost();
+                    }
                 }
 
                 if (left)
@@ -524,6 +573,11 @@ public class MyModel extends Observable implements IModel
                     if (legalMove("left"))
                     {
                         updatePlayerLocation(MovementDirection.LEFT);
+                    }
+                    else
+                    {
+                        if(!(easyMode))
+                            Main.mainToLost();
                     }
                 }
             }

@@ -81,3 +81,20 @@
 2021.06.11 15:41:06.776 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 solved the Maze
 2021.06.11 15:41:18.865 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 requesting a new Maze of size: (5,5)
 2021.06.11 15:41:20.956 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 solved the Maze
+2021.06.11 15:44:42.671 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 requesting a new Maze of size: (5,5)
+2021.06.11 15:44:49.717 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 requesting a new Maze of size: (20,20)
+2021.06.11 15:45:02.566 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 requesting a new Maze of size: (20,20)
+2021.06.11 15:45:03.221 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 requesting a new Maze of size: (20,20)
+2021.06.11 15:45:03.737 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 requesting a new Maze of size: (20,20)
+2021.06.11 15:45:15.727 INFO  Model.MyModel - Client:DESKTOP-H6A8G4A/10.0.0.15 requesting for a Solution
+2021.06.11 15:45:16.801 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 requesting a new Maze of size: (5,5)
+2021.06.11 15:45:18.585 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 requesting a new Maze of size: (5,5)
+2021.06.11 15:45:19.095 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 requesting a new Maze of size: (5,5)
+2021.06.11 15:45:20.748 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 solved the Maze
+2021.06.11 15:45:23.775 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 requesting a new Maze of size: (5,5)
+2021.06.11 15:49:14.135 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 requesting a new Maze of size: (5,5)
+2021.06.11 15:49:16.932 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 solved the Maze
+2021.06.11 15:49:19.139 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 requesting a new Maze of size: (5,5)
+2021.06.11 15:49:35.764 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 requesting a new Maze of size: (30,30)
+2021.06.11 15:50:07.292 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 requesting a new Maze of size: (6,6)
+2021.06.11 15:50:15.619 INFO  Model.MyModel - Client: DESKTOP-H6A8G4A/10.0.0.15 requesting a new Maze of size: (10,10)
