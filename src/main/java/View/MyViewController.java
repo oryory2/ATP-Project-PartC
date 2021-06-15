@@ -220,6 +220,7 @@ public class MyViewController implements IView, Observer
         Media sound = new Media(new File("resources/Sounds/mainMusic.mp3").toURI().toString());
         Main.mediaPlayer = new MediaPlayer(sound);
         Main.mediaPlayer.play();
+        PropertiesController.music = false;
     }
 
     /**

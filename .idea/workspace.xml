@@ -8,11 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/log info" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/LostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/LostController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/PropertiesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/PropertiesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/SolvedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/SolvedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/View/Properties.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/View/Properties.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/MazeDisplayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MazeDisplayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/MyViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/MyViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -212,7 +210,19 @@
       <workItem from="1623326826845" duration="394000" />
       <workItem from="1623348674357" duration="6011000" />
       <workItem from="1623399797963" duration="5981000" />
-      <workItem from="1623416049025" duration="1405000" />
+      <workItem from="1623416049025" duration="1535000" />
+      <workItem from="1623419353418" duration="39000" />
+      <workItem from="1623422109114" duration="130000" />
+      <workItem from="1623425306066" duration="64000" />
+      <workItem from="1623500112482" duration="393000" />
+      <workItem from="1623500580883" duration="44000" />
+      <workItem from="1623573752893" duration="353000" />
+      <workItem from="1623581770066" duration="62000" />
+      <workItem from="1623602044522" duration="337000" />
+      <workItem from="1623602582982" duration="468000" />
+      <workItem from="1623674643176" duration="2154000" />
+      <workItem from="1623687823716" duration="270000" />
+      <workItem from="1623746640392" duration="1507000" />
     </task>
     <servers />
   </component>

@@ -21,6 +21,7 @@ public class Main extends Application
     public static IModel model;
     public static MyViewModel myViewModel;
     public static MyViewController myViewController;
+    public static Scene current_scene;
 
 
     /**
@@ -34,6 +35,7 @@ public class Main extends Application
         Parent root = FXMLLoader.load(getClass().getResource("UserGuide.fxml"));
         primaryStage.setTitle("Maze Application");
         primaryStage.setScene(new Scene(root, 600, 450));
+        current_scene = primaryStage.getScene();
         primaryStage.show();
     }
 
@@ -51,6 +53,7 @@ public class Main extends Application
         Parent root = fxmlLoader.load();
         primaryStage.setTitle("Maze Application");
         primaryStage.setScene(new Scene(root, 600, 450));
+        current_scene = primaryStage.getScene();
         primaryStage.show();
         model = new MyModel();
         myViewModel = new MyViewModel(model);
@@ -70,8 +73,9 @@ public class Main extends Application
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MyView.fxml"));
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root,600,450);
+        Scene scene = new Scene(root,current_scene.getWidth(),current_scene.getHeight());
         primaryStage.setScene(scene);
+        current_scene = primaryStage.getScene();
         primaryStage.show();
 
         IModel model = new MyModel();
@@ -86,8 +90,9 @@ public class Main extends Application
     public static void mainToProperties() throws IOException
     {
         Parent root = FXMLLoader.load(Main.class.getResource("Properties.fxml"));
-        Scene scene = new Scene(root,600,450);
+        Scene scene = new Scene(root,current_scene.getWidth(),current_scene.getHeight());
         primaryStage.setScene(scene);
+        current_scene = primaryStage.getScene();
         primaryStage.show();
     }
 
@@ -96,8 +101,9 @@ public class Main extends Application
      */
     public static void mainToSave() throws IOException {
         Parent root = FXMLLoader.load(Main.class.getResource("Save.fxml"));
-        Scene scene = new Scene(root,600,450);
+        Scene scene = new Scene(root,current_scene.getWidth(),current_scene.getHeight());
         primaryStage.setScene(scene);
+        current_scene = primaryStage.getScene();
         primaryStage.show();
     }
 
@@ -107,8 +113,9 @@ public class Main extends Application
     public static void mainToUserGuide() throws IOException
     {
         Parent root = FXMLLoader.load(Main.class.getResource("UserGuide.fxml"));
-        Scene scene = new Scene(root,600,450);
+        Scene scene = new Scene(root,current_scene.getWidth(),current_scene.getHeight());
         primaryStage.setScene(scene);
+        current_scene = primaryStage.getScene();
         primaryStage.show();
     }
 
@@ -118,7 +125,11 @@ public class Main extends Application
     public static void mainToAppInfo() throws IOException
     {
         Parent root = FXMLLoader.load(Main.class.getResource("AppInfo.fxml"));
-        Scene scene = new Scene(root,644,540);
+        Scene scene;
+        if((current_scene.getWidth() >= 644) && (current_scene.getHeight() >= 644))
+            scene = new Scene(root,current_scene.getWidth(),current_scene.getHeight());
+        else
+            scene = new Scene(root,644,540);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -131,8 +142,9 @@ public class Main extends Application
     {
         Main.mediaPlayer.stop();
         Parent root = FXMLLoader.load(Main.class.getResource("Solved.fxml"));
-        Scene scene = new Scene(root,600,450);
+        Scene scene = new Scene(root,current_scene.getWidth(),current_scene.getHeight());
         primaryStage.setScene(scene);
+        current_scene = primaryStage.getScene();
         primaryStage.show();
     }
 
@@ -143,8 +155,9 @@ public class Main extends Application
     public static void mainToLost() throws IOException {
         Main.mediaPlayer.stop();
         Parent root = FXMLLoader.load(Main.class.getResource("Lost.fxml"));
-        Scene scene = new Scene(root,600,450);
+        Scene scene = new Scene(root,current_scene.getWidth(),current_scene.getHeight());
         primaryStage.setScene(scene);
+        current_scene = primaryStage.getScene();
         primaryStage.show();
     }
 
@@ -169,8 +182,9 @@ public class Main extends Application
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MyView.fxml"));
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root,600,450);
+        Scene scene = new Scene(root,current_scene.getWidth(),current_scene.getHeight());
         primaryStage.setScene(scene);
+        current_scene = primaryStage.getScene();
         primaryStage.show();
         IModel model = new MyModel();
         MyViewModel viewModel = new MyViewModel(model);

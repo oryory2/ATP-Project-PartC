@@ -290,7 +290,6 @@ public class MazeDisplayer extends Canvas
      */
     public void getOnScroll(ScrollEvent scrollEvent)
     {
-
         if (scrollEvent.getDeltaY() < 0) // zoom out
         {
             setHeight(getHeight() / 1.1);
